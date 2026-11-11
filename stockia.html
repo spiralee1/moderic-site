@@ -6,7 +6,7 @@
 <title>Stockia — logiciel de gestion commerciale · ModEric Software</title>
 <meta name="description" content="Stockia : caisse, stock, produits et fournisseurs, dettes et créances, rapports. Logiciel de gestion commerciale pour pharmacies et commerces, Windows et Android, hors ligne.">
 <link rel="canonical" href="https://mod-eric.com/stockia.html">
-<meta name="theme-color" content="#0D0D0F">
+<meta name="theme-color" content="#FFFFFF">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ModEric Software">
 <meta property="og:locale" content="fr_CD">
@@ -32,184 +32,207 @@
 }
 </script>
 </head>
-<body class="est-encre">
+<body>
 
-<header class="tete">
+<header class="barre">
   <a class="marque" href="index.html" aria-label="ModEric Software — accueil">
-    <svg class="marque__anneau" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="43" fill="none" stroke="currentColor" stroke-width="6.5" stroke-linecap="round" stroke-dasharray="252 28" transform="rotate(128 50 50)"/><text x="50" y="52" text-anchor="middle" dominant-baseline="central" fill="currentColor" font-family="Instrument Serif, Georgia, serif" font-size="46" font-style="italic">M</text></svg>
-    <span><span class="marque__mot">ModEric <i>Software</i></span>
-      <span class="marque__sous">Éditeur de logiciels</span></span>
+    <svg class="marque__sceau" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="43" fill="none" stroke="#3FA0D8" stroke-width="5.5" stroke-linecap="round" stroke-dasharray="252 28" transform="rotate(128 50 50)"/><text x="50" y="53" text-anchor="middle" dominant-baseline="central" fill="#0A3E58" font-family="Instrument Serif, Georgia, serif" font-size="46" font-style="italic">M</text><circle cx="50" cy="7" r="4.6" fill="#3FA0D8"/></svg>
+    <span><span class="marque__mot">ModEric<i>.</i></span><span class="marque__sous">Software · Kinshasa</span></span>
   </a>
-  <nav class="tete__nav" aria-label="Navigation principale">
-        <a class="tete__lien" href="index.html#logiciels">Les logiciels</a>
-        <a class="tete__lien" href="stockia.html" aria-current="page">Stockia</a>
-        <a class="tete__lien" href="dd-spirity.html">D.D- Spirity</a>
-        <a class="tete__lien" href="contact.html">Contact</a>
+  <nav class="barre__nav" aria-label="Navigation principale">
+        <a class="barre__lien" href="index.html#entreprise">L'entreprise</a>
+        <a class="barre__lien" href="index.html#vision">Notre vision</a>
+        <a class="barre__lien" href="stockia.html" aria-current="page">Stockia</a>
+        <a class="barre__lien" href="dd-spirity.html">D.D- Spirity</a>
+        <a class="barre__lien" href="contact.html">Contact</a>
   </nav>
-  <a class="tete__appel" href="contact.html"><span>Nous écrire</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 5.5l6.5 6.5-6.5 6.5"/></svg></a>
+  <a class="barre__appel" href="contact.html">Nous écrire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 5.5l6.5 6.5-6.5 6.5"/></svg></a>
   <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false"><i></i><i></i></button>
 </header>
 
 <div class="panneau">
-  <a href="index.html#logiciels">Les logiciels<small>Catalogue</small></a>
-  <a href="stockia.html">Stockia<small>Commerce</small></a>
+  <a href="index.html#entreprise">L'entreprise<small>Qui nous sommes</small></a>
+  <a href="index.html#vision">Notre vision<small>Ce que nous cherchons</small></a>
+  <a href="index.html#approche">Notre approche<small>Comment nous concevons</small></a>
+  <a href="stockia.html">Stockia<small>Gestion commerciale</small></a>
   <a href="dd-spirity.html">D.D- Spirity<small>Vie scolaire</small></a>
-  <a href="contact.html">Contact<small>Écrire</small></a>
-  <div class="panneau__pied">Kinshasa · République démocratique du Congo<br>contact@mod-eric.com<br>Heure de l’atelier : <span data-heure>—</span></div>
+  <a href="contact.html">Contact<small>Nous écrire</small></a>
+  <div class="panneau__pied">Kinshasa, République démocratique du Congo<br>contact@mod-eric.com<br>Heure de l'atelier : <span data-heure>—</span></div>
 </div>
 
 
-<section class="dossier dossier--stockia">
-  <div class="dossier__voile" aria-hidden="true"></div>
-
-  <div class="dossier__fil" data-vu>
-    <a href="index.html">Accueil</a><span>/</span><a href="index.html#logiciels">Logiciels</a><span>/</span><span>Stockia</span>
-  </div>
-
-  <div class="dossier__titre">
-    <img class="dossier__embleme" src="assets/img/stockia-logo-256.png" alt="Emblème de Stockia" data-vu width="256" height="256">
-    <h1 data-masque>Stockia</h1>
-  </div>
-  <p class="dossier__sous" data-vu>
-    La caisse, le stock et les comptes, au même endroit. Un poste de vente pour les pharmacies
-    et les commerces physiques : encaisser, décompter, suivre les produits et les fournisseurs,
-    savoir qui doit quoi, et lire la journée en chiffres.
-  </p>
-
-  <div class="dossier__bas">
-    <div class="dossier__specs" data-vu>
-      <span>Windows · Android</span>
-      <span>Aucune connexion requise</span>
-      <span>Données sur votre poste</span>
+<section class="produit-entree">
+  <div class="halo halo--a" aria-hidden="true" style="opacity:.4"></div>
+  <div class="produit-entree__page">
+    <div>
+      <div class="produit-entree__fil" data-monter>
+        <a href="index.html">Accueil</a><span>·</span><a href="index.html#univers">Nos logiciels</a><span>·</span><span>Stockia</span>
+      </div>
+      <div class="produit-entree__marque" data-monter data-rang="1">
+        <img class="produit-entree__logo" src="assets/img/stockia-logo-256.png" alt="Emblème de Stockia" width="68" height="68">
+        <span class="etiquette" style="margin:0">Gestion commerciale</span>
+      </div>
+      <h1 data-ligne>Stockia</h1>
+      <p class="produit-entree__sous" data-monter data-rang="1">
+        La caisse, le stock et les comptes, au même endroit. Un poste de vente pour les
+        pharmacies et les commerces physiques : encaisser, décompter, suivre les produits et les
+        fournisseurs, savoir qui doit quoi, et lire la journée en chiffres.
+      </p>
+      <div class="produit-entree__specs" data-monter data-rang="2">
+        <span>Windows · Android</span><span>Aucune connexion requise</span><span>Données sur votre poste</span>
+      </div>
+      <div class="produit-entree__actions" data-monter data-rang="2">
+        <a class="bouton bouton--plein" href="#telecharger">Télécharger <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 5.5l6.5 6.5-6.5 6.5"/></svg></a>
+        <a class="bouton bouton--ligne" href="contact.html">Demander une démonstration</a>
+      </div>
     </div>
-    <div class="chapitre__actions" style="margin:0" data-vu data-rang="1">
-      <a class="bouton bouton--plein" href="#telecharger"><span>Télécharger</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 5.5l6.5 6.5-6.5 6.5"/></svg></a>
+    <div class="produit-entree__vue" data-monter data-rang="2"
+         style="display:grid;place-items:center;padding:clamp(28px,5vw,64px);aspect-ratio:4/3">
+      <img src="assets/img/stockia-logo.png" alt="L'emblème de Stockia" width="512" height="512"
+           style="width:min(62%,260px);border-radius:28px;box-shadow:0 30px 60px -24px rgba(10,62,88,.5)">
     </div>
   </div>
 </section>
 
-<section class="plan plan--os">
-  <div class="duo">
+<section class="bloc">
+  <div class="bloc__page deux">
     <div>
-      <div class="repere" data-vu>Le logiciel</div>
-      <h2 class="plan__titre" data-vu data-rang="1" style="margin-top:16px">Une vente doit être enregistrée <i>avant</i> d'être imprimée. Le reste, c'est de l'organisation.</h2>
+      <span class="etiquette" data-monter>Le logiciel</span>
+      <h2 class="bloc__titre" data-ligne style="margin-top:18px">Une vente doit être enregistrée <i>avant</i> d'être imprimée. Le reste, c'est de l'organisation.</h2>
     </div>
-    <div data-vu data-rang="1">
+    <div class="corps" data-monter data-rang="1">
       <p>Stockia réunit le comptoir et l'arrière-boutique : la vente, le stock qui bouge avec
       elle, les produits et les fournisseurs, les dettes et les créances, et les rapports qui
       permettent de décider.</p>
-      <p style="margin-top:14px">Il fonctionne sur le poste, sans dépendre d'un serveur : la caisse continue de servir
+      <p>Il fonctionne sur le poste, sans dépendre d'un serveur : la caisse continue de servir
       quand la connexion s'arrête, et les données du commerce restent dans le commerce.</p>
-      <p style="margin-top:14px">Si l'imprimante thermique manque ou refuse, le reçu sort en PDF partageable. Aucune
-      vente n'attend une imprimante.</p>
+      <p>Si l'imprimante thermique manque ou refuse, le reçu sort en PDF partageable.
+      Aucune vente n'attend une imprimante.</p>
     </div>
   </div>
 </section>
 
-<section class="plan plan--encre">
-  <div class="repere" data-vu>Les écrans</div>
-  <h2 class="plan__titre" data-vu data-rang="1" style="margin-top:16px;max-width:26ch">Les captures arrivent ici.</h2>
-  <p style="color:var(--sur-encre-doux);margin-top:16px;max-width:52ch">Cette page est faite pour recevoir les captures réelles de Stockia. Aucune image
-  inventée n'est posée à leur place : les emplacements sont dessinés, légendés, et prêts.</p>
-  <div class="vues" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
-    <div class="planche planche--attente" data-vu style="border-color:var(--filet-encre)">
-      <i class="planche__repere"></i><i class="planche__repere"></i><i class="planche__repere"></i><i class="planche__repere"></i>
-      <div class="planche__cadre"><div class="planche--attente__dit"><span class="mono">Capture 01</span><strong>La caisse</strong></div></div>
-      <div class="planche__legende"><span>Caisse · vente en cours</span><span>à intégrer</span></div>
+<section class="bloc bloc--nuage">
+  <div class="bloc__page">
+    <div class="deux" style="margin-top:0">
+      <div>
+        <span class="etiquette" data-monter>Les écrans</span>
+        <h2 class="bloc__titre" data-ligne style="margin-top:18px">Les captures de la caisse arrivent ici.</h2>
+      </div>
+      <p class="chapo" data-monter data-rang="1" style="align-self:end">
+        Cette page est faite pour les recevoir. Aucune image inventée n'est posée à leur place :
+        les emplacements sont dessinés, légendés, et prêts.
+      </p>
     </div>
-    <div class="planche planche--attente" data-vu data-rang="1" style="border-color:var(--filet-encre)">
-      <i class="planche__repere"></i><i class="planche__repere"></i><i class="planche__repere"></i><i class="planche__repere"></i>
-      <div class="planche__cadre"><div class="planche--attente__dit"><span class="mono">Capture 02</span><strong>Le stock</strong></div></div>
-      <div class="planche__legende"><span>Stock · quantités et seuils</span><span>à intégrer</span></div>
-    </div>
-    <div class="planche planche--attente" data-vu data-rang="2" style="border-color:var(--filet-encre)">
-      <i class="planche__repere"></i><i class="planche__repere"></i><i class="planche__repere"></i><i class="planche__repere"></i>
-      <div class="planche__cadre"><div class="planche--attente__dit"><span class="mono">Capture 03</span><strong>Les rapports</strong></div></div>
-      <div class="planche__legende"><span>Rapports · journée, mois, année</span><span>à intégrer</span></div>
-    </div>
-  </div>
-</section>
-
-<section class="plan plan--os">
-  <div class="repere" data-vu>Ce que Stockia tient</div>
-  <h2 class="plan__titre" data-vu data-rang="1" style="margin-top:16px">Le registre du commerce.</h2>
-  <div class="registre" style="border-top-color:var(--filet-fort)">
-    <div class="registre__ligne" data-vu style="border-color:var(--filet)">
-      <div class="registre__nom">Le stock</div>
-      <p class="registre__dit" style="color:var(--sur-os-doux)">Les quantités suivent les ventes. Vous savez ce qui reste, ce qui manque et ce qui dort sur l'étagère.</p>
-      <span class="registre__rang">I</span>
-    </div>
-    <div class="registre__ligne" data-vu style="border-color:var(--filet)">
-      <div class="registre__nom">La caisse</div>
-      <p class="registre__dit" style="color:var(--sur-os-doux)">Encaisser, imprimer le reçu, retrouver une vente dans l'historique — la vente est écrite avant toute impression.</p>
-      <span class="registre__rang">II</span>
-    </div>
-    <div class="registre__ligne" data-vu style="border-color:var(--filet)">
-      <div class="registre__nom">Les fournisseurs</div>
-      <p class="registre__dit" style="color:var(--sur-os-doux)">Le catalogue du commerce avec ses prix et ses références, et l'origine de chaque produit.</p>
-      <span class="registre__rang">III</span>
-    </div>
-    <div class="registre__ligne" data-vu style="border-color:var(--filet)">
-      <div class="registre__nom">Les dettes et créances</div>
-      <p class="registre__dit" style="color:var(--sur-os-doux)">Ce que le commerce doit, ce qu'on lui doit. Les soldes se lisent sans reconstituer un cahier.</p>
-      <span class="registre__rang">IV</span>
-    </div>
-    <div class="registre__ligne" data-vu style="border-color:var(--filet)">
-      <div class="registre__nom">Les rapports</div>
-      <p class="registre__dit" style="color:var(--sur-os-doux)">Journée, mois, année : les montants, les produits qui tournent, ceux qui ne tournent pas.</p>
-      <span class="registre__rang">V</span>
+    <div class="captures">
+      <figure class="capture" style="display:grid;place-items:center;min-height:220px;background:
+        radial-gradient(120% 100% at 20% 0%,var(--azur-50),var(--azur-100))">
+        <div style="text-align:center;padding:28px">
+          <div class="etiquette" style="justify-content:center">Capture 1</div>
+          <div style="font-family:var(--voix);font-size:24px;margin-top:8px">La caisse</div>
+        </div>
+        <figcaption class="capture__legende"><span>Caisse · vente en cours</span><span>à intégrer</span></figcaption>
+      </figure>
+      <figure class="capture" style="display:grid;place-items:center;min-height:220px;background:
+        radial-gradient(120% 100% at 80% 0%,var(--azur-50),var(--azur-100))">
+        <div style="text-align:center;padding:28px">
+          <div class="etiquette" style="justify-content:center">Capture 2</div>
+          <div style="font-family:var(--voix);font-size:24px;margin-top:8px">Le stock</div>
+        </div>
+        <figcaption class="capture__legende"><span>Stock · quantités et seuils</span><span>à intégrer</span></figcaption>
+      </figure>
+      <figure class="capture" style="display:grid;place-items:center;min-height:220px;background:
+        radial-gradient(120% 100% at 40% 20%,var(--azur-50),var(--azur-100))">
+        <div style="text-align:center;padding:28px">
+          <div class="etiquette" style="justify-content:center">Capture 3</div>
+          <div style="font-family:var(--voix);font-size:24px;margin-top:8px">Les rapports</div>
+        </div>
+        <figcaption class="capture__legende"><span>Rapports · journée, mois, année</span><span>à intégrer</span></figcaption>
+      </figure>
     </div>
   </div>
 </section>
 
-<section class="plan plan--encre" id="telecharger">
-  <div class="duo">
-    <div>
-      <div class="repere" data-vu>Télécharger</div>
-      <h2 class="plan__titre" data-vu data-rang="1" style="margin-top:16px">Le poste, et le téléphone.</h2>
-      <p style="color:var(--sur-encre-doux);margin-top:18px;max-width:44ch">Version, taille et empreinte SHA-256 sont publiées avec chaque fichier. Les conditions
-      de licence (période, nombre de postes) sont données sur demande écrite.</p>
-      <aside class="fiche" style="margin-top:28px">
-        <div class="fiche__ligne"><span class="fiche__cle">Poste</span><span class="fiche__val">Windows 10 / 11 · 64 bits</span></div>
-        <div class="fiche__ligne"><span class="fiche__cle">Téléphone</span><span class="fiche__val">Android 8 et plus</span></div>
-        <div class="fiche__ligne"><span class="fiche__cle">Connexion</span><span class="fiche__val fiche__val--signal">Aucune requise</span></div>
-        <div class="fiche__ligne"><span class="fiche__cle">Données</span><span class="fiche__val">Sur votre poste</span></div>
-        <div class="fiche__ligne"><span class="fiche__cle">Reçus</span><span class="fiche__val">Thermique 58 / 80 mm, ou PDF</span></div>
-      </aside>
+<section class="bloc">
+  <div class="bloc__page">
+    <div class="deux" style="margin-top:0">
+      <div>
+        <span class="etiquette" data-monter>Ce que Stockia tient</span>
+        <h2 class="bloc__titre" data-ligne style="margin-top:18px">Le registre du commerce.</h2>
+      </div>
     </div>
-    <div>
-      <div class="tele">
-        <div class="tele__item" data-tele="stockia:windows">
+    <div class="fonctions">
+      <div class="fonction" data-monter><h3>Le stock</h3>
+        <p>Les quantités suivent les ventes. Vous savez ce qui reste, ce qui manque et ce qui dort
+        sur l'étagère.</p></div>
+      <div class="fonction" data-monter><h3>La caisse</h3>
+        <p>Encaisser, imprimer le reçu, retrouver une vente dans l'historique — la vente est écrite
+        avant toute impression.</p></div>
+      <div class="fonction" data-monter><h3>Les fournisseurs</h3>
+        <p>Le catalogue du commerce avec ses prix et ses références, et l'origine de chaque
+        produit.</p></div>
+      <div class="fonction" data-monter><h3>Les dettes et créances</h3>
+        <p>Ce que le commerce doit, ce qu'on lui doit. Les soldes se lisent sans reconstituer un
+        cahier.</p></div>
+      <div class="fonction" data-monter><h3>Les rapports</h3>
+        <p>Journée, mois, année : les montants, les produits qui tournent, ceux qui ne tournent
+        pas.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="bloc bloc--nuage" id="telecharger">
+  <div class="bloc__page">
+    <div class="deux" style="margin-top:0">
+      <div>
+        <span class="etiquette" data-monter>Télécharger</span>
+        <h2 class="bloc__titre" data-ligne style="margin-top:18px">Le poste, et le téléphone.</h2>
+        <p class="chapo" data-monter data-rang="1" style="margin-top:20px">
+          Version, taille et empreinte SHA-256 sont publiées avec chaque fichier. Les conditions
+          de licence (période, nombre de postes) sont données sur demande écrite.
+        </p>
+        <dl class="coord" style="margin-top:clamp(24px,3vw,36px)" data-monter data-rang="2">
+          <div class="coord__ligne"><dt>Poste</dt><dd>Windows 10 / 11 · 64 bits</dd></div>
+          <div class="coord__ligne"><dt>Téléphone</dt><dd>Android 8 et plus</dd></div>
+          <div class="coord__ligne"><dt>Connexion</dt><dd>Aucune requise</dd></div>
+          <div class="coord__ligne"><dt>Reçus</dt><dd>Thermique 58 / 80 mm, ou PDF</dd></div>
+        </dl>
+      </div>
+      <div>
+        <div class="tele">
+          <div class="tele__item" data-tele="stockia:windows">
   <div>
     <div class="tele__nom">Poste Windows</div>
     <p class="tele__dit">Installateur, ou version sans installation à poser sur une clé.</p>
     <div class="tele__pied"><span>Windows 10 / 11</span><span>Notice incluse</span></div>
     <div class="tele__pied" data-tele-sha hidden>Empreinte SHA-256 <code>—</code></div>
-    <div style="margin-top:14px"><span class="ticket" data-tele-etat><i class="ticket__point"></i>Dépôt en cours</span></div>
+    <div style="margin-top:12px"><span class="jauge-etat" data-tele-etat><i></i>Dépôt en cours</span></div>
   </div>
   <div class="tele__action" data-tele-actions></div>
 </div>
-        <div class="tele__item" data-tele="stockia:android">
+          <div class="tele__item" data-tele="stockia:android">
   <div>
     <div class="tele__nom">Téléphone Android</div>
     <p class="tele__dit">La même caisse, dans la poche, avec le même catalogue.</p>
     <div class="tele__pied"><span>Android 8 et plus</span><span>Sans connexion</span></div>
     <div class="tele__pied" data-tele-sha hidden>Empreinte SHA-256 <code>—</code></div>
-    <div style="margin-top:14px"><span class="ticket" data-tele-etat><i class="ticket__point"></i>Dépôt en cours</span></div>
+    <div style="margin-top:12px"><span class="jauge-etat" data-tele-etat><i></i>Dépôt en cours</span></div>
   </div>
   <div class="tele__action" data-tele-actions></div>
 </div>
+        </div>
+        <p style="margin-top:20px;font-size:12.5px;color:var(--texte-pale)">
+          Un bouton « Bientôt disponible » signifie qu'aucun fichier n'est encore publié pour ce
+          format.
+        </p>
       </div>
-      <p class="mono" style="margin-top:22px;color:var(--sur-encre-doux);letter-spacing:.1em">
-        Un bouton « Bientôt disponible » signifie qu'aucun fichier n'est encore publié pour ce
-        format.
-      </p>
     </div>
-  </div>
 
-  <div class="suite">
-    <a class="suite__lien" href="dd-spirity.html"><i>Logiciel suivant</i> D.D- Spirity <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 5.5l6.5 6.5-6.5 6.5"/></svg></a>
-    <a class="bouton bouton--vide" href="contact.html"><span>Demander une démonstration</span></a>
+    <div class="suite">
+      <a class="suite__lien" href="dd-spirity.html"><span><small>L'autre logiciel</small>D.D- Spirity</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 5.5l6.5 6.5-6.5 6.5"/></svg></span></a>
+      <a class="bouton bouton--ligne" href="contact.html">Demander une démonstration</a>
+    </div>
   </div>
 </section>
 
@@ -217,10 +240,8 @@
 <footer class="pied">
   <div class="pied__inner">
     <span>© <span id="annee">2026</span> ModEric Software · Kinshasa, RDC</span>
-    <span>Heure de l’atelier : <span data-heure>—</span></span>
     <span class="pied__liens">
-      <a href="stockia.html">Stockia</a>
-      <a href="dd-spirity.html">D.D- Spirity</a>
+      <a href="index.html#entreprise">L'entreprise</a>
       <a href="contact.html">Contact</a>
       <a href="mentions-legales.html">Mentions légales</a>
     </span>

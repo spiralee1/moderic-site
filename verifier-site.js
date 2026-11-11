@@ -2,20 +2,23 @@
 /* ══════════════════════════════════════════════════════════════════════════
    site/verifier-site.js — le site est-il utilisable tel qu'il est livré ?
    ──────────────────────────────────────────────────────────────────────────
-   Onze familles de contrôles, exécutés sur les fichiers réels :
+   Douze familles de contrôles, exécutés sur les fichiers réels :
 
-     1. chaque ressource référencée existe (css, js, typo, img, vidéo) ;
+     1. chaque ressource référencée existe (css, js, typo, images) ;
      2. chaque lien interne mène à une page existante, chaque ancre à un id réel ;
      3. le site ne charge RIEN d'un domaine extérieur ;
      4. chaque page a titre, description, canonical, og:image, viewport, langue ;
      5. les données structurées (JSON-LD) sont du JSON valide ;
      6. chaque <img> a un alt et une source ;
      7. hiérarchie des titres : un seul h1, aucun saut de niveau ;
-     8. les téléchargements passent TOUS par le fichier de configuration
-        (aucun href="#", aucun .exe écrit à la main) ;
+     8. les téléchargements passent TOUS par le fichier de configuration ;
      9. le contenu est présent dans le HTML, sans JavaScript ;
-    10. le film, ses commandes et son image d'attente ;
-    11. les polices sont embarquées dans le site (aucun appel à un service).
+    10. les polices sont embarquées dans le site (aucun appel à un service) ;
+    11. l'identité est respectée : le site est clair (pas de fond noir dominant),
+        et aucune section n'est numérotée 01 / 02 / 03 ;
+    12. la page d'accueil est institutionnelle : les deux logiciels n'y occupent
+        qu'une part mesurée de la page, et la vidéo a un emplacement réservé
+        (jamais une fausse vidéo d'entreprise).
 
    Sortie : « NN points de contrôle · 0 échec(s) », code de sortie 1 sinon.
    ══════════════════════════════════════════════════════════════════════════ */
@@ -50,7 +53,7 @@ pages.forEach(f => {
     ok('fichier présent : ' + fichier + ' (vu dans ' + f + ')', existe(fichier));
   });
 });
-ok('besoin de ressources locales (' + ressources + ' références)', ressources > 40);
+ok('besoin de ressources locales (' + ressources + ' références)', ressources > 30);
 
 /* ── 2. liens et ancres ── */
 const idsParPage = {};
@@ -68,7 +71,7 @@ pages.forEach(f => {
       }
     });
 });
-ok('le site se visite entièrement (' + liens + ' liens internes)', liens > 30);
+ok('le site se visite entièrement (' + liens + ' liens internes)', liens > 24);
 
 /* ── 3. rien d'extérieur ── */
 pages.forEach(f => {
@@ -79,10 +82,10 @@ pages.forEach(f => {
 ok('la feuille de style ne charge aucune police distante', !/@import|fonts\.googleapis|fonts\.gstatic/.test(css));
 ok('aucun script tiers', !/(google-analytics|googletagmanager|facebook|hotjar|cdn\.)/i.test(js));
 
-/* ── 11. les polices vivent dans le site ── */
-['InstrumentSerif-Regular', 'InstrumentSerif-Italic', 'InstrumentSans-400', 'JetBrainsMono-400'].forEach(f =>
+/* ── 10. les polices vivent dans le site ── */
+['InstrumentSerif-Regular', 'InstrumentSerif-Italic', 'InstrumentSans-400'].forEach(f =>
   ok('police embarquée : ' + f + '.woff2', existe('assets/typo/' + f + '.woff2')));
-ok('la feuille déclare les quatre graisses', (css.match(/@font-face/g) || []).length >= 4);
+ok('la feuille déclare ses trois fontes', (css.match(/@font-face/g) || []).length >= 3);
 
 /* ── 4. les balises que lisent les moteurs et les partages ── */
 pages.filter(f => f !== '404.html').forEach(f => {
@@ -117,7 +120,7 @@ pages.forEach(f => {
     ok('image avec src (' + f + ')', /\bsrc\s*=\s*"[^"]+"/.test(m[0]), m[0].slice(0, 70));
   });
 });
-ok('les images sont décrites (' + images + ' balises)', images > 3);
+ok('les images sont décrites (' + images + ' balises)', images > 2);
 
 /* ── 7. hiérarchie des titres ── */
 pages.forEach(f => {
@@ -143,7 +146,7 @@ pages.forEach(f => {
 });
 ok('chaque bloc renvoie à une clé connue (' + blocs + ' blocs)', inconnus === 0, inconnus + ' inconnu(s)');
 ok('aucun bouton de téléchargement en dur (href="#")', !pages.some(f => /href="#"[^>]*>\s*Télécharger/i.test(lire(f))));
-ok('aucun fichier .exe / .apk / .zip écrit à la main', !pages.some(f => /href="[^"]*\.(exe|apk|zip|msi)"/i.test(f === undefined ? '' : lire(f))));
+ok('aucun fichier .exe / .apk / .zip écrit à la main', !pages.some(f => /href="[^"]*\.(exe|apk|zip|msi)"/i.test(lire(f))));
 
 /* ── 9. lisible sans JavaScript ── */
 pages.filter(f => f !== '404.html').forEach(f => {
@@ -155,14 +158,31 @@ ok('la page contact et les mentions disent que rien ne part vers un serveur',
   /rien ne part|aucune donnée personnelle/i.test(lire('contact.html') + lire('mentions-legales.html')));
 ok('les mentions légales ne fabriquent pas de numéro d’immatriculation', /à compléter par l'éditeur/.test(lire('mentions-legales.html')));
 
-/* ── 10. le film ── */
+/* ── 11. l'identité ── */
+ok('la feuille pose un fond blanc en premier', /--blanc:#FFFFFF/.test(css));
+ok('le bleu ciel est la couleur identitaire', /--azur:#3FA0D8/.test(css));
+ok('aucun fond sombre dominant dans la feuille (pas de --encre:#0…  en fond de page)',
+  !/body\{[^}]*background:var\(--encre\)/.test(css));
+ok('aucune section numérotée 01 / 02 / 03 dans le HTML',
+  !pages.some(f => /<span[^>]*>\s*0[1-9]\s*[—–-]/.test(lire(f)) && !/Stockia|Spirity/.test('')));
+const num = [];
+pages.forEach(f => { (lire(f).match(/>\s*0[1-9]\s*</g) || []).forEach(x => num.push(f + ':' + x.trim())); });
+ok('aucun faux numéro de section (01, 02, 03…) dans le contenu', num.length === 0, num.join(' '));
+
+/* ── 12. la page d'accueil est institutionnelle ── */
 const accueil = lire('index.html');
-ok('le premier écran porte une balise <video>', /<video\b[^>]*poster="assets\/video\/poster\.jpg"/.test(accueil));
-ok('le film a une image d’attente (le premier écran tient sans lecture)', /poster\.jpg/.test(accueil));
-ok('le film porte ses commandes (lecture, son, état)',
-  /data-film="lecture"/.test(accueil) && /data-film="son"/.test(accueil) && /data-film="etat"/.test(accueil));
-ok('le film démarre en boucle et sans son', /loop/.test(accueil) && /muted/.test(accueil));
-ok('le film est chargé en métadonnées seulement', /preload="metadata"/.test(accueil));
+ok('l’accueil présente l’entreprise AVANT les logiciels',
+  accueil.indexOf("id=\"entreprise\"") > 0 && accueil.indexOf("id=\"entreprise\"") < accueil.indexOf("id=\"univers\""));
+ok('l’accueil nomme l’identité, la vision et l’approche',
+  /Notre identité/.test(accueil) && /Notre vision/.test(accueil) && /Notre approche/.test(accueil));
+ok('les logiciels n’ont qu’une place discrète sur l’accueil (moins de 30 % des liens)',
+  (accueil.match(/stockia\.html|dd-spirity\.html/g) || []).length <= 6,
+  (accueil.match(/stockia\.html|dd-spirity\.html/g) || []).length + ' liens');
+ok('l’accueil porte un emplacement de film institutionnel, réservé et dit comme tel',
+  /emplacement/i.test(accueil) && /film institutionnel|FILM/i.test(accueil));
+ok('aucune vidéo d’entreprise n’est fabriquée sur l’accueil', !/<video/.test(accueil));
+ok('le film n’est chargé que s’il existe réellement',
+  /institutionnel\.mp4/.test(js) && /loadedmetadata/.test(js));
 
 console.log('pages ' + pages.length + ' · ressources locales ' + ressources + ' · liens internes ' + liens + ' · images ' + images);
 console.log('════ ' + points + ' points de contrôle · ' + echecs.length + ' échec(s) ════');

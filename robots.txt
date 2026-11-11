@@ -1,5 +1,5 @@
 # ModEric Software — tout le site est public et indexable.
-User-agent: *
+User-Agent: *
 Allow: /
 
 Sitemap: https://mod-eric.com/sitemap.xml
