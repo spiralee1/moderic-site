@@ -47,9 +47,15 @@ lente ou coupée.
 3. *Settings → Pages → Source : Deploy from a branch → main / (root)* ;
 4. le site est en ligne à `https://<compte>.github.io/<dépôt>/` en une à deux minutes.
 
-Le fichier `CNAME` contient déjà `mod-eric.com` : quand le domaine sera acheté et son DNS
-pointé (enregistrement `A` vers les quatre IP de GitHub Pages, ou `CNAME` vers
-`<compte>.github.io`), GitHub servira le site sur le vrai domaine et le HTTPS se fera tout seul.
+Le site est déjà publié sur **https://spiralee1.github.io/moderic-site/** (dépôt public
+`spiralee1/moderic-site`, branche `main`, GitHub Pages).
+
+Pour le domaine `mod-eric.com` : l'acheter, puis *Settings → Pages → Custom domain*, et chez
+le registraire un enregistrement `A` vers les IP de GitHub Pages (185.199.108.153,
+185.199.109.153, 185.199.110.153, 185.199.111.153) ou un `CNAME` vers
+`spiralee1.github.io`. GitHub crée alors lui-même le fichier `CNAME` et le certificat HTTPS.
+**Ne pas déposer de fichier `CNAME` à la main avant que le DNS soit en place** : GitHub
+redirigerait alors tout le site vers ce domaine, et il deviendrait inaccessible.
 
 ### Option B — un hébergement classique
 
