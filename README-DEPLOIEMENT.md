@@ -146,3 +146,21 @@ aucune erreur JS.
 4. **Téléphone / WhatsApp** : absent tant que le numéro n'est pas arrêté (le bloc est prêt dans
    `contact.html`).
 5. **Les captures Stockia** : trois emplacements dessinés.
+
+---
+
+## 9. Les captures Stockia (ajoutées)
+
+Six captures réelles, tirées du studio PC du logiciel (`Stockia--Pharmacie-Windows-PC/desktop/_captures`),
+converties en deux tailles comme les vues D.D- Spirity :
+
+```
+assets/medias/stockia-caisse.jpg      ← la caisse (panier + terminal d'encaissement)
+assets/medias/stockia-stock.jpg       ← stock, arrivages, lots, péremption
+assets/medias/stockia-rayon.jpg       ← le rayon, recherche à deux lettres
+assets/medias/stockia-patients.jpg    ← patients et fidélité par numéro
+assets/medias/stockia-histoires.jpg   ← histoires et archives
+assets/medias/stockia-reglages.jpg    ← réglages (devise, imprimante, licence)
+```
+
+Pour les remplacer : même nom, même cadrage (1600 × 900 environ), et c'est tout.
