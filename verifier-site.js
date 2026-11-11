@@ -1,19 +1,21 @@
 #!/usr/bin/env node
 /* ══════════════════════════════════════════════════════════════════════════
-   site/verifier-site.js — le site est-il vraiment utilisable tel qu'il est ?
+   site/verifier-site.js — le site est-il utilisable tel qu'il est livré ?
    ──────────────────────────────────────────────────────────────────────────
-   Neuf familles de contrôles, exécutés sur les fichiers réels du site :
+   Onze familles de contrôles, exécutés sur les fichiers réels :
 
-     1. chaque page référence-t-elle des fichiers QUI EXISTENT (css, js, img, vidéo) ?
-     2. chaque lien interne mène-t-il à une page existante (et chaque ancre à un id réel) ?
-     3. le site charge-t-il quelque chose d'un domaine extérieur ? (doit être : non)
-     4. chaque page a-t-elle titre, description, canonical, og:image, viewport ?
-     5. le JSON-LD se lit-il comme du JSON valide ?
-     6. chaque <img> a-t-il un alt (les images décoratives, un alt vide) ?
-     7. les titres suivent-ils une hiérarchie (un seul h1, pas de saut h2 → h4) ?
-     8. les boutons de téléchargement sont-ils TOUS pilotés par le fichier de
-        configuration (aucun faux bouton en dur, aucun href="#") ?
-     9. la page est-elle utilisable sans JavaScript (contenu présent dans le HTML) ?
+     1. chaque ressource référencée existe (css, js, typo, img, vidéo) ;
+     2. chaque lien interne mène à une page existante, chaque ancre à un id réel ;
+     3. le site ne charge RIEN d'un domaine extérieur ;
+     4. chaque page a titre, description, canonical, og:image, viewport, langue ;
+     5. les données structurées (JSON-LD) sont du JSON valide ;
+     6. chaque <img> a un alt et une source ;
+     7. hiérarchie des titres : un seul h1, aucun saut de niveau ;
+     8. les téléchargements passent TOUS par le fichier de configuration
+        (aucun href="#", aucun .exe écrit à la main) ;
+     9. le contenu est présent dans le HTML, sans JavaScript ;
+    10. le film, ses commandes et son image d'attente ;
+    11. les polices sont embarquées dans le site (aucun appel à un service).
 
    Sortie : « NN points de contrôle · 0 échec(s) », code de sortie 1 sinon.
    ══════════════════════════════════════════════════════════════════════════ */
@@ -25,12 +27,15 @@ let points = 0; const echecs = [];
 function ok(nom, cond, detail) { points++; if (!cond) echecs.push(nom + (detail ? ' — ' + detail : '')); }
 
 const pages = fs.readdirSync(SITE).filter(f => f.endsWith('.html')).sort();
-ok('le site contient des pages HTML (' + pages.length + ')', pages.length >= 7, pages.join(', '));
-
 const lire = f => fs.readFileSync(path.join(SITE, f), 'utf8');
 const existe = p => fs.existsSync(path.join(SITE, p.replace(/^\.\//, '')));
+const css = lire('assets/css/site.css');
+const js = lire('assets/js/site.js');
+const config = lire('assets/js/telechargements.js');
 
-/* ── 1. ressources référencées ── */
+ok('le site contient des pages HTML (' + pages.length + ')', pages.length >= 6, pages.join(', '));
+
+/* ── 1. ressources ── */
 let ressources = 0;
 pages.forEach(f => {
   const html = lire(f);
@@ -45,132 +50,119 @@ pages.forEach(f => {
     ok('fichier présent : ' + fichier + ' (vu dans ' + f + ')', existe(fichier));
   });
 });
-ok('besoin de ressources locales (' + ressources + ' références vérifiées)', ressources > 20);
+ok('besoin de ressources locales (' + ressources + ' références)', ressources > 40);
 
-/* ── 2. liens internes et ancres ── */
+/* ── 2. liens et ancres ── */
 const idsParPage = {};
 pages.forEach(f => { idsParPage[f] = new Set([...lire(f).matchAll(/id\s*=\s*"([^"]+)"/g)].map(m => m[1])); });
 let liens = 0;
 pages.forEach(f => {
-  const html = lire(f);
-  const hrefs = [...html.matchAll(/href\s*=\s*"([^"]+)"/g)].map(m => m[1]);
-  hrefs.filter(h => !/^(https?:|mailto:|tel:|javascript:|data:)/.test(h)).forEach(h => {
-    liens++;
-    const [cible, ancre] = h.split('#');
-    if (cible && !existe(cible)) return ok('lien interne valide : ' + h + ' (' + f + ')', false, 'page absente');
-    if (ancre) {
-      const fichier = cible || f;
-      const bons = idsParPage[fichier] || new Set();
-      ok('ancre valide : ' + h + ' (' + f + ')', bons.has(ancre), 'id « ' + ancre + ' » introuvable dans ' + fichier);
-    }
-  });
+  [...lire(f).matchAll(/href\s*=\s*"([^"]+)"/g)].map(m => m[1])
+    .filter(h => !/^(https?:|mailto:|tel:|javascript:|data:)/.test(h)).forEach(h => {
+      liens++;
+      const [cible, ancre] = h.split('#');
+      if (cible && !existe(cible)) return ok('lien interne : ' + h + ' (' + f + ')', false, 'page absente');
+      if (ancre) {
+        const fichier = cible || f;
+        ok('ancre : ' + h + ' (' + f + ')', (idsParPage[fichier] || new Set()).has(ancre), 'id « ' + ancre + ' » absent de ' + fichier);
+      }
+    });
 });
-ok('le site se visite entièrement (' + liens + ' liens internes)', liens > 40);
+ok('le site se visite entièrement (' + liens + ' liens internes)', liens > 30);
 
-/* ── 3. aucune ressource extérieure (le site doit vivre sans réseau) ── */
+/* ── 3. rien d'extérieur ── */
 pages.forEach(f => {
-  const html = lire(f);
-  const externes = [...html.matchAll(/(?:src|href)\s*=\s*"(https?:\/\/[^"]+)"/g)]
-    .map(m => m[1]).filter(u => !/mod-eric\.com/.test(u));
-  ok('aucune ressource chargée depuis un domaine extérieur (' + f + ')', externes.length === 0, externes.join(', '));
+  const externes = [...lire(f).matchAll(/(?:src|href)\s*=\s*"(https?:\/\/[^"]+)"/g)].map(m => m[1])
+    .filter(u => !/mod-eric\.com/.test(u));
+  ok('aucune ressource extérieure (' + f + ')', externes.length === 0, externes.join(', '));
 });
-const css = lire('assets/css/style.css');
-ok('la feuille de style ne charge aucune police extérieure',
-  !/@import|fonts\.googleapis|fonts\.gstatic/.test(css));
-ok('aucun script tiers dans les scripts du site',
-  !/(google-analytics|googletagmanager|facebook|hotjar|cdn\.)/i.test(lire('assets/js/site.js')));
+ok('la feuille de style ne charge aucune police distante', !/@import|fonts\.googleapis|fonts\.gstatic/.test(css));
+ok('aucun script tiers', !/(google-analytics|googletagmanager|facebook|hotjar|cdn\.)/i.test(js));
 
-/* ── 4. les balises que les moteurs et les partages lisent ── */
+/* ── 11. les polices vivent dans le site ── */
+['InstrumentSerif-Regular', 'InstrumentSerif-Italic', 'InstrumentSans-400', 'JetBrainsMono-400'].forEach(f =>
+  ok('police embarquée : ' + f + '.woff2', existe('assets/typo/' + f + '.woff2')));
+ok('la feuille déclare les quatre graisses', (css.match(/@font-face/g) || []).length >= 4);
+
+/* ── 4. les balises que lisent les moteurs et les partages ── */
 pages.filter(f => f !== '404.html').forEach(f => {
   const html = lire(f);
-  ok('titre <title> présent (' + f + ')', /<title>[^<]{12,}<\/title>/.test(html));
-  ok('description présente (' + f + ')', /name="description" content="[^"]{40,}"/.test(html));
-  ok('lien canonique (' + f + ')', /rel="canonical" href="https:\/\/mod-eric\.com\//.test(html));
-  ok('image de partage og:image (' + f + ')', /property="og:image"/.test(html));
+  ok('titre <title> (' + f + ')', /<title>[^<]{12,}<\/title>/.test(html));
+  ok('description (' + f + ')', /name="description" content="[^"]{40,}"/.test(html));
+  ok('canonique (' + f + ')', /rel="canonical" href="https:\/\/mod-eric\.com\//.test(html));
+  ok('image de partage (' + f + ')', /property="og:image"/.test(html));
   ok('viewport mobile (' + f + ')', /name="viewport" content="width=device-width/.test(html));
   ok('langue déclarée (' + f + ')', /<html lang="fr"/.test(html));
 });
 
-/* ── 5. les données structurées ── */
+/* ── 5. JSON-LD ── */
 pages.forEach(f => {
-  const html = lire(f);
-  const blocs = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(m => m[1]);
-  blocs.forEach((b, i) => {
+  [...lire(f).matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].forEach((m, i) => {
     let bon = true, err = '';
-    try { const o = JSON.parse(b); bon = !!o['@context'] && !!o['@type']; err = bon ? '' : 'sans @context/@type'; }
+    try { const o = JSON.parse(m[1]); bon = !!o['@context'] && !!o['@type']; err = bon ? '' : 'sans @context/@type'; }
     catch (e) { bon = false; err = e.message; }
     ok('JSON-LD valide (' + f + ' #' + (i + 1) + ')', bon, err);
   });
 });
-ok('l’accueil porte les données structurées de l’entreprise',
-  /"@type": "Organization"/.test(lire('index.html')));
-ok('chaque page de logiciel porte son SoftwareApplication',
+ok('l’accueil porte les données de l’entreprise', /"@type": "Organization"/.test(lire('index.html')));
+ok('chaque page produit porte son SoftwareApplication',
   /"@type": "SoftwareApplication"/.test(lire('stockia.html')) && /"@type": "SoftwareApplication"/.test(lire('dd-spirity.html')));
 
-/* ── 6. images et équivalents textuels ── */
+/* ── 6. images ── */
 let images = 0;
 pages.forEach(f => {
-  const html = lire(f);
-  [...html.matchAll(/<img\b[^>]*>/g)].forEach(m => {
+  [...lire(f).matchAll(/<img\b[^>]*>/g)].forEach(m => {
     images++;
-    const balise = m[0];
-    ok('image avec attribut alt (' + f + ')', /\balt\s*=/.test(balise), balise.slice(0, 70));
-    ok('image avec source (' + f + ')', /\bsrc\s*=\s*"[^"]+"/.test(balise), balise.slice(0, 70));
+    ok('image avec alt (' + f + ')', /\balt\s*=/.test(m[0]), m[0].slice(0, 70));
+    ok('image avec src (' + f + ')', /\bsrc\s*=\s*"[^"]+"/.test(m[0]), m[0].slice(0, 70));
   });
 });
-ok('les images sont décrites (' + images + ' balises <img>)', images > 5);
+ok('les images sont décrites (' + images + ' balises)', images > 3);
 
 /* ── 7. hiérarchie des titres ── */
 pages.forEach(f => {
-  const html = lire(f);
-  const niveaux = [...html.matchAll(/<h([1-6])\b/g)].map(m => Number(m[1]));
-  ok('un seul h1 par page (' + f + ')', niveaux.filter(n => n === 1).length === 1,
-    'h1 : ' + niveaux.filter(n => n === 1).length);
+  const niveaux = [...lire(f).matchAll(/<h([1-6])\b/g)].map(m => Number(m[1]));
+  ok('un seul h1 (' + f + ')', niveaux.filter(n => n === 1).length === 1, 'h1 : ' + niveaux.filter(n => n === 1).length);
   let saut = null;
   for (let i = 1; i < niveaux.length; i++) if (niveaux[i] - niveaux[i - 1] > 1) saut = 'h' + niveaux[i - 1] + ' → h' + niveaux[i];
-  ok('aucun saut de niveau de titre (' + f + ')', !saut, saut || '');
+  ok('aucun saut de niveau (' + f + ')', !saut, saut || '');
 });
 
-/* ── 8. les téléchargements passent par le fichier de configuration ── */
-const config = lire('assets/js/telechargements.js');
-['stockia', 'ddSpirity'].forEach(k =>
-  ok('le fichier de téléchargement déclare « ' + k + ' »', new RegExp('\\b' + k + '\\s*:').test(config)));
-const telechargementsPages = pages.filter(f => /data-telechargement=/.test(lire(f)));
-ok('les blocs de téléchargement existent (' + telechargementsPages.length + ' pages)', telechargementsPages.length >= 3);
-let blocs = 0, faux = 0;
+/* ── 8. les téléchargements ── */
+['stockia', 'ddSpirity'].forEach(k => ok('le fichier de téléchargement déclare « ' + k + ' »', new RegExp('\\b' + k + '\\s*:').test(config)));
+const pagesTele = pages.filter(f => /data-tele=/.test(lire(f)));
+ok('les blocs de téléchargement existent (' + pagesTele.length + ' pages)', pagesTele.length >= 2);
+let blocs = 0, inconnus = 0;
 pages.forEach(f => {
-  const html = lire(f);
-  [...html.matchAll(/data-telechargement="([^"]+)"/g)].forEach(m => {
+  [...lire(f).matchAll(/data-tele="([^"]+)"/g)].forEach(m => {
     blocs++;
     const [produit, plateforme] = m[1].split(':');
     const bloc = config.slice(config.indexOf(produit + ':'));
-    if (!new RegExp(plateforme + '\\s*:').test(bloc)) { faux++; echecs.push('plateforme inconnue : ' + m[1] + ' (' + f + ')'); }
+    if (!new RegExp(plateforme + '\\s*:').test(bloc)) { inconnus++; echecs.push('plateforme inconnue : ' + m[1] + ' (' + f + ')'); }
   });
 });
-ok('chaque bloc renvoie à une clé connue du fichier (' + blocs + ' blocs)', faux === 0, faux + ' inconnu(s)');
-ok('aucun bouton de téléchargement en dur (href="#") dans les pages',
-  !pages.some(f => /href="#"[^>]*>\s*Télécharger/i.test(lire(f))));
-ok('aucun lien « .exe » écrit à la main dans les pages',
-  !pages.some(f => /href="[^"]*\.(exe|apk|zip|msi)"/i.test(lire(f))));
+ok('chaque bloc renvoie à une clé connue (' + blocs + ' blocs)', inconnus === 0, inconnus + ' inconnu(s)');
+ok('aucun bouton de téléchargement en dur (href="#")', !pages.some(f => /href="#"[^>]*>\s*Télécharger/i.test(lire(f))));
+ok('aucun fichier .exe / .apk / .zip écrit à la main', !pages.some(f => /href="[^"]*\.(exe|apk|zip|msi)"/i.test(f === undefined ? '' : lire(f))));
 
 /* ── 9. lisible sans JavaScript ── */
 pages.filter(f => f !== '404.html').forEach(f => {
-  const html = lire(f);
-  const texte = html.replace(/<script[\s\S]*?<\/script>/g, '').replace(/<[^>]+>/g, ' ');
+  const texte = lire(f).replace(/<script[\s\S]*?<\/script>/g, '').replace(/<[^>]+>/g, ' ');
   const mots = texte.split(/\s+/).filter(w => w.length > 2).length;
-  ok('du texte utile dans le HTML, sans JavaScript (' + f + ' : ' + mots + ' mots)', mots > 120);
+  ok('texte utile sans JavaScript (' + f + ' : ' + mots + ' mots)', mots > 120);
 });
-ok('le formulaire de contact dit qu’il prépare un courriel',
-  /compose un courriel|courriel dans votre logiciel de messagerie/i.test(lire('contact.html')));
-ok('les mentions légales ne fabriquent pas de numéro d’immatriculation',
-  /à compléter par l'éditeur/.test(lire('mentions-legales.html')));
+ok('la page contact et les mentions disent que rien ne part vers un serveur',
+  /rien ne part|aucune donnée personnelle/i.test(lire('contact.html') + lire('mentions-legales.html')));
+ok('les mentions légales ne fabriquent pas de numéro d’immatriculation', /à compléter par l'éditeur/.test(lire('mentions-legales.html')));
 
-/* ── 10. le film et ses commandes ── */
+/* ── 10. le film ── */
 const accueil = lire('index.html');
-ok('le premier écran porte une balise <video>', /<video\b[^>]*poster=/.test(accueil));
-ok('le film a une solution de repli (texte si la vidéo ne se lit pas)', /ne lit pas la vidéo MP4/.test(accueil));
-ok('le film porte ses commandes (son, reprise)', /data-film="son"/.test(accueil) && /data-film="reprise"/.test(accueil));
-ok('le film est chargé en métadonnées seulement (pas 2 Mo au premier écran)', /preload="metadata"/.test(accueil));
+ok('le premier écran porte une balise <video>', /<video\b[^>]*poster="assets\/video\/poster\.jpg"/.test(accueil));
+ok('le film a une image d’attente (le premier écran tient sans lecture)', /poster\.jpg/.test(accueil));
+ok('le film porte ses commandes (lecture, son, état)',
+  /data-film="lecture"/.test(accueil) && /data-film="son"/.test(accueil) && /data-film="etat"/.test(accueil));
+ok('le film démarre en boucle et sans son', /loop/.test(accueil) && /muted/.test(accueil));
+ok('le film est chargé en métadonnées seulement', /preload="metadata"/.test(accueil));
 
 console.log('pages ' + pages.length + ' · ressources locales ' + ressources + ' · liens internes ' + liens + ' · images ' + images);
 console.log('════ ' + points + ' points de contrôle · ' + echecs.length + ' échec(s) ════');

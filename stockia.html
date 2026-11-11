@@ -6,17 +6,19 @@
 <title>Stockia — logiciel de gestion commerciale · ModEric Software</title>
 <meta name="description" content="Stockia : caisse, stock, produits et fournisseurs, dettes et créances, rapports. Logiciel de gestion commerciale pour pharmacies et commerces, Windows et Android, hors ligne.">
 <link rel="canonical" href="https://mod-eric.com/stockia.html">
-<meta name="theme-color" content="#071019">
+<meta name="theme-color" content="#0D0D0F">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ModEric Software">
 <meta property="og:locale" content="fr_CD">
 <meta property="og:title" content="Stockia — logiciel de gestion commerciale · ModEric Software">
 <meta property="og:description" content="Stockia : caisse, stock, produits et fournisseurs, dettes et créances, rapports. Logiciel de gestion commerciale pour pharmacies et commerces, Windows et Android, hors ligne.">
-<meta property="og:image" content="https://mod-eric.com/assets/img/og.jpg">
+<meta property="og:image" content="https://mod-eric.com/assets/img/stockia-logo.png">
 <meta property="og:url" content="https://mod-eric.com/stockia.html">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="preload" href="assets/typo/InstrumentSerif-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/typo/InstrumentSans-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/site.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -24,287 +26,204 @@
   "name": "Stockia",
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "Windows, Android",
-  "description": "Logiciel de gestion commerciale pour pharmacies et commerces : caisse, stock, produits et fournisseurs, dettes et créances, rapports et statistiques.",
+  "description": "Logiciel de gestion commerciale pour pharmacies et commerces : caisse, stock, produits et fournisseurs, dettes et créances, rapports.",
   "publisher": { "@type": "Organization", "name": "ModEric Software" },
-  "featureList": ["Gestion des stocks", "Ventes et opérations de caisse", "Produits et fournisseurs", "Dettes et créances", "Rapports et statistiques"],
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "description": "Conditions de licence communiquées sur demande." }
+  "featureList": ["Gestion des stocks", "Ventes et caisse", "Produits et fournisseurs", "Dettes et créances", "Rapports et statistiques"]
 }
 </script>
 </head>
-<body>
+<body class="est-encre">
 
-<header class="entete" id="entete">
-  <div class="page">
-    <a class="marque" href="index.html" aria-label="ModEric Software — accueil">
-      <svg viewBox="0 0 210 210" aria-hidden="true">
-        <defs>
-          <linearGradient id="m1" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#8FDBFB"/><stop offset=".48" stop-color="#1E9CD8"/><stop offset="1" stop-color="#0B5E8C"/>
-          </linearGradient>
-          <linearGradient id="m2" x1="0" y1="1" x2="1" y2="0">
-            <stop offset="0" stop-color="#F2D9A6"/><stop offset="1" stop-color="#C08A3E"/>
-          </linearGradient>
-        </defs>
-        <circle cx="105" cy="105" r="92" fill="none" stroke="url(#m1)" stroke-width="6" stroke-linecap="round" stroke-dasharray="536 42" transform="rotate(126 105 105)"/>
-        <circle cx="105" cy="105" r="77" fill="none" stroke="currentColor" stroke-width="1.2" opacity=".26"/>
-        <text x="104" y="107" text-anchor="middle" dominant-baseline="central" fill="url(#m1)" font-family="Manrope, sans-serif" font-weight="800" font-size="96" letter-spacing="-4">M</text>
-        <circle cx="105" cy="13" r="6.4" fill="url(#m2)"/>
-      </svg>
-      <span>
-        <b>ModEric</b>
-        <span>Software</span>
-      </span>
-    </a>
-    <nav class="nav" aria-label="Navigation principale">
-      <a href="index.html">Accueil</a>
-      <a href="entreprise.html">Notre entreprise</a>
-      <a href="logiciels.html" aria-current="page">Nos logiciels</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-    <a class="entete__cta" href="logiciels.html">
-      Accès rapide à nos solutions
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-    </a>
-    <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="panneau">
-      <span></span><span></span>
-    </button>
-  </div>
+<header class="tete">
+  <a class="marque" href="index.html" aria-label="ModEric Software — accueil">
+    <svg class="marque__anneau" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="43" fill="none" stroke="currentColor" stroke-width="6.5" stroke-linecap="round" stroke-dasharray="252 28" transform="rotate(128 50 50)"/><text x="50" y="52" text-anchor="middle" dominant-baseline="central" fill="currentColor" font-family="Instrument Serif, Georgia, serif" font-size="46" font-style="italic">M</text></svg>
+    <span><span class="marque__mot">ModEric <i>Software</i></span>
+      <span class="marque__sous">Éditeur de logiciels</span></span>
+  </a>
+  <nav class="tete__nav" aria-label="Navigation principale">
+        <a class="tete__lien" href="index.html#logiciels">Les logiciels</a>
+        <a class="tete__lien" href="stockia.html" aria-current="page">Stockia</a>
+        <a class="tete__lien" href="dd-spirity.html">D.D- Spirity</a>
+        <a class="tete__lien" href="contact.html">Contact</a>
+  </nav>
+  <a class="tete__appel" href="contact.html"><span>Nous écrire</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 5.5l6.5 6.5-6.5 6.5"/></svg></a>
+  <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false"><i></i><i></i></button>
 </header>
 
-<div class="panneau" id="panneau">
-  <a href="index.html"><small>01</small> Accueil</a>
-  <a href="entreprise.html"><small>02</small> Notre entreprise</a>
-  <a href="logiciels.html"><small>03</small> Nos logiciels</a>
-  <a href="contact.html"><small>04</small> Contact</a>
-  <div class="coord">
-    <span>Kinshasa, République démocratique du Congo</span>
-    <span>contact@mod-eric.com</span>
-  </div>
+<div class="panneau">
+  <a href="index.html#logiciels">Les logiciels<small>Catalogue</small></a>
+  <a href="stockia.html">Stockia<small>Commerce</small></a>
+  <a href="dd-spirity.html">D.D- Spirity<small>Vie scolaire</small></a>
+  <a href="contact.html">Contact<small>Écrire</small></a>
+  <div class="panneau__pied">Kinshasa · République démocratique du Congo<br>contact@mod-eric.com<br>Heure de l’atelier : <span data-heure>—</span></div>
 </div>
 
-<main>
-<section class="chapeau">
-  <div class="page">
-    <div class="fil"><a href="index.html">Accueil</a> <span>/</span> <a href="logiciels.html">Nos logiciels</a> <span>/</span> Stockia</div>
-    <div class="surtitre" data-apparait>Logiciel de gestion commerciale</div>
-    <h1 data-apparait>Stockia — <em>la caisse, le stock et les comptes, au même endroit.</em></h1>
-    <p class="lede" data-apparait>Le poste de vente des pharmacies et des commerces : encaisser, décompter, suivre les produits et les fournisseurs, savoir qui doit quoi, et lire la journée en chiffres.</p>
-    <div class="hero__actions" style="margin-top:30px"><a class="btn btn--primaire" href="#telecharger">Télécharger Stockia <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn--fantome" href="#apercus">Voir les aperçus</a></div>
+
+<section class="dossier dossier--stockia">
+  <div class="dossier__voile" aria-hidden="true"></div>
+
+  <div class="dossier__fil" data-vu>
+    <a href="index.html">Accueil</a><span>/</span><a href="index.html#logiciels">Logiciels</a><span>/</span><span>Stockia</span>
   </div>
-</section>
-<section class="section section--papier">
-  <div class="page duo">
-    <div>
-      <div class="num" data-apparait>01 — Le logiciel</div>
-      <p class="edito" data-apparait style="margin-top:18px">
-        Une vente doit être enregistrée <em>avant</em> d'être imprimée. Le reste, c'est de
-        l'organisation.
-      </p>
+
+  <div class="dossier__titre">
+    <img class="dossier__embleme" src="assets/img/stockia-logo-256.png" alt="Emblème de Stockia" data-vu width="256" height="256">
+    <h1 data-masque>Stockia</h1>
+  </div>
+  <p class="dossier__sous" data-vu>
+    La caisse, le stock et les comptes, au même endroit. Un poste de vente pour les pharmacies
+    et les commerces physiques : encaisser, décompter, suivre les produits et les fournisseurs,
+    savoir qui doit quoi, et lire la journée en chiffres.
+  </p>
+
+  <div class="dossier__bas">
+    <div class="dossier__specs" data-vu>
+      <span>Windows · Android</span>
+      <span>Aucune connexion requise</span>
+      <span>Données sur votre poste</span>
     </div>
-    <div>
-      <p class="lede" data-apparait>
-        Stockia est un logiciel de gestion commerciale destiné notamment aux pharmacies et aux
-        commerces physiques. Il réunit le comptoir et l'arrière-boutique : la vente, le stock
-        qui bouge avec elle, les produits et les fournisseurs, les dettes et les créances, et
-        les rapports qui permettent de décider.
-      </p>
-      <p class="lede" data-apparait style="margin-top:18px">
-        Il fonctionne sur le poste, sans dépendre d'un serveur : la caisse continue de servir
-        quand la connexion s'arrête, et les données du commerce restent dans le commerce.
-      </p>
-      <div class="fiche__actions" data-apparait style="margin-top:26px">
-        <a class="btn btn--encre" href="#telecharger">Télécharger <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="btn btn--laiton" href="contact.html">Demander une démonstration</a>
-      </div>
+    <div class="chapitre__actions" style="margin:0" data-vu data-rang="1">
+      <a class="bouton bouton--plein" href="#telecharger"><span>Télécharger</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 5.5l6.5 6.5-6.5 6.5"/></svg></a>
     </div>
   </div>
 </section>
 
-<section class="section section--papier-2">
-  <div class="page">
-    <h2 class="surtitre" data-apparait>Ce que fait Stockia</h2>
-    <div class="avantages">
-      <div data-apparait>
-        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg> Stock et inventaire</h3>
-        <p>Les quantités suivent les ventes. Vous savez ce qui reste, ce qui manque et ce qui dort sur l'étagère.</p>
-      </div>
-      <div data-apparait data-rang="1">
-        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg> Ventes et caisse</h3>
-        <p>Encaisser, imprimer le reçu, retrouver une vente dans l'historique. La vente est enregistrée avant toute impression : un problème d'imprimante ne fait jamais perdre une opération.</p>
-      </div>
-      <div data-apparait data-rang="2">
-        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg> Produits et fournisseurs</h3>
-        <p>Le catalogue du commerce, avec ses prix et ses références, et les fournisseurs derrière chaque produit.</p>
-      </div>
-      <div data-apparait data-rang="3">
-        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg> Dettes et créances</h3>
-        <p>Ce que le commerce doit, et ce qu'on lui doit. Les soldes se lisent sans reconstituer un cahier.</p>
-      </div>
-      <div data-apparait data-rang="4">
-        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg> Rapports et statistiques</h3>
-        <p>Journée, mois, année : les montants, les produits qui tournent, ceux qui ne tournent pas.</p>
-      </div>
-      <div data-apparait data-rang="5">
-        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg> Reçus et rapports en PDF</h3>
-        <p>Le reçu sort sur une imprimante thermique ; si elle manque ou refuse, le logiciel produit un PDF partageable.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section section--papier" id="apercus">
-  <div class="page">
-    <div class="duo">
-      <div>
-        <div class="num" data-apparait>02 — Aperçus</div>
-        <h2 class="titre-section" data-apparait style="margin-top:18px">Les écrans de Stockia.</h2>
-      </div>
-      <div>
-        <p class="lede" data-apparait>
-          Les captures ci-dessous sont celles du logiciel en service. Elles sont volontairement
-          brutes : pas de maquette retouchée, pas d'écran inventé pour la page.
-        </p>
-        <p class="fiche__note" data-apparait style="margin-top:16px">
-          Chaque capture s'agrandit au clic. Les visuels sont déposés dans
-          <code>assets/img/stockia/</code> — une capture à remplacer, une ligne à changer.
-        </p>
-      </div>
-    </div>
-    <div class="galerie" style="grid-template-columns:repeat(3,minmax(0,1fr))">
-      <figure data-zoom data-apparait>
-        <img src="assets/img/apercu-a-venir.svg" alt="Aperçu de la caisse de Stockia — capture à intégrer">
-        <figcaption>Caisse</figcaption>
-      </figure>
-      <figure data-zoom data-apparait data-rang="1">
-        <img src="assets/img/apercu-a-venir.svg" alt="Aperçu du stock de Stockia — capture à intégrer">
-        <figcaption>Stock</figcaption>
-      </figure>
-      <figure data-zoom data-apparait data-rang="2">
-        <img src="assets/img/apercu-a-venir.svg" alt="Aperçu des rapports de Stockia — capture à intégrer">
-        <figcaption>Rapports</figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
-
-<section class="section section--papier-2">
-  <div class="page duo">
+<section class="plan plan--os">
+  <div class="duo">
     <div>
-      <div class="num" data-apparait>03 — Fiche technique</div>
-      <h2 class="titre-section" data-apparait style="margin-top:18px">Ce qu'il faut savoir avant d'installer.</h2>
-      <dl class="tech">
-        <div data-apparait><dt>Systèmes</dt><dd>Windows · Android</dd></div>
-        <div data-apparait><dt>Connexion</dt><dd>Non requise</dd></div>
-        <div data-apparait><dt>Données</dt><dd>Sur votre poste</dd></div>
-        <div data-apparait><dt>Reçus</dt><dd>Imprimante thermique ou PDF</dd></div>
-      </dl>
+      <div class="repere" data-vu>Le logiciel</div>
+      <h2 class="plan__titre" data-vu data-rang="1" style="margin-top:16px">Une vente doit être enregistrée <i>avant</i> d'être imprimée. Le reste, c'est de l'organisation.</h2>
     </div>
-    <div>
-      <p class="lede" data-apparait>
-        Stockia s'installe par un exécutable Windows, ou se lance sans installation depuis une
-        clé. La version téléphone sert au même commerce, avec le même catalogue.
-      </p>
-      <p class="lede" data-apparait style="margin-top:16px">
-        Les conditions de licence (période, nombre de postes) sont données sur demande écrite :
-        nous ne publions pas de tarif qui ne correspondrait pas à votre commerce.
-      </p>
-      <div class="fiche__actions" style="margin-top:24px">
-        <a class="btn btn--encre" href="contact.html">Demander les conditions <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      </div>
+    <div data-vu data-rang="1">
+      <p>Stockia réunit le comptoir et l'arrière-boutique : la vente, le stock qui bouge avec
+      elle, les produits et les fournisseurs, les dettes et les créances, et les rapports qui
+      permettent de décider.</p>
+      <p style="margin-top:14px">Il fonctionne sur le poste, sans dépendre d'un serveur : la caisse continue de servir
+      quand la connexion s'arrête, et les données du commerce restent dans le commerce.</p>
+      <p style="margin-top:14px">Si l'imprimante thermique manque ou refuse, le reçu sort en PDF partageable. Aucune
+      vente n'attend une imprimante.</p>
     </div>
   </div>
 </section>
 
-<section class="section section--nuit" id="telecharger">
-  <div class="page">
-    <h2 class="surtitre" data-apparait>Télécharger Stockia</h2>
-    <h2 class="titre-section" data-apparait style="margin-top:18px;max-width:26ch">Les fichiers publiés, avec leur empreinte.</h2>
-    <div style="margin-top:clamp(30px,4vw,46px);max-width:820px">
-      <div class="telechargement" data-telechargement="stockia:windows">
-  <div class="telechargement__tete">
-    <h3>Poste Windows</h3>
-    <span class="telechargement__etat" data-etat-telechargement>Dépôt en cours</span>
+<section class="plan plan--encre">
+  <div class="repere" data-vu>Les écrans</div>
+  <h2 class="plan__titre" data-vu data-rang="1" style="margin-top:16px;max-width:26ch">Les captures arrivent ici.</h2>
+  <p style="color:var(--sur-encre-doux);margin-top:16px;max-width:52ch">Cette page est faite pour recevoir les captures réelles de Stockia. Aucune image
+  inventée n'est posée à leur place : les emplacements sont dessinés, légendés, et prêts.</p>
+  <div class="vues" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
+    <div class="planche planche--attente" data-vu style="border-color:var(--filet-encre)">
+      <i class="planche__repere"></i><i class="planche__repere"></i><i class="planche__repere"></i><i class="planche__repere"></i>
+      <div class="planche__cadre"><div class="planche--attente__dit"><span class="mono">Capture 01</span><strong>La caisse</strong></div></div>
+      <div class="planche__legende"><span>Caisse · vente en cours</span><span>à intégrer</span></div>
+    </div>
+    <div class="planche planche--attente" data-vu data-rang="1" style="border-color:var(--filet-encre)">
+      <i class="planche__repere"></i><i class="planche__repere"></i><i class="planche__repere"></i><i class="planche__repere"></i>
+      <div class="planche__cadre"><div class="planche--attente__dit"><span class="mono">Capture 02</span><strong>Le stock</strong></div></div>
+      <div class="planche__legende"><span>Stock · quantités et seuils</span><span>à intégrer</span></div>
+    </div>
+    <div class="planche planche--attente" data-vu data-rang="2" style="border-color:var(--filet-encre)">
+      <i class="planche__repere"></i><i class="planche__repere"></i><i class="planche__repere"></i><i class="planche__repere"></i>
+      <div class="planche__cadre"><div class="planche--attente__dit"><span class="mono">Capture 03</span><strong>Les rapports</strong></div></div>
+      <div class="planche__legende"><span>Rapports · journée, mois, année</span><span>à intégrer</span></div>
+    </div>
   </div>
-  <p>Installateur, ou version sans installation à poser sur une clé.</p>
-  <ul><li>Windows 10 et 11, 64 bits</li><li>Notice d’installation incluse dans le paquet</li><li>Les mises à jour s’installent par-dessus, sans effacer vos données</li></ul>
-  <div class="telechargement__actions" data-actions-telechargement></div>
+</section>
+
+<section class="plan plan--os">
+  <div class="repere" data-vu>Ce que Stockia tient</div>
+  <h2 class="plan__titre" data-vu data-rang="1" style="margin-top:16px">Le registre du commerce.</h2>
+  <div class="registre" style="border-top-color:var(--filet-fort)">
+    <div class="registre__ligne" data-vu style="border-color:var(--filet)">
+      <div class="registre__nom">Le stock</div>
+      <p class="registre__dit" style="color:var(--sur-os-doux)">Les quantités suivent les ventes. Vous savez ce qui reste, ce qui manque et ce qui dort sur l'étagère.</p>
+      <span class="registre__rang">I</span>
+    </div>
+    <div class="registre__ligne" data-vu style="border-color:var(--filet)">
+      <div class="registre__nom">La caisse</div>
+      <p class="registre__dit" style="color:var(--sur-os-doux)">Encaisser, imprimer le reçu, retrouver une vente dans l'historique — la vente est écrite avant toute impression.</p>
+      <span class="registre__rang">II</span>
+    </div>
+    <div class="registre__ligne" data-vu style="border-color:var(--filet)">
+      <div class="registre__nom">Les fournisseurs</div>
+      <p class="registre__dit" style="color:var(--sur-os-doux)">Le catalogue du commerce avec ses prix et ses références, et l'origine de chaque produit.</p>
+      <span class="registre__rang">III</span>
+    </div>
+    <div class="registre__ligne" data-vu style="border-color:var(--filet)">
+      <div class="registre__nom">Les dettes et créances</div>
+      <p class="registre__dit" style="color:var(--sur-os-doux)">Ce que le commerce doit, ce qu'on lui doit. Les soldes se lisent sans reconstituer un cahier.</p>
+      <span class="registre__rang">IV</span>
+    </div>
+    <div class="registre__ligne" data-vu style="border-color:var(--filet)">
+      <div class="registre__nom">Les rapports</div>
+      <p class="registre__dit" style="color:var(--sur-os-doux)">Journée, mois, année : les montants, les produits qui tournent, ceux qui ne tournent pas.</p>
+      <span class="registre__rang">V</span>
+    </div>
+  </div>
+</section>
+
+<section class="plan plan--encre" id="telecharger">
+  <div class="duo">
+    <div>
+      <div class="repere" data-vu>Télécharger</div>
+      <h2 class="plan__titre" data-vu data-rang="1" style="margin-top:16px">Le poste, et le téléphone.</h2>
+      <p style="color:var(--sur-encre-doux);margin-top:18px;max-width:44ch">Version, taille et empreinte SHA-256 sont publiées avec chaque fichier. Les conditions
+      de licence (période, nombre de postes) sont données sur demande écrite.</p>
+      <aside class="fiche" style="margin-top:28px">
+        <div class="fiche__ligne"><span class="fiche__cle">Poste</span><span class="fiche__val">Windows 10 / 11 · 64 bits</span></div>
+        <div class="fiche__ligne"><span class="fiche__cle">Téléphone</span><span class="fiche__val">Android 8 et plus</span></div>
+        <div class="fiche__ligne"><span class="fiche__cle">Connexion</span><span class="fiche__val fiche__val--signal">Aucune requise</span></div>
+        <div class="fiche__ligne"><span class="fiche__cle">Données</span><span class="fiche__val">Sur votre poste</span></div>
+        <div class="fiche__ligne"><span class="fiche__cle">Reçus</span><span class="fiche__val">Thermique 58 / 80 mm, ou PDF</span></div>
+      </aside>
+    </div>
+    <div>
+      <div class="tele">
+        <div class="tele__item" data-tele="stockia:windows">
+  <div>
+    <div class="tele__nom">Poste Windows</div>
+    <p class="tele__dit">Installateur, ou version sans installation à poser sur une clé.</p>
+    <div class="tele__pied"><span>Windows 10 / 11</span><span>Notice incluse</span></div>
+    <div class="tele__pied" data-tele-sha hidden>Empreinte SHA-256 <code>—</code></div>
+    <div style="margin-top:14px"><span class="ticket" data-tele-etat><i class="ticket__point"></i>Dépôt en cours</span></div>
+  </div>
+  <div class="tele__action" data-tele-actions></div>
 </div>
-      <div class="telechargement" data-telechargement="stockia:android">
-  <div class="telechargement__tete">
-    <h3>Téléphone Android</h3>
-    <span class="telechargement__etat" data-etat-telechargement>Dépôt en cours</span>
+        <div class="tele__item" data-tele="stockia:android">
+  <div>
+    <div class="tele__nom">Téléphone Android</div>
+    <p class="tele__dit">La même caisse, dans la poche, avec le même catalogue.</p>
+    <div class="tele__pied"><span>Android 8 et plus</span><span>Sans connexion</span></div>
+    <div class="tele__pied" data-tele-sha hidden>Empreinte SHA-256 <code>—</code></div>
+    <div style="margin-top:14px"><span class="ticket" data-tele-etat><i class="ticket__point"></i>Dépôt en cours</span></div>
   </div>
-  <p>La même caisse, dans la poche, avec le même catalogue.</p>
-  <ul><li>Android 8 et plus</li><li>Installation par fichier APK</li><li>Fonctionne sans connexion</li></ul>
-  <div class="telechargement__actions" data-actions-telechargement></div>
+  <div class="tele__action" data-tele-actions></div>
 </div>
+      </div>
+      <p class="mono" style="margin-top:22px;color:var(--sur-encre-doux);letter-spacing:.1em">
+        Un bouton « Bientôt disponible » signifie qu'aucun fichier n'est encore publié pour ce
+        format.
+      </p>
     </div>
-    <p class="fiche__note" data-apparait style="margin-top:22px">
-      Un bouton grisé « Bientôt disponible » signifie qu'aucun fichier n'est encore publié pour
-      ce format : nous préférons cela à un lien qui ne mène nulle part. Écrivez-nous pour être
-      prévenu du dépôt.
-    </p>
+  </div>
+
+  <div class="suite">
+    <a class="suite__lien" href="dd-spirity.html"><i>Logiciel suivant</i> D.D- Spirity <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 5.5l6.5 6.5-6.5 6.5"/></svg></a>
+    <a class="bouton bouton--vide" href="contact.html"><span>Demander une démonstration</span></a>
   </div>
 </section>
 
-</main>
 
 <footer class="pied">
-  <div class="page">
-    <div class="pied__haut">
-      <div>
-        <div class="pied__marque">
-          <svg viewBox="0 0 210 210" aria-hidden="true">
-            <circle cx="105" cy="105" r="92" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-dasharray="536 42" transform="rotate(126 105 105)"/>
-            <circle cx="105" cy="105" r="77" fill="none" stroke="currentColor" stroke-width="1.2" opacity=".3"/>
-            <text x="104" y="107" text-anchor="middle" dominant-baseline="central" fill="currentColor" font-family="Manrope, sans-serif" font-weight="800" font-size="96" letter-spacing="-4">M</text>
-          </svg>
-          <div><b>ModEric</b><span>Software</span></div>
-        </div>
-        <p class="pied__presentation">
-          Éditeur de logiciels métier établi à Kinshasa. Nous concevons, développons et
-          distribuons nos propres programmes : gestion commerciale et logiciels d'établissement,
-          pensés pour travailler hors ligne.
-        </p>
-      </div>
-      <div>
-        <p class="pied__titre">Le site</p>
-        <ul>
-          <li><a href="index.html">Accueil</a></li>
-          <li><a href="entreprise.html">Notre entreprise</a></li>
-          <li><a href="logiciels.html">Nos logiciels</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <p class="pied__titre">Nos logiciels</p>
-        <ul>
-          <li><a href="stockia.html">Stockia</a></li>
-          <li><a href="dd-spirity.html">D.D- Spirity</a></li>
-          <li><a href="stockia.html#telecharger">Télécharger Stockia</a></li>
-          <li><a href="dd-spirity.html#telecharger">Télécharger D.D- Spirity</a></li>
-        </ul>
-      </div>
-      <div>
-        <p class="pied__titre">Nous joindre</p>
-        <div class="pied__coord">
-          <a href="mailto:contact@mod-eric.com">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18v12H3zM3 7l9 6 9-6"/></svg>
-            contact@mod-eric.com
-          </a>
-          <span>Kinshasa, RDC</span>
-          <span>Heure de l'atelier : <span data-heure-kinshasa>—</span></span>
-        </div>
-      </div>
-    </div>
-    <div class="pied__bas">
-      <span>© <span id="annee">2026</span> ModEric Software. Tous droits réservés.</span>
-      <ul>
-        <li><a href="mentions-legales.html">Mentions légales</a></li>
-        <li><a href="mentions-legales.html#donnees">Données personnelles</a></li>
-        <li><a href="logiciels.html">Catalogue</a></li>
-      </ul>
-    </div>
+  <div class="pied__inner">
+    <span>© <span id="annee">2026</span> ModEric Software · Kinshasa, RDC</span>
+    <span>Heure de l’atelier : <span data-heure>—</span></span>
+    <span class="pied__liens">
+      <a href="stockia.html">Stockia</a>
+      <a href="dd-spirity.html">D.D- Spirity</a>
+      <a href="contact.html">Contact</a>
+      <a href="mentions-legales.html">Mentions légales</a>
+    </span>
   </div>
 </footer>
 

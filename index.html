@@ -3,30 +3,31 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ModEric Software — Éditeur de logiciels · Kinshasa</title>
-<meta name="description" content="ModEric Software conçoit et distribue des logiciels métier hors ligne : Stockia (gestion commerciale, caisse, stock) et D.D- Spirity (vie scolaire, discipline, présences). Kinshasa, RDC.">
-<link rel="canonical" href="https://mod-eric.com/">
-<meta name="theme-color" content="#071019">
+<title>ModEric Software — éditeur de logiciels · Kinshasa</title>
+<meta name="description" content="ModEric Software conçoit des logiciels de métier qui travaillent hors ligne : Stockia (caisse, stock, rapports) et D.D- Spirity (vie scolaire, présences, cartes d'élèves).">
+<link rel="canonical" href="https://mod-eric.com/index.html">
+<meta name="theme-color" content="#0D0D0F">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ModEric Software">
 <meta property="og:locale" content="fr_CD">
-<meta property="og:title" content="ModEric Software — Éditeur de logiciels">
-<meta property="og:description" content="Deux logiciels métier, écrits pour travailler hors ligne : Stockia (commerce) et D.D- Spirity (vie scolaire).">
-<meta property="og:image" content="https://mod-eric.com/assets/img/og.jpg">
-<meta property="og:url" content="https://mod-eric.com/">
+<meta property="og:title" content="ModEric Software — éditeur de logiciels · Kinshasa">
+<meta property="og:description" content="ModEric Software conçoit des logiciels de métier qui travaillent hors ligne : Stockia (caisse, stock, rapports) et D.D- Spirity (vie scolaire, présences, cartes d'élèves).">
+<meta property="og:image" content="https://mod-eric.com/assets/medias/dd-accueil.jpg">
+<meta property="og:url" content="https://mod-eric.com/index.html">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="preload" href="assets/typo/InstrumentSerif-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/typo/InstrumentSans-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/site.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "ModEric Software",
   "url": "https://mod-eric.com/",
-  "logo": "https://mod-eric.com/assets/img/logo.svg",
-  "description": "Éditeur de logiciels métier : terminaux de vente, gestion commerciale et logiciels d'établissement scolaire.",
+  "description": "Éditeur de logiciels de métier : gestion commerciale et vie scolaire, hors ligne.",
   "address": { "@type": "PostalAddress", "addressLocality": "Kinshasa", "addressCountry": "CD" },
-  "knowsAbout": ["logiciel de caisse", "gestion de stock", "logiciel scolaire", "logiciel hors ligne"],
+  "email": "contact@mod-eric.com",
   "makesOffer": [
     { "@type": "Offer", "itemOffered": { "@type": "SoftwareApplication", "name": "Stockia", "applicationCategory": "BusinessApplication", "operatingSystem": "Windows, Android" } },
     { "@type": "Offer", "itemOffered": { "@type": "SoftwareApplication", "name": "D.D- Spirity", "applicationCategory": "EducationalApplication", "operatingSystem": "Windows, Android" } }
@@ -34,409 +35,310 @@
 }
 </script>
 </head>
-<body>
+<body class="est-encre">
 
-<!-- ══════════════════════════ l'entête ══════════════════════════ -->
-<header class="entete" id="entete">
-  <div class="page">
-    <a class="marque" href="index.html" aria-label="ModEric Software — accueil">
-      <svg viewBox="0 0 210 210" aria-hidden="true" style="color:#8FD6F5">
-        <defs>
-          <linearGradient id="m1" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#8FDBFB"/><stop offset=".48" stop-color="#1E9CD8"/><stop offset="1" stop-color="#0B5E8C"/>
-          </linearGradient>
-          <linearGradient id="m2" x1="0" y1="1" x2="1" y2="0">
-            <stop offset="0" stop-color="#F2D9A6"/><stop offset="1" stop-color="#C08A3E"/>
-          </linearGradient>
-        </defs>
-        <circle cx="105" cy="105" r="92" fill="none" stroke="url(#m1)" stroke-width="6" stroke-linecap="round" stroke-dasharray="536 42" transform="rotate(126 105 105)"/>
-        <circle cx="105" cy="105" r="77" fill="none" stroke="currentColor" stroke-width="1.2" opacity=".26"/>
-        <text x="104" y="107" text-anchor="middle" dominant-baseline="central" fill="url(#m1)" font-family="Manrope, sans-serif" font-weight="800" font-size="96" letter-spacing="-4">M</text>
-        <circle cx="105" cy="13" r="6.4" fill="url(#m2)"/>
-      </svg>
-      <span>
-        <b>ModEric</b>
-        <span>Software</span>
-      </span>
-    </a>
-    <nav class="nav" aria-label="Navigation principale">
-      <a href="index.html" aria-current="page">Accueil</a>
-      <a href="entreprise.html">Notre entreprise</a>
-      <a href="logiciels.html">Nos logiciels</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-    <a class="entete__cta" href="logiciels.html">
-      Accès rapide à nos solutions
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-    </a>
-    <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="panneau">
-      <span></span><span></span>
-    </button>
-  </div>
+<header class="tete">
+  <a class="marque" href="index.html" aria-label="ModEric Software — accueil">
+    <svg class="marque__anneau" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="43" fill="none" stroke="currentColor" stroke-width="6.5" stroke-linecap="round" stroke-dasharray="252 28" transform="rotate(128 50 50)"/><text x="50" y="52" text-anchor="middle" dominant-baseline="central" fill="currentColor" font-family="Instrument Serif, Georgia, serif" font-size="46" font-style="italic">M</text></svg>
+    <span><span class="marque__mot">ModEric <i>Software</i></span>
+      <span class="marque__sous">Éditeur de logiciels</span></span>
+  </a>
+  <nav class="tete__nav" aria-label="Navigation principale">
+        <a class="tete__lien" href="index.html#logiciels">Les logiciels</a>
+        <a class="tete__lien" href="stockia.html">Stockia</a>
+        <a class="tete__lien" href="dd-spirity.html">D.D- Spirity</a>
+        <a class="tete__lien" href="contact.html">Contact</a>
+  </nav>
+  <a class="tete__appel" href="contact.html"><span>Nous écrire</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 5.5l6.5 6.5-6.5 6.5"/></svg></a>
+  <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false"><i></i><i></i></button>
 </header>
 
-<div class="panneau" id="panneau">
-  <a href="index.html"><small>01</small> Accueil</a>
-  <a href="entreprise.html"><small>02</small> Notre entreprise</a>
-  <a href="logiciels.html"><small>03</small> Nos logiciels</a>
-  <a href="contact.html"><small>04</small> Contact</a>
-  <div class="coord">
-    <span>Kinshasa, République démocratique du Congo</span>
-    <span>contact@mod-eric.com</span>
+<div class="panneau">
+  <a href="index.html#logiciels">Les logiciels<small>Catalogue</small></a>
+  <a href="stockia.html">Stockia<small>Commerce</small></a>
+  <a href="dd-spirity.html">D.D- Spirity<small>Vie scolaire</small></a>
+  <a href="contact.html">Contact<small>Écrire</small></a>
+  <div class="panneau__pied">Kinshasa · République démocratique du Congo<br>contact@mod-eric.com<br>Heure de l’atelier : <span data-heure>—</span></div>
+</div>
+
+
+<!-- ─────────────── L'ENTRÉE ─────────────── -->
+<section class="entree">
+  <div class="entree__film" aria-hidden="true">
+    <video poster="assets/video/poster.jpg" preload="metadata" muted loop playsinline
+           src="assets/video/entreprise.mp4"></video>
+  </div>
+  <div class="entree__voile" aria-hidden="true"></div>
+  <div class="entree__grille" aria-hidden="true"></div>
+
+  <div class="entree__haut">
+    <div class="entree__etat mono" data-vu><i class="entree__point"></i>Atelier ouvert · hors ligne</div>
+    <div class="entree__coordonnees mono" data-vu>Kinshasa · RDC<br>4° 20′ S — 15° 18′ E</div>
+  </div>
+
+  <h1 class="entree__titre" data-masque>
+    <span class="l1">Des logiciels</span>
+    <span class="l2">qui tiennent debout.</span>
+  </h1>
+  <p class="entree__chapo" data-vu>
+    ModEric Software conçoit des logiciels de métier pour ceux qui travaillent sans filet :
+    un comptoir qui encaisse, une école qui compte ses élèves. Ils fonctionnent sans Internet,
+    sans serveur chez nous, et ils disent la vérité quand une donnée manque.
+  </p>
+
+  <div class="entree__bas">
+    <div class="lecteur">
+      <button type="button" data-film="lecture" aria-label="Mettre le film en lecture ou en pause">
+        <svg viewBox="0 0 24 24"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg>
+      </button>
+      <button type="button" data-film="son" aria-pressed="false" aria-label="Activer ou couper le son">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 9h3l4-4v14l-4-4H4zM16 9l4 6M20 9l-4 6"/></svg>
+      </button>
+      <div class="lecteur__etat"><b data-film="etat">Film en lecture</b>Boucle · 17 s · sans parole</div>
+    </div>
+    <div></div>
+    <nav class="index" aria-label="Nos logiciels">
+      <a class="index__lien" href="stockia.html" data-curseur="Ouvrir">
+        <span class="index__nom">Stockia</span>
+        <span class="index__quoi">Caisse · stock · rapports</span>
+      </a>
+      <a class="index__lien" href="dd-spirity.html" data-curseur="Ouvrir">
+        <span class="index__nom">D.D- Spirity</span>
+        <span class="index__quoi">Vie scolaire · présences</span>
+      </a>
+    </nav>
+  </div>
+</section>
+
+<!-- ─────────────── LA BANDE ─────────────── -->
+<div class="bande" aria-hidden="true">
+  <div class="bande__piste">
+    <span class="bande__mot">Hors ligne</span><span class="bande__mot">Poste local</span>
+    <span class="bande__mot">Sans serveur</span><span class="bande__mot">Vos données chez vous</span>
+    <span class="bande__mot">Windows</span><span class="bande__mot">Android</span>
+    <span class="bande__mot">Aucun chiffre inventé</span>
+  </div>
+  <div class="bande__piste">
+    <span class="bande__mot">Hors ligne</span><span class="bande__mot">Poste local</span>
+    <span class="bande__mot">Sans serveur</span><span class="bande__mot">Vos données chez vous</span>
+    <span class="bande__mot">Windows</span><span class="bande__mot">Android</span>
+    <span class="bande__mot">Aucun chiffre inventé</span>
   </div>
 </div>
 
-<main>
-
-<!-- ══════════════════════════ 1. le premier écran ══════════════════════════ -->
-<section class="hero">
-  <div class="hero__fond" aria-hidden="true"><img src="assets/video/poster.jpg" alt=""></div>
-  <div class="hero__grille" aria-hidden="true"></div>
-
-  <div class="page hero__page">
-    <div class="hero__dire">
-      <div class="surtitre hero__surtitre" data-apparait>Éditeur de logiciels · Kinshasa</div>
-      <h1 class="hero__titre" data-apparait>Nous écrivons le logiciel <em>que le terrain réclame.</em></h1>
-      <p class="hero__texte" data-apparait>
-        ModEric Software conçoit des logiciels métier pour les commerces et les établissements.
-        Des programmes qui tiennent leur promesse là où la connexion ne tient pas : chez nous,
-        un logiciel travaille hors ligne, sans serveur, sur le poste du bureau.
-      </p>
-      <div class="hero__actions" data-apparait>
-        <a class="btn btn--primaire" href="#logiciels">
-          Découvrir nos logiciels
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-        <a class="btn btn--fantome" href="entreprise.html">Qui nous sommes</a>
-      </div>
-    </div>
-
-    <figure class="film" data-apparait="voile">
-      <video poster="assets/video/poster.jpg" preload="metadata" muted playsinline
-             aria-label="Film de présentation de ModEric Software — 17 secondes, sans parole">
-        <source src="assets/video/entreprise.mp4" type="video/mp4">
-        Votre navigateur ne lit pas la vidéo MP4 : le film est aussi raconté plus bas, en texte.
-      </video>
-      <div class="film__voile">
-        <button class="film__bouton" type="button" aria-label="Lire le film de présentation">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg>
-        </button>
-      </div>
-      <div class="film__barre" aria-hidden="true"><i></i></div>
-      <div class="film__pied">
-        <span>Film de présentation · 17 s</span>
-        <span class="minuteur">0:00 / 0:17</span>
-        <span class="film__commande">
-          <button type="button" data-film="son" aria-pressed="true" aria-label="Couper ou rétablir le son">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 9h3l4-4v14l-4-4H4zM15.5 8.5a5 5 0 0 1 0 7M18 6a8.5 8.5 0 0 1 0 12"/></svg>
-          </button>
-          <button type="button" data-film="reprise" aria-label="Revoir depuis le début">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 1 0 2.6-5.9M4 4v4h4"/></svg>
-          </button>
-        </span>
-      </div>
-    </figure>
-  </div>
-
-  <div class="page">
-    <div class="hero__pied" data-apparait>
-      <span><b>Deux logiciels</b> en service</span>
-      <span><b>Hors ligne</b> d'abord</span>
-      <span><b>Windows</b> et Android</span>
-      <a class="hero__defiler" href="#atelier">Défiler <i></i></a>
+<!-- ─────────────── LE MANIFESTE ─────────────── -->
+<section class="manifeste">
+  <div class="manifeste__grille">
+    <p class="manifeste__dit" data-vu>
+      Nous n'écrivons pas des logiciels pour remplir un catalogue.
+      Nous écrivons ceux qui manquent, <i>là où le travail se fait.</i>
+    </p>
+    <div class="manifeste__aside" data-vu data-rang="1">
+      <p><b>Deux produits, aucun prototype.</b> Stockia tient une caisse et un stock.
+      D.D- Spirity tient la journée d'un Directeur de Discipline. Tous les deux sortent
+      de la même main, du premier fichier à l'installateur.</p>
+      <p>Le reste — les promesses, les chiffres, les badges — ne nous intéresse pas.
+      Ce qui nous intéresse, c'est ce qui se passe le troisième mois d'utilisation.</p>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════ 2. l'atelier ══════════════════════════ -->
-<section class="section section--papier" id="atelier">
-  <div class="page duo">
-    <div>
-      <div class="num" data-apparait>01 — L'atelier</div>
-      <p class="edito" data-apparait style="margin-top:18px">
-        Nous ne faisons pas de logiciels pour faire du logiciel. Nous en faisons pour
-        <em>une caisse qui doit fermer juste</em>, pour <em>une école qui doit savoir qui est entré</em>.
-      </p>
-    </div>
-    <div>
-      <p class="lede" data-apparait>
-        ModEric Software est une maison de développement logiciel établie à Kinshasa. Nous
-        concevons, développons et distribuons nos propres programmes — nous ne revendons pas
-        le travail d'un autre, et nous ne laissons pas un client se débrouiller avec un manuel.
-      </p>
-      <p class="lede" data-apparait style="margin-top:18px">
-        Notre terrain est précis : des commerces qui encaissent chaque jour, des établissements
-        qui reçoivent des centaines d'élèves. Des lieux où l'électricité hésite, où Internet
-        coûte cher, et où une panne logicielle se paie en argent réel ou en désordre réel.
-      </p>
-      <ul class="principes">
-        <li data-apparait>
-          <b>Le poste local d'abord</b>
-          <span>Vos données vivent sur votre machine, dans un fichier que vous pouvez copier, emporter, sauvegarder. Aucun abonnement à une connexion.</span>
-        </li>
-        <li data-apparait>
-          <b>Le logiciel ne devine pas</b>
-          <span>Un taux, un barème, un volume horaire, un prix : c'est l'établissement qui l'écrit. Là où rien n'est déclaré, le logiciel le dit au lieu d'inventer.</span>
-        </li>
-        <li data-apparait>
-          <b>Rien de décoratif</b>
-          <span>Chaque bouton a un effet, chaque réglage commande quelque chose. Ce qui ne sert pas est retiré — ou n'entre jamais.</span>
-        </li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="page">
-    <div class="faits" data-rang="0">
-      <div data-apparait><b>2</b><span>logiciels en service, dans des commerces et des écoles</span></div>
-      <div data-apparait data-rang="1"><b>0</b><span>connexion exigée pour travailler</span></div>
-      <div data-apparait data-rang="2"><b>Kinshasa</b><span>là où nous écrivons, installons et formons</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════ 3. les logiciels ══════════════════════════ -->
-<section class="section section--nuit" id="logiciels">
-  <div class="page">
-    <div class="duo">
+<!-- ─────────────── CHAPITRE STOCKIA ─────────────── -->
+<section class="chapitre chapitre--stockia" id="logiciels">
+  <div class="chapitre__tete">
+    <div class="chapitre__marque" data-vu>
+      <img class="chapitre__embleme" src="assets/img/stockia-logo-256.png" alt="Emblème de Stockia">
       <div>
-        <div class="num" data-apparait>02 — Nos logiciels</div>
-        <h2 class="titre-section" data-apparait style="margin-top:18px">Deux métiers, deux logiciels, une même exigence.</h2>
+        <h2 class="chapitre__nom">Stockia</h2>
+        <div class="chapitre__role">Commerce · caisse, stock, rapports</div>
       </div>
-      <p class="lede" data-apparait>
-        Chacun vient d'un besoin réel, posé sur une table : tenir une caisse et un stock sans
-        se tromper ; tenir la discipline et les présences d'une école sans y passer la journée.
-      </p>
+    </div>
+    <a class="bouton bouton--vide" href="stockia.html" data-vu data-rang="1"><span>Ouvrir le dossier</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 5.5l6.5 6.5-6.5 6.5"/></svg></a>
+  </div>
+
+  <div class="scene">
+    <div class="planche planche--attente" data-vu>
+      <i class="planche__repere"></i><i class="planche__repere"></i>
+      <i class="planche__repere"></i><i class="planche__repere"></i>
+      <div class="planche__cadre">
+        <div class="planche--attente__dit">
+          <span class="mono">Interface · captures en cours d'intégration</span>
+          <strong>La place est faite pour les écrans de la caisse.</strong>
+        </div>
+      </div>
+      <div class="planche__legende"><span>Stockia · poste de vente</span><span>Source : logiciel en service</span></div>
     </div>
 
-    <!-- Stockia -->
-    <article class="fiche">
-      <div class="fiche__texte">
-        <div class="fiche__rang" data-apparait><b>01</b> Gestion commerciale</div>
-        <div class="fiche__nom" data-apparait>
-          <img src="assets/img/stockia-logo.png" alt="Emblème Stockia">
-          <div>
-            <h3>Stockia</h3>
-            <div class="fiche__role">Caisse, stock et rapports pour pharmacies et commerces</div>
-          </div>
-        </div>
-        <p class="texte" data-apparait>
-          Le poste de vente qui encaisse, décompte le stock et rend des comptes. Pensé pour un
-          comptoir qui ne peut pas attendre : la vente est enregistrée avant l'impression, le
-          reçu ne bloque jamais l'encaissement, et les rapports se lisent en fin de journée.
-        </p>
-        <ul class="fiche__points">
-          <li data-apparait><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg> Stock, ventes et opérations de caisse</li>
-          <li data-apparait><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg> Produits et fournisseurs</li>
-          <li data-apparait><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg> Dettes et créances</li>
-          <li data-apparait><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg> Rapports et statistiques</li>
-        </ul>
-        <div class="fiche__actions" data-apparait>
-          <a class="btn btn--papier" href="stockia.html">
-            Découvrir le logiciel
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
-          <a class="btn btn--fantome" href="stockia.html#telecharger">Télécharger</a>
-        </div>
-        <div class="fiche__note" data-apparait>Windows et Android · données sur le poste</div>
-      </div>
-      <div class="plaque" data-apparait data-rang="1">
-        <div class="plaque__grand">
-          <img src="assets/img/og.jpg" alt="Aperçu de l'univers graphique de ModEric Software">
-        </div>
-        <div class="plaque__petit">
-          <img src="assets/img/stockia-logo.png" alt="Emblème de Stockia">
-        </div>
-      </div>
-    </article>
+    <aside class="fiche" data-vu data-rang="1">
+      <div class="fiche__ligne"><span class="fiche__cle">Poste</span><span class="fiche__val">Windows 10 / 11</span></div>
+      <div class="fiche__ligne"><span class="fiche__cle">Téléphone</span><span class="fiche__val">Android 8 et plus</span></div>
+      <div class="fiche__ligne"><span class="fiche__cle">Connexion</span><span class="fiche__val fiche__val--signal">Aucune requise</span></div>
+      <div class="fiche__ligne"><span class="fiche__cle">Données</span><span class="fiche__val">Sur votre poste</span></div>
+      <div class="fiche__ligne"><span class="fiche__cle">Reçus</span><span class="fiche__val">Thermique ou PDF</span></div>
+      <div class="fiche__ligne"><span class="fiche__cle">Version</span><span class="fiche__val">3.4 · en service</span></div>
+    </aside>
+  </div>
 
-    <!-- D.D- Spirity -->
-    <article class="fiche">
-      <div class="fiche__texte">
-        <div class="fiche__rang" data-apparait><b>02</b> Vie scolaire</div>
-        <div class="fiche__nom" data-apparait>
-          <svg viewBox="0 0 96 96" aria-hidden="true">
-            <path fill="#1578AC" d="M48 2 L90 16.5 V46 C90 69.5 73 86.5 48 94.5 C23 86.5 6 69.5 6 46 V16.5 Z"/>
-            <path fill="#FFFFFF" d="M48 12.5 L80 24.3 V46 C80 65.3 66.6 79.3 48 87 C29.4 79.3 16 65.3 16 46 V24.3 Z"/>
-            <path fill="#1E9CD8" d="M48 22 L70.5 30.8 V46 C70.5 60.9 60.9 72.2 48 78.6 C35.1 72.2 25.5 60.9 25.5 46 V30.8 Z"/>
-            <path fill="#FFFFFF" d="M35 36 H61 V41.5 H35 Z M35 47.5 H61 V53 H35 Z M35 59 H51 V64.5 H35 Z"/>
-          </svg>
-          <div>
-            <h3>D.D- Spirity</h3>
-            <div class="fiche__role">Le poste du Directeur de Discipline</div>
-          </div>
-        </div>
-        <p class="texte" data-apparait>
-          L'école, côté discipline : les entrées et sorties, les présences, les sanctions, les
-          cartes d'élèves, le personnel et la paie du mois — sur le poste du bureau, et sur un
-          téléphone de terrain qui vient s'y brancher pour rapporter ce qu'il a noté.
-        </p>
-        <ul class="fiche__points">
-          <li data-apparait><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg> Entrées, retards, sorties et oublis de carte</li>
-          <li data-apparait><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg> Cartes d'élèves imprimables, QR et CODE-128</li>
-          <li data-apparait><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg> Horaires, séances, personnel et paie</li>
-          <li data-apparait><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg> Calendrier scolaire et jours tenus</li>
-        </ul>
-        <div class="fiche__actions" data-apparait>
-          <a class="btn btn--papier" href="dd-spirity.html">
-            Découvrir le logiciel
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
-          <a class="btn btn--fantome" href="dd-spirity.html#telecharger">Télécharger</a>
-        </div>
-        <div class="fiche__note" data-apparait>Poste Windows · application de terrain Android</div>
-      </div>
-      <div class="plaque plaque--gauche" data-apparait data-rang="1">
-        <div class="plaque__grand">
-          <img src="assets/img/dd-accueil.jpg" alt="Le tableau du jour du poste D.D- Spirity, sur une année d'essai">
-        </div>
-        <div class="plaque__petit">
-          <img src="assets/img/dd-carte.jpg" alt="Carte d'élève imprimée par D.D- Spirity">
-        </div>
-      </div>
-    </article>
+  <div class="registre">
+    <div class="registre__ligne" data-vu>
+      <div class="registre__nom">Le stock</div>
+      <p class="registre__dit">Les quantités suivent les ventes. Vous savez ce qui reste, ce qui manque et ce qui dort sur l'étagère.</p>
+      <span class="registre__rang">I</span>
+    </div>
+    <div class="registre__ligne" data-vu>
+      <div class="registre__nom">La caisse</div>
+      <p class="registre__dit">La vente est enregistrée avant l'impression : une imprimante qui refuse ne fait jamais perdre une opération.</p>
+      <span class="registre__rang">II</span>
+    </div>
+    <div class="registre__ligne" data-vu>
+      <div class="registre__nom">Les fournisseurs</div>
+      <p class="registre__dit">Le catalogue du commerce avec ses prix et ses références, et l'origine de chaque produit.</p>
+      <span class="registre__rang">III</span>
+    </div>
+    <div class="registre__ligne" data-vu>
+      <div class="registre__nom">Les dettes</div>
+      <p class="registre__dit">Ce que le commerce doit, ce qu'on lui doit. Les soldes se lisent sans reconstituer un cahier.</p>
+      <span class="registre__rang">IV</span>
+    </div>
+    <div class="registre__ligne" data-vu>
+      <div class="registre__nom">Les rapports</div>
+      <p class="registre__dit">Journée, mois, année : les montants, les produits qui tournent, ceux qui ne tournent pas.</p>
+      <span class="registre__rang">V</span>
+    </div>
+  </div>
+
+  <div class="chapitre__actions">
+    <a class="bouton bouton--plein" href="stockia.html"><span>Découvrir Stockia</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 5.5l6.5 6.5-6.5 6.5"/></svg></a>
+    <a class="bouton bouton--vide" href="stockia.html#telecharger"><span>Télécharger</span></a>
   </div>
 </section>
 
-<!-- ══════════════════════════ 4. la méthode ══════════════════════════ -->
-<section class="section section--papier-2" id="methode">
-  <div class="page">
-    <div class="duo">
-      <div>
-        <div class="num" data-apparait>03 — Notre façon de travailler</div>
-        <p class="edito" data-apparait style="margin-top:18px">
-          Un logiciel de terrain s'écrit <em>sur le terrain</em>. Nous observons d'abord,
-          nous construisons ensuite, et nous revenons voir.
-        </p>
+<!-- ─────────────── CHAPITRE D.D- SPIRITY ─────────────── -->
+<section class="parcours" id="dd-spirity">
+  <div class="parcours__tete">
+    <div data-vu>
+      <div class="repere">Deuxième logiciel</div>
+      <div class="parcours__nom">
+        <svg viewBox="0 0 96 96" aria-hidden="true"><path fill="#1578AC" d="M48 2 L90 16.5 V46 C90 69.5 73 86.5 48 94.5 C23 86.5 6 69.5 6 46 V16.5 Z"/><path fill="#FFFFFF" d="M48 12.5 L80 24.3 V46 C80 65.3 66.6 79.3 48 87 C29.4 79.3 16 65.3 16 46 V24.3 Z"/><path fill="#1E9CD8" d="M48 22 L70.5 30.8 V46 C70.5 60.9 60.9 72.2 48 78.6 C35.1 72.2 25.5 60.9 25.5 46 V30.8 Z"/><path fill="#FFFFFF" d="M35 36 H61 V41.5 H35 Z M35 47.5 H61 V53 H35 Z M35 59 H51 V64.5 H35 Z"/></svg>
+        <h2>D.D- <i>Spirity</i></h2>
       </div>
-      <div>
-        <p class="lede" data-apparait>
-          Aucune de nos deux applications n'est née dans un bureau. Elles viennent d'avoir
-          regardé travailler les gens qu'elles servent — puis d'avoir corrigé ce que nous
-          avions mal compris.
-        </p>
+      <div class="chapitre__role" style="color:var(--sur-os-pale)">Vie scolaire · poste du Directeur de Discipline</div>
+    </div>
+    <p class="parcours__propos" data-vu data-rang="1">
+      Le poste du bureau tient le registre de l'école. Le téléphone, lui, va chercher ce que
+      le bureau ne peut pas voir : le portillon, les tours de classes. Deux appareils, un seul
+      registre — et rien à configurer sur le téléphone.
+    </p>
+  </div>
+
+  <div class="stage">
+    <div class="stage__visuel">
+      <div class="stage__cadre" data-vu>
+        <img src="assets/medias/dd-accueil.jpg" alt="Le tableau du jour du poste" width="2400" height="1350">
+        <img src="assets/medias/dd-presence.jpg" alt="L'appel d'une classe" width="2400" height="1350">
+        <img src="assets/medias/dd-calendrier.jpg" alt="Le calendrier de l'année" width="2400" height="1350">
       </div>
+      <div class="stage__etiquette"><span>Capture réelle · année d'essai</span><b>Le tableau du jour du poste</b></div>
     </div>
 
-    <div class="methode">
-      <div data-apparait><b>I.</b><h4>Observer</h4><p>Nous passons du temps là où le travail se fait : le comptoir, le portillon, le bureau du directeur.</p></div>
-      <div data-apparait data-rang="1"><b>II.</b><h4>Écrire</h4><p>Un logiciel tenu par une seule équipe, du premier fichier à l'installateur. Rien n'est sous-traité à l'aveugle.</p></div>
-      <div data-apparait data-rang="2"><b>III.</b><h4>Éprouver</h4><p>Chaque version passe des centaines de contrôles automatiques avant livraison : impression, calculs, échanges, données.</p></div>
-      <div data-apparait data-rang="3"><b>IV.</b><h4>Revenir</h4><p>Un client qui utilise son logiciel trouve toujours mieux que nous. Ses remarques entrent dans la version suivante.</p></div>
+    <div class="stage__textes">
+      <article class="etape" data-etape="0">
+        <span class="etape__rang">Le matin</span>
+        <h3>Savoir qui est entré, sans tenir de cahier.</h3>
+        <p>Le tableau du jour rassemble l'effectif, les présences, les retards et les séances à
+        valider. Une carte scannée au portillon pointe l'élève ; sans carte, la preuve retenue
+        s'écrit (photo confirmée, appel nominal, code) — jamais une empreinte d'élève.</p>
+        <div class="etape__note">Poste local · les données ne quittent pas l'école</div>
+      </article>
+      <article class="etape" data-etape="1">
+        <span class="etape__rang">L'appel</span>
+        <h3>Une classe, élève par élève, en une minute.</h3>
+        <p>Chaque statut est horodaté et signé du nom de qui l'a posé. Le poste ne déclare
+        personne absent à la place du directeur : il montre, il n'invente pas.</p>
+        <div class="etape__note">Retard, absence, motif — et l'adulte qui a décidé</div>
+      </article>
+      <article class="etape" data-etape="2">
+        <span class="etape__rang">L'année</span>
+        <h3>Les jours tenus comptent plus que les jours prévus.</h3>
+        <p>Calendrier, périodes, fériés, vacances, examens : ce sont les jours réellement tenus
+        qui entrent dans les calculs — pas une estimation du logiciel.</p>
+        <div class="etape__note">Calendrier de l'école · éditable jour par jour</div>
+      </article>
     </div>
+  </div>
 
-    <div class="citation" data-apparait style="margin-top:clamp(40px,6vw,72px)">
-      <p>« Un bon logiciel ne se remarque pas : il fait simplement en sorte que la journée se termine juste. »</p>
-      <cite>ModEric Software</cite>
+  <div class="pose-carte">
+    <img src="assets/medias/dd-carte.jpg" alt="Carte d'élève imprimée, avec QR et numéro de carte" data-vu width="2000" height="1261">
+    <div class="pose-carte__dit" data-vu data-rang="1">
+      <h3>La carte d'élève n'est pas un numéro d'élève.</h3>
+      <p>Recto et verso, QR pour le portillon, CODE-128 pour le secrétariat, huit cartes par
+      feuille A4 aux cotes réelles (85,60 × 53,98 mm). Une carte perdue se remplace et l'ancienne
+      cesse d'ouvrir — le registre s'en souvient.</p>
+      <div class="pose-carte__specs mono">
+        <span>QR · CODE-128</span><span>85,60 × 53,98 mm</span><span>8 par A4</span>
+      </div>
+      <div class="chapitre__actions" style="margin-top:26px">
+        <a class="bouton bouton--os" href="dd-spirity.html"><span>Découvrir D.D- Spirity</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 5.5l6.5 6.5-6.5 6.5"/></svg></a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════ 5. la philosophie ══════════════════════════ -->
-<section class="section section--papier" id="philosophie">
-  <div class="page duo duo--inverse">
+<!-- ─────────────── CE QUE NOUS REFUSONS ─────────────── -->
+<section class="refus">
+  <div class="refus__inner">
     <div>
-      <div class="num" data-apparait>04 — Notre philosophie</div>
-      <h2 class="titre-section" data-apparait style="margin-top:18px">L'utilité d'abord. La complexité seulement si elle paie.</h2>
-      <p class="lede" data-apparait style="margin-top:22px">
-        Nous préférons un logiciel qui fait dix choses parfaitement à un logiciel qui en promet
-        quarante. Ce qui n'aide pas quelqu'un à finir son travail plus vite ne mérite pas
-        d'occuper son écran.
-      </p>
-      <p class="lede" data-apparait style="margin-top:16px">
-        Nous soignons les détails invisibles — la lisibilité d'un chiffre au fond de la salle,
-        l'impression qui reste cadrée, un message qui explique au lieu de faire un bruit — parce
-        que ce sont eux qui décident si l'outil sera utilisé le troisième jour.
-      </p>
+      <div class="repere" data-vu>La règle de la maison</div>
+      <h2 class="plan__titre" data-vu data-rang="1" style="margin-top:16px">Ce qui n'entrera jamais dans un de nos logiciels.</h2>
     </div>
-    <div>
-      <ul class="principes" style="margin-top:0">
-        <li data-apparait><b>Utilité avant complexité</b><span>Un écran = une décision à prendre. Le reste attend son tour.</span></li>
-        <li data-apparait><b>Simplicité d'usage</b><span>Deux lettres suffisent pour retrouver un nom, une classe, un motif. Personne ne doit mémoriser un code.</span></li>
-        <li data-apparait><b>Performance</b><span>Le logiciel s'ouvre et répond sur le poste modeste d'une école, pas seulement sur une machine récente.</span></li>
-        <li data-apparait><b>Fiabilité</b><span>Une donnée écrite ne doit pas se perdre : copies de sécurité, refus d'écraser, journal des écritures.</span></li>
-        <li data-apparait><b>Amélioration continue</b><span>Chaque version est numérotée, décrite et publiée — vous savez ce que vous installez.</span></li>
-      </ul>
+    <div class="refus__liste">
+      <div class="refus__item" data-refus><span>Des chiffres inventés</span><em>taux, barèmes, prix</em></div>
+      <div class="refus__item" data-refus><span>Un bouton sans effet</span><em>décoratif</em></div>
+      <div class="refus__item" data-refus><span>Une connexion obligatoire</span><em>serveur distant</em></div>
+      <div class="refus__item" data-refus><span>Un formulaire plein de champs</span><em>sans hiérarchie</em></div>
+      <div class="refus__item" data-refus><span>Une donnée perdue en silence</span><em>sans journal</em></div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════ 6. l'appel ══════════════════════════ -->
-<section class="appel">
-  <div class="page">
-    <div>
-      <h2 data-apparait>Un comptoir, une école, un besoin qui ne rentre dans aucun logiciel ?</h2>
-      <p data-apparait>Écrivez-nous ce que vous devez faire chaque jour. C'est comme ça que nos deux logiciels sont nés.</p>
-    </div>
-    <div class="appel__actions" data-apparait>
-      <a class="btn btn--primaire" href="contact.html">
-        Écrire à ModEric
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
-      <a class="btn btn--fantome" href="logiciels.html">Voir les téléchargements</a>
+<!-- ─────────────── LA SORTIE ─────────────── -->
+<section class="sortie" id="contact">
+  <div class="sortie__inner">
+    <h2 class="sortie__appel" data-vu>Un comptoir, une école, <i>un besoin qui ne rentre dans aucun logiciel ?</i></h2>
+    <a class="sortie__courriel" href="mailto:contact@mod-eric.com" data-vu data-rang="1">
+      contact@mod-eric.com
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 5.5l6.5 6.5-6.5 6.5"/></svg>
+    </a>
+    <div class="sortie__grille">
+      <div class="sortie__bloc" data-vu>
+        <p class="sortie__etiquette">L'atelier</p>
+        <p>Kinshasa, République démocratique du Congo.<br>Heure locale : <span data-heure>—</span> (UTC+1).</p>
+      </div>
+      <div class="sortie__bloc" data-vu data-rang="1">
+        <p class="sortie__etiquette">Les logiciels</p>
+        <a href="stockia.html">Stockia — commerce</a>
+        <a href="dd-spirity.html">D.D- Spirity — vie scolaire</a>
+      </div>
+      <div class="sortie__bloc" data-vu data-rang="2">
+        <p class="sortie__etiquette">Ce qu'il faut nous dire</p>
+        <p>Le logiciel, le nombre de postes, l'usage. Pour un incident : la version affichée et
+        ce que vous faisiez.</p>
+      </div>
     </div>
   </div>
 </section>
 
-</main>
 
-<!-- ══════════════════════════ le pied ══════════════════════════ -->
 <footer class="pied">
-  <div class="page">
-    <div class="pied__haut">
-      <div>
-        <div class="pied__marque">
-          <svg viewBox="0 0 210 210" aria-hidden="true">
-            <circle cx="105" cy="105" r="92" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-dasharray="536 42" transform="rotate(126 105 105)"/>
-            <circle cx="105" cy="105" r="77" fill="none" stroke="currentColor" stroke-width="1.2" opacity=".3"/>
-            <text x="104" y="107" text-anchor="middle" dominant-baseline="central" fill="currentColor" font-family="Manrope, sans-serif" font-weight="800" font-size="96" letter-spacing="-4">M</text>
-          </svg>
-          <div><b>ModEric</b><span>Software</span></div>
-        </div>
-        <p class="pied__presentation">
-          Éditeur de logiciels métier établi à Kinshasa. Nous concevons, développons et
-          distribuons nos propres programmes : gestion commerciale et logiciels d'établissement,
-          pensés pour travailler hors ligne.
-        </p>
-      </div>
-      <div>
-        <p class="pied__titre">Le site</p>
-        <ul>
-          <li><a href="index.html">Accueil</a></li>
-          <li><a href="entreprise.html">Notre entreprise</a></li>
-          <li><a href="logiciels.html">Nos logiciels</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <p class="pied__titre">Nos logiciels</p>
-        <ul>
-          <li><a href="stockia.html">Stockia</a></li>
-          <li><a href="dd-spirity.html">D.D- Spirity</a></li>
-          <li><a href="stockia.html#telecharger">Télécharger Stockia</a></li>
-          <li><a href="dd-spirity.html#telecharger">Télécharger D.D- Spirity</a></li>
-        </ul>
-      </div>
-      <div>
-        <p class="pied__titre">Nous joindre</p>
-        <div class="pied__coord">
-          <a href="mailto:contact@mod-eric.com">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18v12H3zM3 7l9 6 9-6"/></svg>
-            contact@mod-eric.com
-          </a>
-          <span>Kinshasa, RDC</span>
-          <span>Heure de l'atelier : <span data-heure-kinshasa>—</span></span>
-        </div>
-      </div>
-    </div>
-    <div class="pied__bas">
-      <span>© <span id="annee">2026</span> ModEric Software. Tous droits réservés.</span>
-      <ul>
-        <li><a href="mentions-legales.html">Mentions légales</a></li>
-        <li><a href="mentions-legales.html#donnees">Données personnelles</a></li>
-        <li><a href="logiciels.html">Catalogue</a></li>
-      </ul>
-    </div>
+  <div class="pied__inner">
+    <span>© <span id="annee">2026</span> ModEric Software · Kinshasa, RDC</span>
+    <span>Heure de l’atelier : <span data-heure>—</span></span>
+    <span class="pied__liens">
+      <a href="stockia.html">Stockia</a>
+      <a href="dd-spirity.html">D.D- Spirity</a>
+      <a href="contact.html">Contact</a>
+      <a href="mentions-legales.html">Mentions légales</a>
+    </span>
   </div>
 </footer>
 

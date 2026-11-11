@@ -1,41 +1,254 @@
 /* ══════════════════════════════════════════════════════════════════════════════
-   ModEric Software — interactions du site
+   MODERIC SOFTWARE — le mouvement du site
    ──────────────────────────────────────────────────────────────────────────────
-   Cinq choses, et rien d'autre. Aucune bibliothèque, aucun script tiers.
+   Règle de conduite : le mouvement raconte, il ne décore pas. Tout est écrit en
+   transform / opacity (jamais de layout), piloté par requestAnimationFrame, et
+   coupé net si le système demande moins d'animation.
 
-     1. l'entête se pose au défilement (et se retire quand on remonte) ;
-     2. le menu de téléphone (ouvert au clic, fermé au clavier) ;
-     3. les apparitions au défilement — une IntersectionObserver, pas un
-        écouteur de scroll par élément ;
-     4. le film du premier écran : lecture, son, reprise, barre de temps ;
-     5. la visionneuse des captures, et les boutons de téléchargement qui
-        lisent assets/js/telechargements.js (jamais de faux bouton).
-
-   Tout est écrit pour être lu : si une page n'a pas de film ou pas de
-   galerie, le code correspondant ne s'exécute simplement pas.
+     1. la barre de tête prend son fond quand on quitte l'entrée ;
+     2. le volet : les liens internes partent sous un balayage d'encre ;
+     3. l'apparition : on observe le CONTENEUR, puis on révèle ses enfants ;
+     4. le récit des interfaces : dans la scène collante, l'étape la plus proche du
+        milieu de l'écran décide de l'image affichée ;
+     5. le curseur : un point et un anneau, qui s'ouvrent sur ce qu'on peut voir ;
+     6. le film de l'entrée : lecture, son, état, en boucle et sans parole ;
+     7. les téléchargements : lus dans assets/js/telechargements.js — jamais de
+        bouton creux, jamais de faux lien ;
+     8. l'heure de l'atelier, et le menu de téléphone.
    ══════════════════════════════════════════════════════════════════════════════ */
 (function () {
   'use strict';
 
   var calme = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fin = window.matchMedia('(pointer: fine)').matches;
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
 
-  /* ───────────────────────── 1. l'entête ───────────────────────── */
-  var entete = $('.entete');
-  var dernier = 0;
-  function poserEntete() {
-    if (!entete) return;
+  /* ───────── 1. la barre de tête et la jauge de lecture ───────── */
+  var tete = $('.tete');
+  var jauge = document.createElement('div');
+  jauge.id = 'jauge';
+  document.body.appendChild(jauge);
+  function lireDefilement() {
     var y = window.scrollY || window.pageYOffset;
-    entete.classList.toggle('entete--pose', y > 40);
-    /* on ne cache jamais l'entête : un site institutionnel doit toujours
-       laisser une porte de sortie. Seule la taille et le fond changent. */
-    dernier = y;
+    if (tete) tete.classList.toggle('tete--posee', y > 24);
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    jauge.style.width = (h > 0 ? (y / h) * 100 : 0) + '%';
   }
-  window.addEventListener('scroll', poserEntete, { passive: true });
-  poserEntete();
+  window.addEventListener('scroll', lireDefilement, { passive: true });
+  lireDefilement();
 
-  /* ───────────────────────── 2. le menu de téléphone ───────────────────────── */
+  /* ───────── 2. le volet entre les pages ───────── */
+  var volet = document.createElement('div');
+  volet.id = 'volet';
+  document.body.appendChild(volet);
+  function partir(vers) {
+    if (calme) { window.location.href = vers; return; }
+    volet.classList.add('actif');
+    setTimeout(function () { window.location.href = vers; }, 420);
+  }
+  $$('a[href]').forEach(function (a) {
+    var h = a.getAttribute('href');
+    if (!h || /^(https?:|mailto:|tel:|#|javascript:)/.test(h)) return;
+    a.addEventListener('click', function (e) {
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+      if (a.target && a.target !== '_self') return;
+      var cible = h.split('#')[0];
+      var ici = location.pathname.split('/').pop() || 'index.html';
+      if (!cible || cible === ici) return;      /* même page : on laisse le navigateur */
+      e.preventDefault();
+      partir(h);
+    });
+  });
+  window.addEventListener('pageshow', function () { volet.classList.remove('actif'); });
+
+  /* ───────── 3. l'apparition ─────────
+     On observe le conteneur (une section), puis on révèle ses enfants. Observer
+     l'élément lui-même ne marche pas : un masque fermé ou un trait à l'échelle 0
+     n'a aucune surface d'intersection — l'observateur ne le verrait jamais. */
+  var aReveler = $$('[data-vu],[data-masque],[data-filet],[data-refus]');
+  var groupes = [];
+  aReveler.forEach(function (el) {
+    var conteneur = el.closest('section, .sortie, .pied') || el.parentElement;
+    var g = null;
+    for (var i = 0; i < groupes.length; i++) if (groupes[i].el === conteneur) { g = groupes[i]; break; }
+    if (!g) { g = { el: conteneur, enfants: [] }; groupes.push(g); }
+    g.enfants.push(el);
+  });
+  function reveler(g) {
+    g.enfants.forEach(function (el) {
+      var rang = Number(el.getAttribute('data-rang') || 0);
+      el.style.setProperty('--retard', (rang * 110) + 'ms');
+      el.classList.add('vu');
+    });
+  }
+  if (!calme && 'IntersectionObserver' in window) {
+    var obs = new IntersectionObserver(function (entrees) {
+      entrees.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        for (var i = 0; i < groupes.length; i++) if (groupes[i].el === e.target) reveler(groupes[i]);
+        obs.unobserve(e.target);
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.04 });
+    groupes.forEach(function (g) { obs.observe(g.el); });
+  } else {
+    groupes.forEach(reveler);
+  }
+  /* le premier écran entre tout de suite, en cascade, sans attendre le défilement */
+  $$('.entree [data-vu], .entree [data-masque], .dossier [data-vu], .dossier [data-masque]').forEach(function (el, i) {
+    el.style.setProperty('--retard', (150 + i * 130) + 'ms');
+    requestAnimationFrame(function () { el.classList.add('vu'); });
+  });
+
+  /* ───────── 4. le récit des interfaces (scène collante) ───────── */
+  var stage = $('.stage');
+  if (stage) {
+    var images = $$('.stage__cadre img', stage);
+    var etapes = $$('.etape', stage);
+    var etiquette = $('.stage__etiquette b', stage);
+    var actif = -1;
+    function choisir(i) {
+      if (i === actif || !images[i]) return;
+      actif = i;
+      images.forEach(function (img, k) { img.classList.toggle('actif', k === i); });
+      etapes.forEach(function (et, k) { et.classList.toggle('est-lue', k === i); });
+      if (etiquette) etiquette.textContent = images[i].getAttribute('alt') || '';
+    }
+    if (images.length) images[0].classList.add('actif');
+    var enAttente = false;
+    function choisirParPosition() {
+      enAttente = false;
+      var milieu = window.innerHeight * 0.46, meilleur = 0, ecart = 1e9;
+      etapes.forEach(function (et, k) {
+        var r = et.getBoundingClientRect();
+        var e = Math.abs(r.top + r.height / 2 - milieu);
+        if (e < ecart) { ecart = e; meilleur = k; }
+      });
+      choisir(meilleur);
+    }
+    function surDefilement() {
+      if (enAttente) return;
+      enAttente = true;
+      requestAnimationFrame(choisirParPosition);
+    }
+    if (!calme) {
+      window.addEventListener('scroll', surDefilement, { passive: true });
+      window.addEventListener('resize', surDefilement);
+      choisirParPosition();
+    } else {
+      etapes.forEach(function (et) { et.classList.add('est-lue'); });
+    }
+  }
+
+  /* ───────── 5. le curseur (ordinateur seulement) ───────── */
+  if (fin && !calme) {
+    document.body.classList.add('curseur-maison');
+    var point = document.createElement('div'); point.id = 'curseur';
+    var anneau = document.createElement('div'); anneau.id = 'curseur-anneau';
+    var mots = document.createElement('div'); mots.id = 'curseur-mots';
+    document.body.appendChild(point); document.body.appendChild(anneau); document.body.appendChild(mots);
+    document.addEventListener('mousemove', function (e) {
+      var t = 'translate(' + e.clientX + 'px,' + e.clientY + 'px) translate(-50%,-50%)';
+      point.style.transform = t; anneau.style.transform = t; mots.style.transform = t;
+      point.style.opacity = 1; anneau.style.opacity = 1;
+    }, { passive: true });
+    document.addEventListener('mouseleave', function () { point.style.opacity = 0; anneau.style.opacity = 0; });
+    $$('a, button, .planche, .vue, .index__lien, .registre__ligne, .chapitre__embleme').forEach(function (el) {
+      el.addEventListener('mouseenter', function () {
+        document.body.classList.add('curseur-voir');
+        mots.textContent = el.getAttribute('data-curseur') || '';
+      });
+      el.addEventListener('mouseleave', function () {
+        document.body.classList.remove('curseur-voir');
+        mots.textContent = '';
+      });
+    });
+  }
+
+  /* ───────── 6. le film de l'entrée ───────── */
+  var film = $('.entree__film video');
+  if (film) {
+    var btn = $('[data-film="lecture"]');
+    var btnSon = $('[data-film="son"]');
+    var etatFilm = $('[data-film="etat"]');
+    function jouer() { var p = film.play(); if (p && p.catch) p.catch(function () {}); }
+    function peindre() {
+      if (etatFilm) etatFilm.textContent = film.paused ? 'Film en pause' : 'Film en lecture';
+      if (btn) btn.innerHTML = film.paused
+        ? '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>'
+        : '<svg viewBox="0 0 24 24"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg>';
+    }
+    if (btn) btn.addEventListener('click', function () { if (film.paused) jouer(); else film.pause(); peindre(); });
+    if (btnSon) btnSon.addEventListener('click', function () {
+      film.muted = !film.muted;
+      btnSon.setAttribute('aria-pressed', film.muted ? 'false' : 'true');
+      btnSon.innerHTML = film.muted
+        ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 9h3l4-4v14l-4-4H4zM16 9l4 6M20 9l-4 6"/></svg>'
+        : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 9h3l4-4v14l-4-4H4zM15.5 8.5a5 5 0 0 1 0 7M18 6a8.5 8.5 0 0 1 0 12"/></svg>';
+      if (!film.muted) jouer();
+    });
+    film.addEventListener('play', peindre);
+    film.addEventListener('pause', peindre);
+    /* le film démarre seul, sans son (les navigateurs l'autorisent dans ce cas) ;
+       si le système demande moins d'animation, l'image d'attente tient le premier écran */
+    if (!calme) { film.muted = true; jouer(); } else { film.pause(); }
+    peindre();
+  }
+
+  /* ───────── 7. les téléchargements ───────── */
+  var config = window.MODERIC_TELECHARGEMENTS || {};
+  var ICONE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7.5 11L12 15.5 16.5 11M5 19h14"/></svg>';
+  $$('[data-tele]').forEach(function (bloc) {
+    var p = bloc.getAttribute('data-tele').split(':');
+    var pf = (config[p[0]] || {})[p[1]] || {};
+    var zone = $('[data-tele-actions]', bloc);
+    var etat = $('[data-tele-etat]', bloc);
+    if (!zone) return;
+    if (pf.url) {
+      var a = document.createElement('a');
+      a.className = 'bouton bouton--plein';
+      a.href = pf.url;
+      a.rel = 'noopener';
+      a.innerHTML = '<span>Télécharger' + (pf.taille ? ' · ' + pf.taille : '') + '</span>' + ICONE;
+      zone.appendChild(a);
+      if (pf.secondaire && pf.secondaire.url) {
+        var b = document.createElement('a');
+        b.className = 'bouton bouton--vide';
+        b.href = pf.secondaire.url;
+        b.rel = 'noopener';
+        b.innerHTML = '<span>' + (pf.secondaire.libelle || 'Autre format') + '</span>';
+        zone.appendChild(b);
+      }
+      if (etat) { etat.className = 'ticket ticket--pret'; etat.innerHTML = '<i class="ticket__point"></i>Disponible' + (pf.version ? ' · v' + pf.version : ''); }
+    } else {
+      var s = document.createElement('span');
+      s.className = 'bouton bouton--attente';
+      s.setAttribute('role', 'status');
+      s.innerHTML = '<span>Bientôt disponible</span>';
+      zone.appendChild(s);
+      if (etat) { etat.className = 'ticket'; etat.innerHTML = '<i class="ticket__point"></i>Dépôt en cours'; }
+    }
+    var ligne = $('[data-tele-sha]', bloc);
+    if (ligne) {
+      if (pf.sha256) { $('code', ligne).textContent = pf.sha256; ligne.hidden = false; }
+      else ligne.hidden = true;
+    }
+  });
+
+  /* ───────── 8. les horloges de l'atelier (barre, pied, contact) ───────── */
+  var horloges = $$('[data-heure]');
+  if (horloges.length) {
+    var peindreHeure = function () {
+      var v = '';
+      try {
+        v = new Intl.DateTimeFormat('fr-FR', { timeZone: 'Africa/Kinshasa', hour: '2-digit', minute: '2-digit' }).format(new Date());
+      } catch (e) { v = ''; }
+      horloges.forEach(function (el) { el.textContent = v; });
+    };
+    peindreHeure(); setInterval(peindreHeure, 30000);
+  }
+
+  /* ───────── 9. le menu de téléphone ───────── */
   var burger = $('.burger');
   if (burger) {
     var basculer = function (ouvrir) {
@@ -43,196 +256,11 @@
       document.body.classList.toggle('menu-ouvert', etat);
       burger.setAttribute('aria-expanded', etat ? 'true' : 'false');
       document.documentElement.style.overflow = etat ? 'hidden' : '';
-      if (etat) {
-        $$('.panneau a').forEach(function (a, i) { a.style.transitionDelay = (60 + i * 45) + 'ms'; });
-      }
+      if (etat) $$('.panneau a').forEach(function (a, i) { a.style.transitionDelay = (80 + i * 55) + 'ms'; });
     };
     burger.addEventListener('click', function () { basculer(); });
     $$('.panneau a').forEach(function (a) { a.addEventListener('click', function () { basculer(false); }); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') basculer(false); });
-    window.addEventListener('resize', function () { if (window.innerWidth > 860) basculer(false); });
-  }
-
-  /* ───────────────────────── 3. les apparitions ───────────────────────── */
-  var aApparaitre = $$('[data-apparait], [data-trait]');
-  if (!calme && 'IntersectionObserver' in window && aApparaitre.length) {
-    var observateur = new IntersectionObserver(function (entrees) {
-      entrees.forEach(function (e) {
-        if (!e.isIntersecting) return;
-        var el = e.target;
-        var rang = Number(el.dataset.rang || 0);
-        el.style.setProperty('--retard', (rang * 90) + 'ms');
-        el.classList.add('vu');
-        observateur.unobserve(el);
-      });
-    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.12 });
-    aApparaitre.forEach(function (el) { observateur.observe(el); });
-  } else {
-    aApparaitre.forEach(function (el) { el.classList.add('vu'); });
-  }
-
-  /* le premier écran entre tout de suite, sans attendre le défilement */
-  $$('.hero [data-apparait]').forEach(function (el, i) {
-    el.style.setProperty('--retard', (120 + i * 120) + 'ms');
-    requestAnimationFrame(function () { el.classList.add('vu'); });
-  });
-
-  /* ───────────────────────── 4. le film ───────────────────────── */
-  var film = $('.film');
-  if (film) {
-    var video = $('video', film);
-    var bouton = $('.film__bouton', film);
-    var barre = $('.film__barre i', film);
-    var minuteur = $('.minuteur', film);
-    var btnSon = $('[data-film="son"]', film);
-    var btnReprise = $('[data-film="reprise"]', film);
-
-    function duree(sec) {
-      sec = Math.max(0, Math.round(sec || 0));
-      return '0:' + (sec < 10 ? '0' : '') + sec;
-    }
-    function jouer() {
-      var p = video.play();
-      if (p && p.catch) p.catch(function () { /* le navigateur refuse : le bouton reste */ });
-    }
-    if (bouton) bouton.addEventListener('click', function () { jouer(); });
-    if (video) {
-      video.addEventListener('play', function () { film.classList.add('lecture'); });
-      video.addEventListener('pause', function () { film.classList.remove('lecture'); });
-      video.addEventListener('ended', function () { film.classList.remove('lecture'); });
-      video.addEventListener('timeupdate', function () {
-        if (barre && video.duration) barre.style.width = (video.currentTime / video.duration * 100) + '%';
-        if (minuteur) minuteur.textContent = duree(video.currentTime) + ' / ' + duree(video.duration);
-      });
-      video.addEventListener('click', function () {
-        if (video.paused) jouer(); else video.pause();
-      });
-      /* sur téléphone, une vidéo ne se lance pas seule : la plaque reste
-         sur son image d'attente jusqu'au geste du visiteur. */
-    }
-    if (btnSon) {
-      btnSon.addEventListener('click', function () {
-        video.muted = !video.muted;
-        btnSon.setAttribute('aria-pressed', video.muted ? 'false' : 'true');
-        btnSon.innerHTML = video.muted
-          ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 9h3l4-4v14l-4-4H4zM16 9l4 6M20 9l-4 6"/></svg>'
-          : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 9h3l4-4v14l-4-4H4zM15.5 8.5a5 5 0 0 1 0 7M18 6a8.5 8.5 0 0 1 0 12"/></svg>';
-        if (video.muted) return;
-        jouer();
-      });
-    }
-    if (btnReprise) {
-      btnReprise.addEventListener('click', function () { video.currentTime = 0; jouer(); });
-    }
-  }
-
-  /* ───────────────────────── 5. la visionneuse ───────────────────────── */
-  var zone = document.createElement('div');
-  zone.className = 'visionneuse';
-  zone.innerHTML = '<button class="visionneuse__fermer" aria-label="Fermer l’aperçu">' +
-    '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>' +
-    '</button><img alt=""><div class="visionneuse__legende"></div>';
-  document.body.appendChild(zone);
-  var imgZone = $('img', zone), legendeZone = $('.visionneuse__legende', zone);
-  var derniereSource = null;
-
-  function fermerZone() { zone.classList.remove('ouverte'); document.documentElement.style.overflow = ''; }
-  $$('[data-zoom]').forEach(function (fig) {
-    fig.addEventListener('click', function () {
-      var img = $('img', fig);
-      if (!img) return;
-      derniereSource = fig;
-      imgZone.src = img.src;
-      imgZone.alt = img.alt || '';
-      legendeZone.textContent = img.alt || '';
-      zone.classList.add('ouverte');
-      document.documentElement.style.overflow = 'hidden';
-    });
-  });
-  zone.addEventListener('click', function (e) { if (e.target === zone || e.target.closest('.visionneuse__fermer')) fermerZone(); });
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && zone.classList.contains('ouverte')) fermerZone();
-    /* les flèches passent d'une capture à l'autre, dans l'ordre de la page */
-    if (!zone.classList.contains('ouverte') || !derniereSource) return;
-    if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
-    var toutes = $$('[data-zoom]');
-    var i = toutes.indexOf(derniereSource) + (e.key === 'ArrowRight' ? 1 : -1);
-    if (i < 0 || i >= toutes.length) return;
-    toutes[i].click();
-  });
-
-  /* ───────────────────────── 6. les téléchargements ─────────────────────────
-     La source de vérité est assets/js/telechargements.js : un fichier qu'on
-     modifie à la main, sans toucher aux pages. Un lien vide ne produit JAMAIS
-     un bouton qui ne fait rien : il affiche « Bientôt disponible » et dit où
-     le fichier sera déposé. */
-  var config = window.MODERIC_TELECHARGEMENTS || {};
-  $$('[data-telechargement]').forEach(function (bloc) {
-    var cle = bloc.getAttribute('data-telechargement');       // ex. « dd-spirity:poste »
-    var morceaux = cle.split(':');
-    var produit = config[morceaux[0]] || {};
-    var plateforme = (produit[morceaux[1]]) || {};
-    var actions = $('[data-actions-telechargement]', bloc);
-    var etat = $('[data-etat-telechargement]', bloc);
-    if (!actions) return;
-
-    function bouton(url, libelle, secondaire) {
-      var a = document.createElement('a');
-      a.className = 'btn ' + (secondaire ? 'btn--papier' : 'btn--primaire');
-      a.href = url;
-      a.setAttribute('rel', 'noopener');
-      a.innerHTML = libelle + '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7.5 11L12 15.5 16.5 11M5 19h14"/></svg>';
-      return a;
-    }
-    function indisponible(libelle) {
-      var s = document.createElement('span');
-      s.className = 'btn btn--bientot';
-      s.setAttribute('role', 'status');
-      s.innerHTML = libelle;
-      return s;
-    }
-
-    if (plateforme.url) {
-      actions.appendChild(bouton(plateforme.url, 'Télécharger' + (plateforme.taille ? ' · ' + plateforme.taille : '')));
-      if (plateforme.secondaire && plateforme.secondaire.url) {
-        actions.appendChild(bouton(plateforme.secondaire.url, plateforme.secondaire.libelle || 'Autre format', true));
-      }
-      if (etat) {
-        etat.textContent = 'Disponible' + (plateforme.version ? ' · version ' + plateforme.version : '');
-        etat.className = 'telechargement__etat telechargement__etat--pret';
-      }
-    } else {
-      actions.appendChild(indisponible('Bientôt disponible'));
-      if (etat) {
-        etat.textContent = 'Dépôt en cours';
-        etat.className = 'telechargement__etat telechargement__etat--attente';
-      }
-    }
-
-    /* l'empreinte de contrôle, si elle est connue : c'est ce qui permet à un
-       visiteur de vérifier que le fichier reçu est bien le nôtre */
-    var empreinte = $('[data-sha]', bloc);
-    if (empreinte) {
-      if (plateforme.sha256) { empreinte.textContent = plateforme.sha256; empreinte.closest('[data-ligne-sha]').hidden = false; }
-      else empreinte.closest('[data-ligne-sha]').hidden = true;
-    }
-  });
-
-  /* l'image de partage et les données structurées n'ont pas besoin de JS :
-     elles sont écrites dans chaque page, en clair, pour les robots. */
-
-  /* ───────────────────────── 7. un détail : l'heure de l'atelier ─────────────────────────
-     Le pied de page porte l'heure de Kinshasa : un visiteur qui écrit à une
-     entreprise aime savoir si elle est à son bureau. */
-  var horloge = $('[data-heure-kinshasa]');
-  if (horloge) {
-    var maj = function () {
-      try {
-        horloge.textContent = new Intl.DateTimeFormat('fr-FR', {
-          timeZone: 'Africa/Kinshasa', hour: '2-digit', minute: '2-digit'
-        }).format(new Date());
-      } catch (e) { horloge.textContent = ''; }
-    };
-    maj(); setInterval(maj, 30000);
+    window.addEventListener('resize', function () { if (window.innerWidth > 900) basculer(false); });
   }
 })();
