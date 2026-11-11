@@ -184,6 +184,25 @@ ok('aucune vidéo d’entreprise n’est fabriquée sur l’accueil', !/<video/.
 ok('le film n’est chargé que s’il existe réellement',
   /institutionnel\.mp4/.test(js) && /loadedmetadata/.test(js));
 
+/* ── 13. les pages produit décrivent le logiciel réel ── */
+const stockiaH = lire('stockia.html');
+ok('Stockia est présenté comme un point de vente (POS), pas comme un tableur de gestion',
+  /point de vente/i.test(stockiaH) && /PointOfSaleApplication/.test(stockiaH), 'mention POS absente');
+ok('la page Stockia nomme ses fonctions réelles (douchette, monnaie, péremption, crédit)',
+  /douchette/i.test(stockiaH) && /monnaie/i.test(stockiaH) && /péremption/i.test(stockiaH) && /crédit/i.test(stockiaH));
+ok('la page Stockia montre les captures réelles du logiciel',
+  (stockiaH.match(/assets\/medias\/stockia-/g) || []).length >= 4,
+  (stockiaH.match(/assets\/medias\/stockia-/g) || []).length + ' captures');
+const ddH = lire('dd-spirity.html');
+ok('la page D.D- Spirity nomme ses fonctions réelles (portillon, appel, carte, paie)',
+  /portillon/i.test(ddH) && /appel/i.test(ddH) && /carte/i.test(ddH) && /paie/i.test(ddH));
+ok('la page D.D- Spirity explique l’application de terrain',
+  /téléphone/i.test(ddH) && /terrain/i.test(ddH));
+ok('aucun superlatif de vitrine dans les pages produit',
+  !/(révolutionnaire|incroyable|leader|n°1|meilleur logiciel|solution innovante)/i.test(stockiaH + ddH));
+ok('aucune promesse de fonctionnalité future sur les pages produit',
+  !/(bientôt disponible sur|prochainement|à venir en version)/i.test(stockiaH + ddH));
+
 console.log('pages ' + pages.length + ' · ressources locales ' + ressources + ' · liens internes ' + liens + ' · images ' + images);
 console.log('════ ' + points + ' points de contrôle · ' + echecs.length + ' échec(s) ════');
 echecs.slice(0, 40).forEach(e => console.log('  × ' + e));

@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Stockia — logiciel de gestion commerciale · ModEric Software</title>
-<meta name="description" content="Stockia : caisse, stock, produits et fournisseurs, dettes et créances, rapports. Logiciel de gestion commerciale pour pharmacies et commerces, Windows et Android, hors ligne.">
+<title>Stockia — le point de vente du comptoir · ModEric Software</title>
+<meta name="description" content="Stockia est un point de vente (POS) pour pharmacies : encaissement à la douchette, monnaie en francs et en dollars, stock déduit à la vente, lots et péremption, crédits, fidélité par numéro, reçu thermique ou PDF. Hors ligne, Windows et Android.">
 <link rel="canonical" href="https://mod-eric.com/stockia.html">
 <meta name="theme-color" content="#FFFFFF">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ModEric Software">
 <meta property="og:locale" content="fr_CD">
-<meta property="og:title" content="Stockia — logiciel de gestion commerciale · ModEric Software">
-<meta property="og:description" content="Stockia : caisse, stock, produits et fournisseurs, dettes et créances, rapports. Logiciel de gestion commerciale pour pharmacies et commerces, Windows et Android, hors ligne.">
-<meta property="og:image" content="https://mod-eric.com/assets/img/stockia-logo.png">
+<meta property="og:title" content="Stockia — le point de vente du comptoir · ModEric Software">
+<meta property="og:description" content="Stockia est un point de vente (POS) pour pharmacies : encaissement à la douchette, monnaie en francs et en dollars, stock déduit à la vente, lots et péremption, crédits, fidélité par numéro, reçu thermique ou PDF. Hors ligne, Windows et Android.">
+<meta property="og:image" content="https://mod-eric.com/assets/medias/stockia-caisse.jpg">
 <meta property="og:url" content="https://mod-eric.com/stockia.html">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
@@ -24,11 +24,12 @@
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": "Stockia",
-  "applicationCategory": "BusinessApplication",
+  "applicationCategory": "PointOfSaleApplication",
+  "alternateName": "Logiciel de caisse (POS) pour pharmacie",
   "operatingSystem": "Windows, Android",
-  "description": "Logiciel de gestion commerciale pour pharmacies et commerces : caisse, stock, produits et fournisseurs, dettes et créances, rapports.",
+  "description": "Point de vente pour pharmacie : encaissement par douchette, monnaie en francs congolais et dollars, stock déduit à la vente, lots et dates de péremption, crédits patients, fidélité par numéro de téléphone, reçus thermiques ou PDF, historique annuel. Fonctionne hors ligne.",
   "publisher": { "@type": "Organization", "name": "ModEric Software" },
-  "featureList": ["Gestion des stocks", "Ventes et caisse", "Produits et fournisseurs", "Dettes et créances", "Rapports et statistiques"]
+  "featureList": ["Encaissement par douchette USB", "Monnaie rendue en FC et USD", "Stock déduit à l'encaissement", "Lots et dates de péremption", "Crédits et avances patients", "Fidélité par numéro de téléphone", "Reçu thermique 58/80 mm ou PDF", "Historique et réimpression des tickets"]
 }
 </script>
 </head>
@@ -62,7 +63,7 @@
 
 
 <section class="produit-entree">
-  <div class="halo halo--a" aria-hidden="true" style="opacity:.4"></div>
+  <div class="halo halo--a" aria-hidden="true" style="opacity:.45"></div>
   <div class="produit-entree__page">
     <div>
       <div class="produit-entree__fil" data-monter>
@@ -70,137 +71,211 @@
       </div>
       <div class="produit-entree__marque" data-monter data-rang="1">
         <img class="produit-entree__logo" src="assets/img/stockia-logo-256.png" alt="Emblème de Stockia" width="68" height="68">
-        <span class="etiquette" style="margin:0">Gestion commerciale</span>
+        <span class="etiquette" style="margin:0">Point de vente · pharmacie</span>
       </div>
       <h1 data-ligne>Stockia</h1>
       <p class="produit-entree__sous" data-monter data-rang="1">
-        La caisse, le stock et les comptes, au même endroit. Un poste de vente pour les
-        pharmacies et les commerces physiques : encaisser, décompter, suivre les produits et les
-        fournisseurs, savoir qui doit quoi, et lire la journée en chiffres.
+        <strong>Le point de vente du comptoir.</strong> Vous bipez la boîte, le prix se pose,
+        le stock se déduit et la monnaie se calcule en francs et en dollars — avant que le
+        client ait rangé son argent.
       </p>
       <div class="produit-entree__specs" data-monter data-rang="2">
-        <span>Windows · Android</span><span>Aucune connexion requise</span><span>Données sur votre poste</span>
+        <span>Windows · Android</span><span>Douchette USB</span><span>Reçu 58 / 80 mm ou PDF</span><span>Hors ligne</span>
       </div>
       <div class="produit-entree__actions" data-monter data-rang="2">
         <a class="bouton bouton--plein" href="#telecharger">Télécharger <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 5.5l6.5 6.5-6.5 6.5"/></svg></a>
         <a class="bouton bouton--ligne" href="contact.html">Demander une démonstration</a>
       </div>
     </div>
-    <div class="produit-entree__vue" data-monter data-rang="2"
-         style="display:grid;place-items:center;padding:clamp(28px,5vw,64px);aspect-ratio:4/3">
-      <img src="assets/img/stockia-logo.png" alt="L'emblème de Stockia" width="512" height="512"
-           style="width:min(62%,260px);border-radius:28px;box-shadow:0 30px 60px -24px rgba(10,62,88,.5)">
+    <div class="produit-entree__vue" data-monter data-rang="2">
+      <img src="assets/medias/stockia-caisse.jpg" alt="Stockia — la caisse : le panier à gauche, le terminal d'encaissement à droite" width="2400" height="1393">
     </div>
   </div>
 </section>
 
+<!-- ce que c'est, sans détour -->
 <section class="bloc">
   <div class="bloc__page deux">
     <div>
-      <span class="etiquette" data-monter>Le logiciel</span>
-      <h2 class="bloc__titre" data-ligne style="margin-top:18px">Une vente doit être enregistrée <i>avant</i> d'être imprimée. Le reste, c'est de l'organisation.</h2>
+      <span class="etiquette" data-monter>Ce que c'est</span>
+      <h2 class="bloc__titre" data-ligne style="margin-top:18px">Ce n'est pas un tableur de stock. <i>C'est une caisse de comptoir.</i></h2>
     </div>
     <div class="corps" data-monter data-rang="1">
-      <p>Stockia réunit le comptoir et l'arrière-boutique : la vente, le stock qui bouge avec
-      elle, les produits et les fournisseurs, les dettes et les créances, et les rapports qui
-      permettent de décider.</p>
-      <p>Il fonctionne sur le poste, sans dépendre d'un serveur : la caisse continue de servir
-      quand la connexion s'arrête, et les données du commerce restent dans le commerce.</p>
-      <p>Si l'imprimante thermique manque ou refuse, le reçu sort en PDF partageable.
-      Aucune vente n'attend une imprimante.</p>
+      <p>Un comptoir de pharmacie fait trois choses en même temps : il encaisse vite, il sait ce
+      qui reste dans le rayon, et il garde la trace de ce qu'il a vendu. Stockia fait ces trois
+      choses dans le même geste — c'est tout l'intérêt.</p>
+      <p>L'écran est coupé en deux, comme un vrai comptoir : <strong>le panier à gauche, le
+      terminal d'encaissement à droite</strong>. Un code-barres, deux lettres, et le médicament
+      est reconnu avec son prix et sa boîte.</p>
+      <p>Il fonctionne sur le poste, sans connexion. Vos ventes, votre stock et vos archives
+      restent dans votre officine.</p>
     </div>
   </div>
 </section>
 
+<!-- la journée, du côté du comptoir -->
 <section class="bloc bloc--nuage">
   <div class="bloc__page">
     <div class="deux" style="margin-top:0">
       <div>
-        <span class="etiquette" data-monter>Les écrans</span>
-        <h2 class="bloc__titre" data-ligne style="margin-top:18px">Les captures de la caisse arrivent ici.</h2>
+        <span class="etiquette" data-monter>Une vente, pas à pas</span>
+        <h2 class="bloc__titre" data-ligne style="margin-top:18px">Quatre gestes, et le client est parti avec son reçu.</h2>
       </div>
       <p class="chapo" data-monter data-rang="1" style="align-self:end">
-        Cette page est faite pour les recevoir. Aucune image inventée n'est posée à leur place :
-        les emplacements sont dessinés, légendés, et prêts.
+        Ce qui suit n'est pas une description commerciale : c'est le geste réel de la caisse,
+        dans l'ordre où il se fait.
       </p>
     </div>
-    <div class="captures">
-      <figure class="capture" style="display:grid;place-items:center;min-height:220px;background:
-        radial-gradient(120% 100% at 20% 0%,var(--azur-50),var(--azur-100))">
-        <div style="text-align:center;padding:28px">
-          <div class="etiquette" style="justify-content:center">Capture 1</div>
-          <div style="font-family:var(--voix);font-size:24px;margin-top:8px">La caisse</div>
-        </div>
-        <figcaption class="capture__legende"><span>Caisse · vente en cours</span><span>à intégrer</span></figcaption>
-      </figure>
-      <figure class="capture" style="display:grid;place-items:center;min-height:220px;background:
-        radial-gradient(120% 100% at 80% 0%,var(--azur-50),var(--azur-100))">
-        <div style="text-align:center;padding:28px">
-          <div class="etiquette" style="justify-content:center">Capture 2</div>
-          <div style="font-family:var(--voix);font-size:24px;margin-top:8px">Le stock</div>
-        </div>
-        <figcaption class="capture__legende"><span>Stock · quantités et seuils</span><span>à intégrer</span></figcaption>
-      </figure>
-      <figure class="capture" style="display:grid;place-items:center;min-height:220px;background:
-        radial-gradient(120% 100% at 40% 20%,var(--azur-50),var(--azur-100))">
-        <div style="text-align:center;padding:28px">
-          <div class="etiquette" style="justify-content:center">Capture 3</div>
-          <div style="font-family:var(--voix);font-size:24px;margin-top:8px">Les rapports</div>
-        </div>
-        <figcaption class="capture__legende"><span>Rapports · journée, mois, année</span><span>à intégrer</span></figcaption>
-      </figure>
+
+    <div class="scene-jour__liste">
+      <div class="scene-jour">
+    <div class="scene-jour__heure">1</div>
+    <div>
+      <h3>Vous bipez la boîte.</h3>
+      <p>La douchette USB est toujours en écoute : un code-barres et le médicament entre au panier. Sans douchette, deux lettres suffisent — le dictionnaire embarqué reconnaît plus de 3 000 références de pharmacie, avec leur famille, leur prix et le nombre de plaquettes par boîte.</p>
+      <div class="scene-jour__note">Douchette USB · deux lettres · dictionnaire embarqué</div>
+    </div>
+  </div>
+      <div class="scene-jour">
+    <div class="scene-jour__heure">2</div>
+    <div>
+      <h3>Le prix se pose, la quantité s’ajuste.</h3>
+      <p>Le panier se tient à droite. Une boîte qui se détaille se vend à la plaquette, à l'unité ou à la demi : le prix suit. Une remise reste possible, et elle s'écrit.</p>
+      <div class="scene-jour__note">Boîte, plaquette, unité, demi · remise tracée</div>
+    </div>
+  </div>
+      <div class="scene-jour">
+    <div class="scene-jour__heure">3</div>
+    <div>
+      <h3>Vous saisissez l’argent remis, il rend la monnaie.</h3>
+      <p>Montant libre, ou touches 10 000 / 20 000 / 50 000. La monnaie à rendre s'affiche en francs congolais <em>et</em> en dollars, au taux du jour que vous avez saisi vous-même.</p>
+      <div class="scene-jour__note">Deux monnaies · taux saisi par l’officine</div>
+    </div>
+  </div>
+      <div class="scene-jour">
+    <div class="scene-jour__heure">4</div>
+    <div>
+      <h3>Le stock se déduit, le reçu sort, le ticket s’archive.</h3>
+      <p>Quatre modes de paiement : espèces, Mobile Money, carte, ou crédit au nom du patient. À l'encaissement, le stock baisse, le reçu part sur l'imprimante thermique (58 ou 80 mm) ou en PDF, et le ticket entre dans les archives de l'année.</p>
+      <div class="scene-jour__note">Espèces · Mobile Money · carte · crédit</div>
+    </div>
+  </div>
     </div>
   </div>
 </section>
 
+<!-- ce qui est réellement dedans -->
 <section class="bloc">
   <div class="bloc__page">
     <div class="deux" style="margin-top:0">
       <div>
-        <span class="etiquette" data-monter>Ce que Stockia tient</span>
-        <h2 class="bloc__titre" data-ligne style="margin-top:18px">Le registre du commerce.</h2>
+        <span class="etiquette" data-monter>Ce qui est dedans</span>
+        <h2 class="bloc__titre" data-ligne style="margin-top:18px">Le détail, tel qu'il est dans le logiciel.</h2>
+      </div>
+      <div class="corps" data-monter data-rang="1" style="align-self:end">
+        <p>Tout ce qui suit existe déjà et s'utilise au comptoir. Rien n'est annoncé pour plus tard.</p>
       </div>
     </div>
     <div class="fonctions">
-      <div class="fonction" data-monter><h3>Le stock</h3>
-        <p>Les quantités suivent les ventes. Vous savez ce qui reste, ce qui manque et ce qui dort
-        sur l'étagère.</p></div>
-      <div class="fonction" data-monter><h3>La caisse</h3>
-        <p>Encaisser, imprimer le reçu, retrouver une vente dans l'historique — la vente est écrite
-        avant toute impression.</p></div>
-      <div class="fonction" data-monter><h3>Les fournisseurs</h3>
-        <p>Le catalogue du commerce avec ses prix et ses références, et l'origine de chaque
-        produit.</p></div>
-      <div class="fonction" data-monter><h3>Les dettes et créances</h3>
-        <p>Ce que le commerce doit, ce qu'on lui doit. Les soldes se lisent sans reconstituer un
-        cahier.</p></div>
-      <div class="fonction" data-monter><h3>Les rapports</h3>
-        <p>Journée, mois, année : les montants, les produits qui tournent, ceux qui ne tournent
-        pas.</p></div>
+      <div class="fonction" data-monter><h3>Caisse et douchette</h3>
+        <p>Douchette USB en écoute permanente (F2 pour chercher), ou caméra du téléphone sur la
+        version Android. Panier en vue directe, quantité, mode de vente par médicament, remise.</p></div>
+      <div class="fonction" data-monter><h3>Deux monnaies, taux du jour</h3>
+        <p>Francs congolais et dollars, avec le taux que vous saisissez chaque jour. La monnaie à
+        rendre est calculée dans les deux. Devise par défaut réglable.</p></div>
+      <div class="fonction" data-monter><h3>Stock, lots et péremption</h3>
+        <p>Suivi par produit ou vente libre, filtre « péremption &lt; 3 mois », date de péremption
+        par lot et par arrivage. Une boîte périmée ne peut pas être vendue : la caisse la bloque.</p></div>
+      <div class="fonction" data-monter><h3>Arrivages et bons d'entrée</h3>
+        <p>Chaque arrivage s'enregistre avec son bon d'entrée, le prix d'achat payé au dépôt, le
+        nombre de boîtes. Le prix d'achat connu donne la marge ; oublié, il est marqué comme tel.</p></div>
+      <div class="fonction" data-monter><h3>Patients et fidélité, sans nom</h3>
+        <p>Un numéro de téléphone suffit. Les points se cumulent par tranche de 1 000 FC achetés
+        et le badge fidèle s'attribue au seuil que vous fixez.</p></div>
+      <div class="fonction" data-monter><h3>Crédits et avances</h3>
+        <p>Vente à crédit au nom du patient : ce qu'il a pris, ce qu'il a déjà avancé, ce qu'il
+        reste à récupérer.</p></div>
+      <div class="fonction" data-monter><h3>Dépenses et objectifs</h3>
+        <p>Courant ou frigo, transport, loyer : les charges du mois entrent dans le gain net. Vous
+        fixez un objectif de la journée et du mois.</p></div>
+      <div class="fonction" data-monter><h3>Historique et réimpression</h3>
+        <p>Total vendu depuis l'ouverture, gain net, dépenses, achats dépôt, croissance de janvier
+        à décembre, tickets de l'année réimprimables.</p></div>
+      <div class="fonction" data-monter><h3>Reçu qui sort toujours</h3>
+        <p>Imprimante thermique 58 ou 80 mm, Bluetooth, ou reçu PDF sur le téléphone. La vente est
+        enregistrée avant l'impression : une imprimante qui refuse ne fait jamais perdre une opération.</p></div>
+      <div class="fonction" data-monter><h3>Poste et téléphone, même catalogue</h3>
+        <p>La même officine sur le PC du comptoir et sur le téléphone Android, avec les mêmes
+        produits et les mêmes prix. Licence par code appareil, et un mode entraînement pour
+        former quelqu'un sans fausser les chiffres.</p></div>
     </div>
   </div>
 </section>
 
-<section class="bloc bloc--nuage" id="telecharger">
+<!-- les écrans réels -->
+<section class="bloc bloc--nuage" id="apercus">
   <div class="bloc__page">
     <div class="deux" style="margin-top:0">
       <div>
-        <span class="etiquette" data-monter>Télécharger</span>
-        <h2 class="bloc__titre" data-ligne style="margin-top:18px">Le poste, et le téléphone.</h2>
-        <p class="chapo" data-monter data-rang="1" style="margin-top:20px">
-          Version, taille et empreinte SHA-256 sont publiées avec chaque fichier. Les conditions
-          de licence (période, nombre de postes) sont données sur demande écrite.
-        </p>
-        <dl class="coord" style="margin-top:clamp(24px,3vw,36px)" data-monter data-rang="2">
-          <div class="coord__ligne"><dt>Poste</dt><dd>Windows 10 / 11 · 64 bits</dd></div>
-          <div class="coord__ligne"><dt>Téléphone</dt><dd>Android 8 et plus</dd></div>
-          <div class="coord__ligne"><dt>Connexion</dt><dd>Aucune requise</dd></div>
-          <div class="coord__ligne"><dt>Reçus</dt><dd>Thermique 58 / 80 mm, ou PDF</dd></div>
-        </dl>
+        <span class="etiquette" data-monter>Les écrans</span>
+        <h2 class="bloc__titre" data-ligne style="margin-top:18px">Le comptoir, en six vues.</h2>
       </div>
-      <div>
-        <div class="tele">
-          <div class="tele__item" data-tele="stockia:windows">
+      <p class="chapo" data-monter data-rang="1" style="align-self:end">
+        Captures du logiciel en service. Le nom de l'officine, les produits et les montants sont
+        ceux d'une pharmacie de démonstration.
+      </p>
+    </div>
+    <div class="captures">
+      <figure class="capture">
+    <img src="assets/medias/stockia-caisse.jpg" alt="La caisse" loading="lazy" width="2400" height="1393">
+    <figcaption class="capture__legende"><span>La caisse</span><span>panier · monnaie · encaisser</span></figcaption>
+  </figure>
+      <figure class="capture">
+    <img src="assets/medias/stockia-stock.jpg" alt="Stock et arrivages" loading="lazy" width="2400" height="1393">
+    <figcaption class="capture__legende"><span>Stock et arrivages</span><span>lots · péremption · prix d’achat</span></figcaption>
+  </figure>
+      <figure class="capture">
+    <img src="assets/medias/stockia-rayon.jpg" alt="Le rayon" loading="lazy" width="2400" height="1393">
+    <figcaption class="capture__legende"><span>Le rayon</span><span>recherche à deux lettres</span></figcaption>
+  </figure>
+      <figure class="capture">
+    <img src="assets/medias/stockia-patients.jpg" alt="Patients et fidélité" loading="lazy" width="2400" height="1393">
+    <figcaption class="capture__legende"><span>Patients et fidélité</span><span>numéro · points · badge</span></figcaption>
+  </figure>
+      <figure class="capture">
+    <img src="assets/medias/stockia-histoires.jpg" alt="Histoires et archives" loading="lazy" width="2400" height="1393">
+    <figcaption class="capture__legende"><span>Histoires et archives</span><span>total vendu · gain net · tickets</span></figcaption>
+  </figure>
+      <figure class="capture">
+    <img src="assets/medias/stockia-reglages.jpg" alt="Réglages" loading="lazy" width="2400" height="1393">
+    <figcaption class="capture__legende"><span>Réglages</span><span>devise · imprimante · licence</span></figcaption>
+  </figure>
+    </div>
+  </div>
+</section>
+
+<!-- config + téléchargement -->
+<section class="bloc" id="telecharger">
+  <div class="bloc__page deux">
+    <div>
+      <span class="etiquette" data-monter>Télécharger</span>
+      <h2 class="bloc__titre" data-ligne style="margin-top:18px">Ce qu'il faut pour l'installer.</h2>
+      <p class="chapo" data-monter data-rang="1" style="margin-top:20px">
+        Version, taille et empreinte SHA-256 sont publiées avec chaque fichier : vous pouvez
+        vérifier que le programme reçu est bien celui que nous avons fabriqué.
+      </p>
+      <dl class="coord" style="margin-top:clamp(24px,3vw,36px)" data-monter data-rang="2">
+        <div class="coord__ligne"><dt>Poste</dt><dd>Windows 10 / 11 · 64 bits</dd></div>
+        <div class="coord__ligne"><dt>Comptoir</dt><dd>Douchette USB (code-barres), ou caméra du téléphone</dd></div>
+        <div class="coord__ligne"><dt>Imprimante</dt><dd>Thermique 58 ou 80 mm, Bluetooth · sinon PDF</dd></div>
+        <div class="coord__ligne"><dt>Téléphone</dt><dd>Android 8 et plus, même catalogue</dd></div>
+        <div class="coord__ligne"><dt>Connexion</dt><dd>Aucune requise</dd></div>
+        <div class="coord__ligne"><dt>Licence</dt><dd>Par code appareil · conditions sur demande écrite</dd></div>
+      </dl>
+    </div>
+    <div>
+      <div class="tele">
+        <div class="tele__item" data-tele="stockia:windows">
   <div>
     <div class="tele__nom">Poste Windows</div>
     <p class="tele__dit">Installateur, ou version sans installation à poser sur une clé.</p>
@@ -210,24 +285,25 @@
   </div>
   <div class="tele__action" data-tele-actions></div>
 </div>
-          <div class="tele__item" data-tele="stockia:android">
+        <div class="tele__item" data-tele="stockia:android">
   <div>
     <div class="tele__nom">Téléphone Android</div>
-    <p class="tele__dit">La même caisse, dans la poche, avec le même catalogue.</p>
+    <p class="tele__dit">Le même comptoir dans la poche : douchette caméra, même catalogue, mêmes prix.</p>
     <div class="tele__pied"><span>Android 8 et plus</span><span>Sans connexion</span></div>
     <div class="tele__pied" data-tele-sha hidden>Empreinte SHA-256 <code>—</code></div>
     <div style="margin-top:12px"><span class="jauge-etat" data-tele-etat><i></i>Dépôt en cours</span></div>
   </div>
   <div class="tele__action" data-tele-actions></div>
 </div>
-        </div>
-        <p style="margin-top:20px;font-size:12.5px;color:var(--texte-pale)">
-          Un bouton « Bientôt disponible » signifie qu'aucun fichier n'est encore publié pour ce
-          format.
-        </p>
       </div>
+      <p style="margin-top:20px;font-size:12.5px;color:var(--texte-pale)">
+        Un bouton « Bientôt disponible » signifie qu'aucun fichier n'est encore publié pour ce
+        format. Aucun lien ne mène ailleurs.
+      </p>
     </div>
+  </div>
 
+  <div class="bloc__page">
     <div class="suite">
       <a class="suite__lien" href="dd-spirity.html"><span><small>L'autre logiciel</small>D.D- Spirity</span>
         <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 5.5l6.5 6.5-6.5 6.5"/></svg></span></a>

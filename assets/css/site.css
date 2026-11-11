@@ -552,6 +552,22 @@ body.menu-ouvert .panneau a{opacity:1;transform:none}
 #fil{position:fixed;top:0;left:0;height:2px;width:0;z-index:70;
   background:linear-gradient(to right,var(--azur-400),var(--azur-600));transition:width .1s linear}
 
+
+/* ── le récit d'une vente / d'une journée : des lignes datées, pas des cartes ── */
+.scene-jour__liste{margin-top:clamp(26px,4vw,44px);border-top:1px solid var(--filet)}
+.scene-jour{display:grid;grid-template-columns:74px minmax(0,1fr);gap:clamp(16px,3vw,44px);
+  padding:clamp(20px,2.6vw,32px) 0;border-bottom:1px solid var(--filet)}
+.scene-jour__heure{font-family:var(--voix);font-size:clamp(26px,2.6vw,38px);line-height:1;
+  color:var(--azur-200);letter-spacing:-.02em;padding-top:2px}
+.scene-jour h3{font-family:var(--voix);font-size:clamp(20px,2.1vw,28px);line-height:1.12;
+  letter-spacing:-.02em}
+.scene-jour p{margin-top:10px;font-size:15.4px;line-height:1.68;color:var(--texte-doux);max-width:64ch}
+.scene-jour p em{font-style:normal;color:var(--azur-700)}
+.scene-jour__note{margin-top:10px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--azur-600)}
+@media (max-width:560px){ .scene-jour{grid-template-columns:44px minmax(0,1fr)} }
+.produit-entree__sous strong{font-weight:400;color:var(--encre)}
+
 /* ─────────────────────────── 8. L'ADAPTATION ─────────────────────────── */
 @media (max-width:1180px){
   .entree__page{grid-template-columns:minmax(0,1fr)}
