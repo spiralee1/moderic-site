@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>ModEric Software — source du film d’ouverture</title>
+<style>
+  @font-face{font-family:'Manrope';font-weight:400;src:url(../assets/fonts/Manrope-Regular.woff2) format('woff2')}
+  @font-face{font-family:'Manrope';font-weight:600;src:url(../assets/fonts/Manrope-SemiBold.woff2) format('woff2')}
+  @font-face{font-family:'Manrope';font-weight:800;src:url(../assets/fonts/Manrope-ExtraBold.woff2) format('woff2')}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1600px;height:900px;overflow:hidden;background:#03070D}
+  #film{position:relative;width:1600px;height:900px;overflow:hidden;background:
+      radial-gradient(120% 120% at 50% 0%, #0B2036 0%, #071523 42%, #03070D 100%);
+      font-family:'Manrope',system-ui,sans-serif;color:#EAF4FB}
+  /* ── décor : grille fine, halo, vignette, grain ── */
+  .grille{position:absolute;inset:-10%;opacity:.16;
+    background-image:linear-gradient(to right,rgba(122,180,220,.5) 1px,transparent 1px),
+                     linear-gradient(to bottom,rgba(122,180,220,.5) 1px,transparent 1px);
+    background-size:80px 80px;mask-image:radial-gradient(70% 70% at 50% 45%,#000 20%,transparent 78%)}
+  .halo{position:absolute;width:1400px;height:1400px;left:50%;top:50%;transform:translate(-50%,-50%);
+    background:radial-gradient(circle,rgba(21,120,172,.55) 0%,rgba(21,120,172,.16) 42%,transparent 68%);
+    filter:blur(2px)}
+  .halo2{position:absolute;width:900px;height:900px;left:78%;top:22%;transform:translate(-50%,-50%);
+    background:radial-gradient(circle,rgba(169,121,31,.30) 0%,transparent 62%)}
+  .vignette{position:absolute;inset:0;background:radial-gradient(75% 75% at 50% 50%,transparent 40%,rgba(2,5,10,.85) 100%)}
+  .scan{position:absolute;left:0;right:0;height:220px;
+    background:linear-gradient(to bottom,transparent,rgba(120,200,255,.055),transparent)}
+  .filet{position:absolute;left:50%;transform:translateX(-50%);height:1px;background:linear-gradient(to right,transparent,rgba(150,205,235,.55),transparent)}
+  /* ── particules ── */
+  .p{position:absolute;border-radius:50%;background:#BFE3FA;will-change:transform,opacity}
+
+  /* ── scène 1 : la marque ── */
+  #marque{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:210px;height:210px}
+  #marque svg{overflow:visible}
+  .mono{font-weight:800;font-size:86px;letter-spacing:-.045em}
+
+  /* ── scène 2/4 : le nom ── */
+  #nom{position:absolute;left:50%;transform:translate(-50%,0);text-align:center;width:1200px}
+  #nom .mot{font-weight:800;font-size:112px;line-height:1;letter-spacing:-.03em;
+    background:linear-gradient(180deg,#FFFFFF 0%,#CFE6F5 62%,#8FB6CF 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+  #nom .suite{font-weight:600;font-size:26px;letter-spacing:.62em;text-transform:uppercase;color:#7FB2D2;margin-top:22px}
+  #trait{height:2px;width:0;margin:34px auto 0;background:linear-gradient(to right,transparent,#C79A44,transparent)}
+  #devise{font-weight:600;font-size:31px;color:#C9DEEC;letter-spacing:.01em;margin-top:30px;opacity:0}
+
+  /* ── scène 3 : les métiers ── */
+  #metiers{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);display:flex;justify-content:center;gap:56px}
+  .metier{width:336px;min-height:252px;padding:34px 30px 30px;border-radius:20px;background:rgba(9,25,40,.62);
+    border:1px solid rgba(126,178,210,.22);backdrop-filter:blur(6px);opacity:0;transform:translateY(26px);
+    display:flex;flex-direction:column}
+  .metier .ico{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;
+    background:linear-gradient(150deg,rgba(30,156,216,.35),rgba(21,120,172,.12));border:1px solid rgba(126,178,210,.3);margin-bottom:20px}
+  .metier b{display:block;font-size:23px;font-weight:800;letter-spacing:-.01em;margin-bottom:9px}
+  .metier span{display:block;font-size:16.5px;line-height:1.5;color:#9FBACE;font-weight:400}
+  #soustitre{position:absolute;left:0;right:0;top:150px;text-align:center;font-weight:600;font-size:22px;
+    letter-spacing:.34em;text-transform:uppercase;color:#78A9C7;opacity:0}
+
+  /* ── signature finale ── */
+  #fin{position:absolute;left:0;right:0;bottom:104px;text-align:center;font-weight:600;font-size:19px;
+    letter-spacing:.3em;text-transform:uppercase;color:#7FA6BF;opacity:0}
+  #lockup{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;align-items:center;
+    gap:34px;opacity:0;will-change:transform,opacity}
+  #lockup .txt .n{font-weight:800;font-size:58px;letter-spacing:-.035em;line-height:1;
+    background:linear-gradient(180deg,#FFFFFF,#CFE6F5 70%,#9CC0D6);-webkit-background-clip:text;background-clip:text;color:transparent}
+  #lockup .txt .n span{display:block;font-size:19px;font-weight:600;letter-spacing:.52em;color:#7FB2D2;
+    -webkit-text-fill-color:#7FB2D2;margin-top:12px}
+  #lockup .txt .tag{font-size:16px;font-weight:400;color:#86A9C0;letter-spacing:.02em;margin-top:14px}
+  #solutions-video{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);text-align:center;opacity:0}
+  #solutions-video .sv-titre{font-weight:600;font-size:22px;letter-spacing:.34em;text-transform:uppercase;color:#78A9C7;margin-bottom:62px}
+  #solutions-video .sv-duo{display:flex;align-items:center;justify-content:center;gap:84px}
+  #solutions-video .sv-produit{width:420px;opacity:0;transform:translateY(22px)}
+  #solutions-video .sv-produit img,#solutions-video .sv-produit svg{border-radius:22px;margin-bottom:24px;
+    filter:drop-shadow(0 16px 40px rgba(0,0,0,.55))}
+  #solutions-video .sv-nom{font-weight:800;font-size:44px;letter-spacing:-.03em;color:#F2F8FC}
+  #solutions-video .sv-role{font-size:17px;font-weight:400;color:#9FBACE;margin-top:12px}
+  #solutions-video .sv-sep{width:1px;height:190px;background:linear-gradient(to bottom,transparent,rgba(150,205,235,.45),transparent)}
+  #abo{position:absolute;left:0;right:0;top:120px;text-align:center;font-weight:600;font-size:18px;
+    letter-spacing:.34em;text-transform:uppercase;color:#6E93AB;opacity:0}
+</style>
+</head>
+<body>
+<div id="film">
+  <div class="halo" id="halo"></div>
+  <div class="halo2" id="halo2"></div>
+  <div class="grille" id="grille"></div>
+  <div class="filet" id="filet-h" style="top:0;width:0"></div>
+  <div class="scan" id="scan"></div>
+  <div id="particules"></div>
+
+  <div id="abo">Éditeur de logiciels · Kinshasa</div>
+
+  <div id="marque">
+    <svg width="210" height="210" viewBox="0 0 210 210">
+      <defs>
+        <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#7FD2F7"/><stop offset=".5" stop-color="#1E9CD8"/><stop offset="1" stop-color="#0B5E8C"/>
+        </linearGradient>
+        <linearGradient id="g2" x1="0" y1="1" x2="1" y2="0">
+          <stop offset="0" stop-color="#F1D49B"/><stop offset="1" stop-color="#C79A44"/>
+        </linearGradient>
+        <filter id="lueur" x="-60%" y="-60%" width="220%" height="220%">
+          <feGaussianBlur stdDeviation="9" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+      <circle id="anneau" cx="105" cy="105" r="92" fill="none" stroke="url(#g1)" stroke-width="2.4"
+              stroke-linecap="round" stroke-dasharray="578" stroke-dashoffset="578" filter="url(#lueur)"/>
+      <circle id="anneau2" cx="105" cy="105" r="78" fill="none" stroke="rgba(126,178,210,.20)" stroke-width="1"/>
+      <g id="lettre" opacity="0">
+        <text class="mono" x="105" y="105" text-anchor="middle" dominant-baseline="central"
+              fill="url(#g1)" font-family="Manrope" font-weight="800" font-size="92" letter-spacing="-4">M</text>
+      </g>
+      <circle id="perle" cx="105" cy="13" r="5.4" fill="url(#g2)" opacity="0"/>
+    </svg>
+  </div>
+
+  <div id="nom" style="opacity:0">
+    <div class="mot">ModEric</div>
+    <div class="suite">Software</div>
+    <div id="trait"></div>
+    <div id="devise">Des logiciels qui travaillent hors ligne.</div>
+  </div>
+
+  <div id="solutions-video">
+    <div class="sv-titre">Nos logiciels</div>
+    <div class="sv-duo">
+      <div class="sv-produit" id="sv-stockia">
+        <img src="../assets/img/stockia-logo-256.png" alt="" width="86" height="86">
+        <div class="sv-nom">Stockia</div>
+        <div class="sv-role">Gestion commerciale · caisse, stock, rapports</div>
+      </div>
+      <div class="sv-sep"></div>
+      <div class="sv-produit" id="sv-dd">
+        <svg width="86" height="86" viewBox="0 0 96 96" aria-hidden="true">
+          <path fill="#1578AC" d="M48 2 L90 16.5 V46 C90 69.5 73 86.5 48 94.5 C23 86.5 6 69.5 6 46 V16.5 Z"/>
+          <path fill="#FFFFFF" d="M48 12.5 L80 24.3 V46 C80 65.3 66.6 79.3 48 87 C29.4 79.3 16 65.3 16 46 V24.3 Z"/>
+          <path fill="#1E9CD8" d="M48 22 L70.5 30.8 V46 C70.5 60.9 60.9 72.2 48 78.6 C35.1 72.2 25.5 60.9 25.5 46 V30.8 Z"/>
+          <path fill="#FFFFFF" d="M35 36 H61 V41.5 H35 Z M35 47.5 H61 V53 H35 Z M35 59 H51 V64.5 H35 Z"/>
+        </svg>
+        <div class="sv-nom">D.D- Spirity</div>
+        <div class="sv-role">Vie scolaire · discipline, présences, personnel</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="soustitre">Ce que nous construisons</div>
+  <div id="metiers">
+    <div class="metier" data-i="0">
+      <div class="ico">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#BFE3FA" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 8.5h16M6.5 8.5V19a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V8.5M9 8.5V6a3 3 0 0 1 6 0v2.5M10 13h4"/>
+        </svg>
+      </div>
+      <b>Terminaux de vente</b>
+      <span>Caisse, stock, prix, reçus. L’encaissement passe avant l’imprimante.</span>
+    </div>
+    <div class="metier" data-i="1">
+      <div class="ico">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#BFE3FA" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3l8 3.4v5.1c0 4.6-3.3 8.3-8 9.5-4.7-1.2-8-4.9-8-9.5V6.4z"/><path d="M9 12l2 2 4-4"/>
+        </svg>
+      </div>
+      <b>Logiciels d’établissement</b>
+      <span>Discipline, présences, personnel, paie. Une école tient son année.</span>
+    </div>
+    <div class="metier" data-i="2">
+      <div class="ico">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#BFE3FA" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M8 3h8a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM11 18h2"/>
+        </svg>
+      </div>
+      <b>Applications de terrain</b>
+      <span>Le téléphone comme périphérique d’entrée : il reçoit, il note, il rend.</span>
+    </div>
+  </div>
+
+  <div id="lockup">
+    <svg width="92" height="92" viewBox="0 0 210 210" aria-hidden="true">
+      <circle cx="105" cy="105" r="92" fill="none" stroke="url(#g1)" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="105" cy="105" r="78" fill="none" stroke="rgba(126,178,210,.22)" stroke-width="1.4"/>
+      <text x="105" y="107" text-anchor="middle" dominant-baseline="central" fill="url(#g1)"
+            font-family="Manrope" font-weight="800" font-size="92" letter-spacing="-3">M</text>
+      <circle cx="105" cy="13" r="5" fill="url(#g2)"/>
+    </svg>
+    <div class="txt">
+      <div class="n">ModEric<span>Software</span></div>
+      <div class="tag">Logiciels d’entreprise · Kinshasa</div>
+    </div>
+  </div>
+  <div id="fin">mod-eric.com</div>
+</div>
+
+<script>
+/* ══════════════════════════════════════════════════════════════════════
+   Un film rendu image par image : render(t) place TOUT en fonction de t.
+   Aucune animation CSS, donc aucune dérive entre deux rendus — la même
+   seconde donne toujours la même image.
+   ══════════════════════════════════════════════════════════════════════ */
+const DUREE = 17;
+const $ = s => document.querySelector(s);
+const $$ = s => Array.from(document.querySelectorAll(s));
+const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+const ease = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;   /* cubic in-out */
+const easeOut = t => 1 - Math.pow(1 - t, 3);
+const easeOutQuint = t => 1 - Math.pow(1 - t, 5);
+const seg = (t, a, b) => clamp((t - a) / (b - a));                              /* progression 0..1 dans [a,b] */
+
+/* particules déterministes */
+(function () {
+  let graine = 20260712;
+  const rnd = () => (graine = (graine * 1103515245 + 12345) % 2147483648) / 2147483648;
+  const boite = $('#particules');
+  for (let i = 0; i < 46; i++) {
+    const d = document.createElement('div');
+    d.className = 'p';
+    d.dataset.x = (rnd() * 1600).toFixed(1);
+    d.dataset.y = (rnd() * 900).toFixed(1);
+    d.dataset.v = (0.25 + rnd() * 0.75).toFixed(2);
+    d.dataset.r = (0.9 + rnd() * 2.1).toFixed(2);
+    d.dataset.ph = (rnd() * 6.283).toFixed(3);
+    boite.appendChild(d);
+  }
+})();
+
+window.render = function (t) {
+  /* ── décor vivant ── */
+  $('#halo').style.transform = 'translate(-50%,-50%) scale(' + (1 + 0.05 * Math.sin(t / 2.4)) + ')';
+  $('#halo').style.opacity = 0.55 + 0.25 * Math.sin(t / 3.1);
+  $('#halo2').style.transform = 'translate(-50%,-50%) scale(' + (1 + 0.08 * Math.sin(t / 1.9 + 1)) + ')';
+  $('#grille').style.transform = 'translate(' + (t * 6).toFixed(2) + 'px,' + (t * 3).toFixed(2) + 'px)';
+  $('#scan').style.top = (-220 + ((t * 300) % 1400)).toFixed(0) + 'px';
+  $('#scan').style.opacity = 0.8;
+
+  /* particules : dérive lente, scintillement par phase */
+  $$('.p').forEach((d, i) => {
+    const x = +d.dataset.x, y = +d.dataset.y, v = +d.dataset.v, r = +d.dataset.r, ph = +d.dataset.ph;
+    const yy = (y - t * 14 * v + 900) % 900;
+    d.style.left = x + 'px';
+    d.style.top = yy + 'px';
+    d.style.width = r + 'px';
+    d.style.height = r + 'px';
+    d.style.opacity = (0.16 + 0.42 * (0.5 + 0.5 * Math.sin(t * 1.5 + ph))).toFixed(3);
+  });
+
+  /* ── scène 1 : la marque (0 → 3,4 s) ── */
+  const aMarque = seg(t, 0, 3.4);
+  const dessin = ease(seg(t, 0.15, 2.0));            /* l’anneau se trace */
+  $('#anneau').style.strokeDashoffset = (578 * (1 - dessin)).toFixed(1);
+  $('#anneau').style.opacity = seg(t, 0.1, 0.5);
+  $('#anneau2').style.opacity = 0.9 * easeOut(seg(t, 1.1, 2.2));
+  $('#anneau2').setAttribute('r', (78 * (0.86 + 0.14 * easeOutQuint(seg(t, 1.1, 2.2)))).toFixed(1));
+  $('#lettre').setAttribute('opacity', easeOut(seg(t, 1.35, 2.5)).toFixed(3));
+  $('#lettre').style.transform = 'scale(' + (0.94 + 0.06 * easeOutQuint(seg(t, 1.35, 2.6))).toFixed(3) + ')';
+  $('#perle').setAttribute('opacity', easeOut(seg(t, 2.3, 2.9)).toFixed(3));
+  /* la marque s’efface pendant que le nom s’installe */
+  const sortieMarque = ease(seg(t, 3.0, 3.9));
+  const marque = $('#marque');
+  marque.style.opacity = (1 - sortieMarque).toFixed(3);
+  marque.style.transform = 'translate(-50%,-50%) scale(' + (1 - 0.12 * sortieMarque).toFixed(3) + ')';
+
+  /* ── scène 2 : le nom (3,2 → 6,6 s) ── */
+  const nom = $('#nom');
+  const aNom = seg(t, 3.15, 4.2) * (1 - seg(t, 6.1, 6.9));
+  nom.style.opacity = aNom.toFixed(3);
+  nom.style.top = (430 - 26 * easeOutQuint(seg(t, 3.15, 4.6)) + 34 * ease(seg(t, 6.1, 6.9))).toFixed(1) + 'px';
+  $('.mot').style.letterSpacing = (-0.03 - 0.045 * (1 - easeOutQuint(seg(t, 3.2, 5.2)))).toFixed(4) + 'em';
+  $('#trait').style.width = (620 * ease(seg(t, 3.7, 4.9))).toFixed(0) + 'px';
+  $('#trait').style.opacity = (1 - seg(t, 6.0, 6.6)).toFixed(3);
+  $('#devise').style.opacity = easeOut(seg(t, 4.5, 5.6)).toFixed(3);
+  $('#devise').style.transform = 'translateY(' + (14 * (1 - easeOutQuint(seg(t, 4.5, 5.8)))).toFixed(1) + 'px';
+
+  /* ── scène 3 : les métiers (6,6 → 9,8 s) ── */
+  $('#soustitre').style.opacity = (easeOut(seg(t, 6.7, 7.4)) * (1 - seg(t, 9.0, 9.5))).toFixed(3);
+  $$('.metier').forEach((m, i) => {
+    const d = 6.9 + i * 0.28;
+    const p = easeOutQuint(seg(t, d, d + 0.9));
+    const s = seg(t, 8.95 + i * 0.08, 9.5);
+    m.style.opacity = (p * (1 - s)).toFixed(3);
+    m.style.transform = 'translateY(' + (26 * (1 - p) - 18 * s).toFixed(1) + 'px)';
+    m.style.borderColor = 'rgba(126,178,210,' + (0.22 + 0.3 * (0.5 + 0.5 * Math.sin(t * 2 + i))).toFixed(3) + ')';
+  });
+
+  /* ── scène 4 : la signature (9,9 → 12 s) ── */
+  const final = seg(t, 13.9, 15.4);
+  $('#abo').style.opacity = (0.85 * easeOut(seg(t, 13.8, 15.1))).toFixed(3);
+  $('#abo').style.letterSpacing = (0.34 + 0.06 * (1 - easeOutQuint(final))).toFixed(3) + 'em';
+  $('#fin').style.opacity = (0.9 * easeOut(seg(t, 14.3, 15.6))).toFixed(3);
+  $('#filet-h').style.width = (1200 * ease(seg(t, 13.9, 15.3))).toFixed(0) + 'px';
+  $('#filet-h').style.top = '176px';
+  $('#filet-h').style.opacity = 0.55 * easeOut(clamp(seg(t, 13.7, 14.7) + (1 - seg(t, 15.3, 15.9))));
+  return true;
+};
+
+/* le dernier plan ramène la marque, en petit, au-dessus de la signature */
+window.renderFinalMark = function (t) {
+  const m = $('#marque');
+  const a = seg(t, 9.9, 10.8);
+  m.style.left = '50%';
+  m.style.top = (356 - 30 * easeOutQuint(a)).toFixed(0) + 'px';
+  m.style.width = '210px'; m.style.height = '210px';
+  m.style.transform = 'translate(-50%,-50%) scale(' + (0.42 + 0.02 * a).toFixed(3) + ')';
+  const entree = easeOut(a) * (1 - seg(t, 9.9, 10.1) * 0);
+  m.style.opacity = entree.toFixed(3);
+  $('#anneau').style.strokeDashoffset = (578 * (1 - ease(seg(t, 8.9, 10.4)))).toFixed(1);
+  $('#anneau').style.opacity = seg(t, 9.9, 10.3);
+  $('#anneau2').style.opacity = 0.9 * easeOut(seg(t, 10.2, 10.9));
+  $('#lettre').setAttribute('opacity', easeOut(seg(t, 10.2, 11)).toFixed(3));
+  $('#perle').setAttribute('opacity', easeOut(seg(t, 10.9, 11.4)).toFixed(3));
+};
+
+window.renderSceneSolutions = function (t) {
+  const bloc = $('#solutions-video');
+  const p = easeOut(seg(t, 9.45, 10.5)) * (1 - seg(t, 13.1, 13.9));
+  bloc.style.opacity = p.toFixed(3);
+  bloc.style.transform = 'translateY(-50%) scale(' + (0.985 + 0.015 * easeOutQuint(seg(t, 9.45, 11))).toFixed(4) + ')';
+  ['#sv-stockia', '#sv-dd'].forEach((sel, i) => {
+    const el = document.querySelector(sel);
+    const a = easeOutQuint(seg(t, 9.7 + i * 0.22, 10.6 + i * 0.22));
+    const s = seg(t, 13.0 + i * 0.08, 13.9);
+    el.style.opacity = (a * (1 - s)).toFixed(3);
+    el.style.transform = 'translateY(' + (22 * (1 - a) - 14 * s).toFixed(1) + 'px)';
+  });
+  const sep = document.querySelector('.sv-sep');
+  sep.style.transform = 'scaleY(' + ease(seg(t, 10.1, 11.1)).toFixed(3) + ')';
+};
+
+window.renderAll = function (t) {
+  window.render(t);
+  window.renderSceneSolutions(t);
+  /* au-delà de 9,9 s, la marque animée s'efface et le bloc-signature prend le plan :
+     un seul élément composé, donc centré au pixel près (l'assemblage de deux calques
+     animés séparément dérivait — le « M » sortait de son anneau). */
+  const m = $('#marque');
+  if (t > 13.7) m.style.opacity = 0;
+  const a = seg(t, 13.75, 14.7);
+  const lk = $('#lockup');
+  lk.style.opacity = easeOut(a).toFixed(3);
+  lk.style.transform = 'translate(-50%,-50%) scale(' + (0.965 + 0.035 * easeOutQuint(a)).toFixed(4) + ')';
+  return true;
+};
+window.DUREE = DUREE;
+renderAll(0);
+</script>
+</body>
+</html>

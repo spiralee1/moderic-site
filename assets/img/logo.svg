@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 210" role="img" aria-label="ModEric Software">
+  <defs>
+    <linearGradient id="mer" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8FDBFB"/>
+      <stop offset=".48" stop-color="#1E9CD8"/>
+      <stop offset="1" stop-color="#0B5E8C"/>
+    </linearGradient>
+    <linearGradient id="laiton" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#F2D9A6"/>
+      <stop offset="1" stop-color="#C08A3E"/>
+    </linearGradient>
+  </defs>
+  <!-- l'anneau ouvert : la marque de fabrique (l'ouverture = la place laissée à l'usage) -->
+  <circle cx="105" cy="105" r="92" fill="none" stroke="url(#mer)" stroke-width="5.4"
+          stroke-linecap="round" stroke-dasharray="536 42" transform="rotate(126 105 105)"/>
+  <circle cx="105" cy="105" r="77" fill="none" stroke="currentColor" stroke-width="1.2" opacity=".26"/>
+  <text x="104" y="107" text-anchor="middle" dominant-baseline="central" fill="url(#mer)"
+        font-family="Manrope, Segoe UI, system-ui, sans-serif" font-weight="800" font-size="96"
+        letter-spacing="-4">M</text>
+  <circle cx="105" cy="13" r="6.4" fill="url(#laiton)"/>
+</svg>
