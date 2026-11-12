@@ -92,9 +92,17 @@
 
   <!-- la maquette : un iMac sur le comptoir, la douchette à côté -->
   <div class="maquette" data-monter data-rang="2">
-    <img src="assets/medias/maquette-stockia.jpg" alt="Stockia sur un ordinateur de bureau, avec sa douchette USB sur son support"
-         width="3360" height="2360">
-    <p class="maquette__legende">Le poste de vente sur un ordinateur de bureau, sa douchette USB sur son support.</p>
+    <picture><source media="(max-width:760px)" srcset="assets/medias/maquette-stockia-petit.jpg"><img src="assets/medias/maquette-stockia.jpg" alt="Stockia installé sur un poste de vente de pharmacie : écran, clavier, souris, imprimante à tickets, douchette sur son support et tiroir-caisse" width="3840" height="2200" fetchpriority="high"></picture>
+    <div class="maquette__pied">
+      <p class="maquette__legende">Le poste de vente complet, tel qu'il s'installe au comptoir :</p>
+      <ul class="maquette__liste">
+        <li>ordinateur de bureau, Stockia ouvert</li>
+        <li>imprimante thermique à tickets</li>
+        <li>douchette de codes-barres sur son support</li>
+        <li>clavier, souris</li>
+        <li>tiroir-caisse</li>
+      </ul>
+    </div>
   </div>
 </section>
 

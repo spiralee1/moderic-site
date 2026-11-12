@@ -65,7 +65,7 @@
      On observe la SECTION, puis on révèle ses enfants. Observer l'élément lui-même
      ne marche pas : un texte masqué ou un trait à l'échelle 0 n'a aucune surface
      d'intersection — l'observateur ne le verrait jamais arriver. */
-  var aReveler = $$('[data-monter],[data-ligne],[data-trait],.principe');
+  var aReveler = $$('[data-monter],[data-ligne],[data-trait],.principe,.maquette');
   var groupes = [];
   aReveler.forEach(function (el) {
     /* on remonte jusqu'à la SECTION (ou la porte, ou un bloc de page produit) ;

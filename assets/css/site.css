@@ -808,8 +808,18 @@ body.menu-ouvert .panneau a{opacity:1;transform:none}
 /* la maquette : elle déborde de la page, comme une photo de produit posée sur le papier */
 .maquette { position:relative; max-width:var(--page); margin:clamp(20px,3vw,40px) auto 0;
   padding-inline:var(--marge) }
-.maquette img { width:100%; height:auto; display:block; border-radius:clamp(14px,2vw,26px);
-  box-shadow:0 60px 120px -60px rgba(10,62,88,.45) }
+/* la plaque : la scène a son propre fond clair ; sans bord elle se fond dans la page.
+   Un liseré d'azur très pâle et une ombre douce la posent, comme une planche imprimée. » */
+.maquette picture { display:block; border-radius:clamp(10px,1.4vw,18px); overflow:hidden;
+  box-shadow:0 0 0 1px rgba(63,160,216,.22), 0 46px 90px -56px rgba(10,62,88,.5), 0 10px 26px -18px rgba(10,62,88,.28) }
+/* la scène est déjà composée avec son propre fond : on ne met ni ombre lourde ni rayon,
+   on la laisse affleurer le bord de la page. » */
+.maquette img { width:100%; height:auto; display:block; border-radius:clamp(10px,1.4vw,18px);
+  box-shadow:0 40px 90px -60px rgba(10,62,88,.35) }
+@media (min-width:1100px) {
+  /* la maquette déborde légèrement des marges : c'est ce qui la fait sortir de l'écran */
+  .maquette { max-width:calc(var(--page) + 60px); padding-inline:clamp(8px,1.6vw,26px) }
+}
 .maquette__legende { margin-top:14px; font-size:12.5px; color:var(--texte-pale); text-align:center }
 
 /* le problème / la réponse, face à face */
@@ -884,4 +894,33 @@ body.menu-ouvert .panneau a{opacity:1;transform:none}
   .creation__vignette { grid-area:v; max-width:220px }
   .creation__fleche { grid-area:f }
   .creation__corps { grid-area:c }
+}
+
+/* ── la maquette produit : l'image + la liste de ce qu'elle montre ── */
+.maquette picture { display:block }
+.maquette__pied { display:flex; flex-wrap:wrap; align-items:center; justify-content:center;
+  gap:10px 22px; margin-top:16px; text-align:center }
+.maquette__legende { font-size:13px; color:var(--texte-doux); margin:0 }
+.maquette__legende b { color:var(--encre); font-weight:600 }
+.maquette__liste { display:flex; flex-wrap:wrap; justify-content:center; gap:6px 8px; list-style:none }
+.maquette__liste li { font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--azur-700);
+  background:rgba(255,255,255,.72); border:1px solid rgba(63,160,216,.28); padding:6px 11px; border-radius:999px }
+@media (max-width:760px) {
+  .maquette__pied { gap:8px }
+  .maquette__liste li { font-size:10px; padding:5px 9px }
+}
+
+/* ── l'apparition des maquettes : une seule fois, discrète ──
+   Le client demande « des animations discrètes à l'apparition, sans effets excessifs ».
+   On monte de 24 px avec une mise au point progressive, et c'est tout. » */
+.maquette {
+  opacity:0; transform:translateY(24px) scale(.994);
+  filter:blur(6px) saturate(.94);
+  transition:opacity 1.15s var(--sortie), transform 1.25s var(--sortie),
+             filter 1.35s var(--sortie);
+  transition-delay:120ms;
+}
+.maquette.vu { opacity:1; transform:none; filter:none }
+@media (prefers-reduced-motion:reduce) {
+  .maquette { opacity:1 !important; transform:none !important; filter:none !important }
 }
