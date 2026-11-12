@@ -76,7 +76,9 @@ ok('le site se visite entièrement (' + liens + ' liens internes)', liens > 24);
 /* ── 3. rien d'extérieur ── */
 pages.forEach(f => {
   const externes = [...lire(f).matchAll(/(?:src|href)\s*=\s*"(https?:\/\/[^"]+)"/g)].map(m => m[1])
-    .filter(u => !/mod-eric\.com/.test(u));
+    /* wa.me et mailto sont des LIENS de contact (un clic de l'utilisateur) : ce contrôle
+       vérifie qu'on ne CHARGE rien depuis un domaine extérieur. */
+    .filter(u => !/mod-eric\.com|wa\.me/.test(u));
   ok('aucune ressource extérieure (' + f + ')', externes.length === 0, externes.join(', '));
 });
 ok('la feuille de style ne charge aucune police distante', !/@import|fonts\.googleapis|fonts\.gstatic/.test(css));
@@ -171,10 +173,13 @@ ok('aucun faux numéro de section (01, 02, 03…) dans le contenu', num.length =
 
 /* ── 12. la page d'accueil est institutionnelle ── */
 const accueil = lire('index.html');
-ok('l’accueil présente l’entreprise AVANT les logiciels',
-  accueil.indexOf("id=\"entreprise\"") > 0 && accueil.indexOf("id=\"entreprise\"") < accueil.indexOf("id=\"univers\""));
-ok('l’accueil nomme l’identité, la vision et l’approche',
-  /Notre identité/.test(accueil) && /Notre vision/.test(accueil) && /Notre approche/.test(accueil));
+ok('l’accueil présente l’entreprise AVANT les créations',
+  accueil.indexOf('id="entreprise"') > 0 && accueil.indexOf('id="entreprise"') < accueil.indexOf('id="creations"'));
+ok('l’accueil porte les sections demandées par le client',
+  /Qui sommes-nous/.test(accueil) && /Notre vision/.test(accueil) && /Notre philosophie/.test(accueil)
+  && /Nos créations/.test(accueil) && /Notre rapport à la technologie/.test(accueil));
+ok('la philosophie est présentée SANS numérotation',
+  /La réflexion/.test(accueil) && !/<ol|1\.\s*La réflexion|>01</.test(accueil));
 ok('les logiciels n’ont qu’une place discrète sur l’accueil (moins de 30 % des liens)',
   (accueil.match(/stockia\.html|dd-spirity\.html/g) || []).length <= 6,
   (accueil.match(/stockia\.html|dd-spirity\.html/g) || []).length + ' liens');
