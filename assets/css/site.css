@@ -746,7 +746,8 @@ body.menu-ouvert .panneau a{opacity:1;transform:none}
   box-shadow:0 12px 26px -14px rgba(10,62,88,.45); }
 .creation__logo--dd { display:grid; place-items:center; background:#fff; box-shadow:none; border:1px solid rgba(63,160,216,.3); }
 .creation__logo--dd svg { width:32px; height:32px; }
-.creation__nom { font-family:var(--voix); font-size:clamp(22px,2.1vw,29px); line-height:1.05; }
+.creation__nom { display:block; font-family:var(--voix); font-size:clamp(22px,2.1vw,29px);
+  line-height:1.05; margin-top:2px }
 .creation__quoi { font-size:13.8px; margin-top:4px; color:rgba(10,62,88,.72); }
 .creation__fleche { width:36px; height:36px; border-radius:50%; border:1px solid rgba(63,160,216,.34);
   display:grid; place-items:center; color:var(--azur-700); transition:background .4s,color .4s,transform .5s var(--sortie); }
@@ -762,4 +763,125 @@ body.menu-ouvert .panneau a{opacity:1;transform:none}
 @media (max-width:900px) {
   .principes { grid-template-columns:minmax(0,1fr); }
   .phare__dit { font-size:clamp(28px,8.6vw,48px); }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   LES PAGES PRODUIT v3  — la maquette d'abord
+   ──────────────────────────────────────────────────────────────────────────────
+   Décisions (séance du 12/11) :
+     · la MAQUETTE passe avant le texte : un iMac vu de trois quarts avec la
+       douchette sur son support (Stockia), une fenêtre macOS (D.D- Spirity) ;
+     · le texte dit d'abord QUEL PROBLÈME c'est, et pour qui — le terminal de
+       vente des pharmacies, pas « un logiciel de gestion commerciale » ;
+     · les captures ne sont plus une liste d'images nues : chacune est posée
+       dans une fenêtre de bureau, avec sa barre de titre et ses trois feux.
+   ══════════════════════════════════════════════════════════════════════════════ */
+
+.produit-tete { display:grid; grid-template-columns:minmax(0,1fr); gap:0; max-width:min(100%,900px) }
+.produit-fil { display:flex; flex-wrap:wrap; gap:8px; align-items:center; font-size:12px;
+  color:var(--texte-pale); margin-bottom:clamp(18px,2.6vw,28px) }
+.produit-fil a:hover { color:var(--azur-700) }
+/* l'étiquette « terminal de vente · pharmacie » se cassait sur trois lignes à côté du
+   logo : on lui laisse la largeur, elle reste sur une ligne. » */
+.produit-marque { display:flex; align-items:center; gap:14px; margin-bottom:14px; flex-wrap:wrap }
+.produit-marque .etiquette { white-space:nowrap }
+.produit-marque img { width:56px; height:56px; border-radius:14px; object-fit:cover;
+  box-shadow:0 14px 30px -14px rgba(10,62,88,.5) }
+.produit-marque > span[style] { width:56px; display:grid; place-items:center }
+.produit-marque svg { width:44px; height:44px }
+.produit-marque__embleme { width:56px; height:56px; display:grid; place-items:center; flex:0 0 auto;
+  background:#fff; border-radius:14px; border:1px solid rgba(63,160,216,.3);
+  box-shadow:0 14px 30px -14px rgba(10,62,88,.4) }
+.produit-nom { font-family:var(--voix); font-size:clamp(46px,7.6vw,110px); line-height:.84;
+  letter-spacing:-.042em; color:var(--encre) }
+.produit-nom i { font-style:italic; color:var(--azur-600) }
+.produit-accroche { margin-top:clamp(18px,2.6vw,28px); font-size:clamp(17px,1.6vw,22px);
+  line-height:1.5; color:var(--texte-doux); max-width:60ch }
+.produit-accroche strong { color:var(--encre); font-weight:600 }
+.produit-accroche b { color:var(--encre); font-weight:400 }
+.produit-puces { display:flex; flex-wrap:wrap; gap:8px; margin-top:clamp(16px,2.2vw,24px) }
+.produit-puces span { font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--azur-700); background:rgba(255,255,255,.7); border:1px solid rgba(63,160,216,.3);
+  padding:7px 12px; border-radius:999px }
+.produit-actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:clamp(20px,2.8vw,30px) }
+
+/* la maquette : elle déborde de la page, comme une photo de produit posée sur le papier */
+.maquette { position:relative; max-width:var(--page); margin:clamp(20px,3vw,40px) auto 0;
+  padding-inline:var(--marge) }
+.maquette img { width:100%; height:auto; display:block; border-radius:clamp(14px,2vw,26px);
+  box-shadow:0 60px 120px -60px rgba(10,62,88,.45) }
+.maquette__legende { margin-top:14px; font-size:12.5px; color:var(--texte-pale); text-align:center }
+
+/* le problème / la réponse, face à face */
+.probleme { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(24px,4vw,64px);
+  margin-top:clamp(28px,4vw,48px) }
+.probleme__col h2 { font-family:var(--voix); font-size:clamp(21px,2.1vw,28px); line-height:1.1;
+  letter-spacing:-.02em; margin-bottom:16px }
+.liste-cout, .liste-reponse { display:grid; gap:0 }
+.liste-cout li, .liste-reponse li { position:relative; padding:13px 0 13px 30px;
+  border-top:1px solid rgba(63,160,216,.24); font-size:15.4px; line-height:1.55;
+  color:var(--texte-doux) }
+.liste-cout li::before { content:'—'; position:absolute; left:0; top:13px; color:#B4443A; font-weight:700 }
+.liste-reponse li::before { content:'✓'; position:absolute; left:0; top:12px; color:var(--azur-600); font-weight:800 }
+.liste-cout li b, .liste-reponse li b { color:var(--encre); font-weight:600 }
+
+/* les quatre gestes : des colonnes de texte, sans numéro */
+.gestes { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:clamp(18px,2.6vw,34px);
+  margin-top:clamp(28px,4vw,46px) }
+.geste { position:relative; padding-top:22px; border-top:1px solid rgba(63,160,216,.34) }
+.geste__n { position:absolute; left:0; top:-5px; width:9px; height:9px; border-radius:50%;
+  background:var(--azur); box-shadow:0 0 0 4px rgba(63,160,216,.18) }
+.geste h3 { font-family:var(--voix); font-size:clamp(18px,1.9vw,24px); line-height:1.12;
+  letter-spacing:-.015em }
+.geste p { margin-top:9px; font-size:14.6px; line-height:1.62; color:var(--texte-doux) }
+.geste__note { margin-top:10px; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--azur-700) }
+
+/* les captures dans des fenêtres de bureau */
+.fenetres { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(20px,3vw,40px);
+  margin-top:clamp(28px,4vw,46px) }
+.fenetre-mac { position:relative; border-radius:12px; overflow:hidden; background:#0B1E28;
+  box-shadow:0 40px 80px -46px rgba(10,62,88,.5), 0 0 0 1px rgba(63,160,216,.16);
+  transition:transform .7s var(--sortie),box-shadow .7s var(--sortie) }
+.fenetre-mac:hover { transform:translateY(-5px); box-shadow:0 54px 100px -46px rgba(10,62,88,.6), 0 0 0 1px rgba(63,160,216,.3) }
+.fenetre-mac__barre { display:flex; align-items:center; gap:7px; height:30px; padding:0 12px;
+  background:linear-gradient(180deg,#F6F9FB,#E7EEF3); border-bottom:1px solid rgba(10,62,88,.12) }
+.fenetre-mac__barre i { width:9px; height:9px; border-radius:50%; background:#D6DEE5 }
+.fenetre-mac__barre i:nth-child(1) { background:#FF5F57 }
+.fenetre-mac__barre i:nth-child(2) { background:#FEBC2E }
+.fenetre-mac__barre i:nth-child(3) { background:#28C840 }
+.fenetre-mac__barre span { flex:1; text-align:center; font-size:11px; color:#4E6273; letter-spacing:.02em;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis }
+.fenetre-mac img { width:100%; height:auto; display:block }
+.fenetre-mac figcaption { padding:10px 14px 12px; font-size:12.5px; color:var(--texte-doux);
+  background:#fff; border-top:1px solid rgba(10,62,88,.08) }
+
+@media (max-width:1180px) {
+  .gestes { grid-template-columns:repeat(2,minmax(0,1fr)) }
+}
+@media (max-width:900px) {
+  .probleme { grid-template-columns:minmax(0,1fr) }
+  .gestes { grid-template-columns:minmax(0,1fr) }
+  .fenetres { grid-template-columns:minmax(0,1fr) }
+  .maquette { padding-inline:14px }
+}
+
+/* ── les créations de l'accueil : une VRAIE vignette de la maquette, pas un logo seul ── */
+.creation { grid-template-columns:minmax(0,190px) minmax(0,1fr) auto; gap:clamp(16px,2.4vw,30px);
+  padding:clamp(16px,2.2vw,26px) 0; align-items:center }
+.creation__vignette { display:block; border-radius:12px; overflow:hidden; background:var(--azur-50);
+  box-shadow:0 20px 40px -24px rgba(10,62,88,.5), 0 0 0 1px rgba(63,160,216,.18);
+  transition:transform .6s var(--sortie) }
+.creation:hover .creation__vignette { transform:translateY(-3px) }
+.creation__vignette img { width:100%; height:auto; display:block }
+.creation__corps { display:block; min-width:0 }
+.creation__genre { display:block; font-size:10.5px; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--azur-700); margin-bottom:7px }
+.creation__quoi { font-size:13.6px; margin-top:6px; color:rgba(10,62,88,.74); max-width:52ch;
+  line-height:1.55 }
+@media (max-width:760px) {
+  .creation { grid-template-columns:minmax(0,1fr) auto; grid-template-areas:"v f" "c c"; row-gap:12px }
+  .creation__vignette { grid-area:v; max-width:220px }
+  .creation__fleche { grid-area:f }
+  .creation__corps { grid-area:c }
 }

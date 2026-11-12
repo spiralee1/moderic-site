@@ -191,8 +191,10 @@ ok('le film n’est chargé que s’il existe réellement',
 
 /* ── 13. les pages produit décrivent le logiciel réel ── */
 const stockiaH = lire('stockia.html');
-ok('Stockia est présenté comme un point de vente (POS), pas comme un tableur de gestion',
-  /point de vente/i.test(stockiaH) && /PointOfSaleApplication/.test(stockiaH), 'mention POS absente');
+ok('Stockia est présenté comme un TERMINAL DE VENTE (POS), pas comme un tableur de gestion',
+  /terminal de vente/i.test(stockiaH) && /PointOfSaleApplication/.test(stockiaH), 'mention « terminal de vente » absente');
+ok('la page Stockia dit Windows ET Android, et qu’il est conçu pour les pharmacies',
+  /Windows/.test(stockiaH) && /Android/.test(stockiaH) && /pharmacie/i.test(stockiaH));
 ok('la page Stockia nomme ses fonctions réelles (douchette, monnaie, péremption, crédit)',
   /douchette/i.test(stockiaH) && /monnaie/i.test(stockiaH) && /péremption/i.test(stockiaH) && /crédit/i.test(stockiaH));
 ok('la page Stockia montre les captures réelles du logiciel',

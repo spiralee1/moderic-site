@@ -91,6 +91,24 @@ l'emplacement. Absent : la composition reste, le site ne casse pas.
 
 ---
 
+## 5 bis. Les MAQUETTES produit (séance du 12/11)
+
+Deux maquettes sont générées, pas photographiées : elles sont rendues par un vrai Chrome
+(`/home/user/tmp/maquettes.py`) puis aplaties en JPEG.
+
+| Fichier | Ce qu'elle montre |
+|---|---|
+| `assets/medias/maquette-stockia.jpg` | Stockia dans un **iMac vu de trois quarts**, sur un bureau clair, avec une **douchette USB sur son support** à côté |
+| `assets/medias/maquette-dd.jpg` | D.D- Spirity dans une **fenêtre macOS** (trois feux, barre de titre), avec le tableau du jour et **le rail replié** |
+
+Le texte des pages produit suit un ordre voulu : **le problème d'abord** (ce qui coûte du temps
+au comptoir / au bureau), **puis la réponse du logiciel**, geste par geste. Stockia est présenté
+comme le **terminal de vente des pharmacies** (Windows et Android) — les autres fonctions sont
+annoncées comme venant **avec** lui, pas comme la raison d'acheter.
+
+Les captures ne sont plus une liste d'images nues : chacune est posée dans une **fenêtre de
+bureau** (`.fenetre-mac`, barre de titre + trois feux + légende).
+
 ## 6. Remplacer les captures
 
 `assets/medias/`, deux tailles par vue (`-petit` pour les vignettes) :
