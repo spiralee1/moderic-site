@@ -94,13 +94,15 @@
   <div class="maquette" data-monter data-rang="2">
     <picture><source media="(max-width:760px)" srcset="assets/medias/maquette-stockia-petit.jpg"><img src="assets/medias/maquette-stockia.jpg" alt="Stockia installé sur un poste de vente de pharmacie : écran, clavier, souris, imprimante à tickets, douchette sur son support et tiroir-caisse" width="3840" height="2200" fetchpriority="high"></picture>
     <div class="maquette__pied">
-      <p class="maquette__legende">Le poste de vente complet, tel qu'il s'installe au comptoir :</p>
+      <p class="maquette__legende">Le poste de vente complet, tel qu'il s'installe au comptoir d'une pharmacie :</p>
       <ul class="maquette__liste">
-        <li>ordinateur de bureau, Stockia ouvert</li>
-        <li>imprimante thermique à tickets</li>
-        <li>douchette de codes-barres sur son support</li>
-        <li>clavier, souris</li>
+        <li>écran et caisse</li>
+        <li>imprimante thermique</li>
+        <li>ticket qui sort</li>
+        <li>douchette code-barres</li>
+        <li>clavier et souris</li>
         <li>tiroir-caisse</li>
+        <li>bocaux du rayon, derrière</li>
       </ul>
     </div>
   </div>
@@ -197,32 +199,181 @@
         <p class="phare__dit">Le comptoir, <i>écran par écran.</i></p>
       </div>
       <p class="chapo" data-monter data-rang="1" style="align-self:end">
-        Captures du logiciel en service, présentées comme des fenêtres de bureau. Le nom de
-        l'officine, les produits et les montants sont ceux d'une pharmacie de démonstration.
+        Captures du logiciel lui-même, présentées comme des fenêtres de bureau. Le nom de
+        l'officine, les produits et les montants sont ceux d'une pharmacie de démonstration : ce sont
+        des captures, ni maquette ni image retouchée.
       </p>
     </div>
 
     <div class="fenetres">
       <figure class="fenetre-mac" data-monter>
-        <div class="fenetre-mac__barre"><i></i><i></i><i></i><span>Caisse — panier et encaissement</span></div>
-        <img src="assets/medias/stockia-caisse.jpg" alt="L'écran de caisse de Stockia : le panier à gauche, le terminal d'encaissement à droite" loading="lazy" width="2400" height="1393">
-        <figcaption>La caisse : le panier à gauche, l'encaissement à droite</figcaption>
+        <div class="fenetre-mac__barre"><i></i><i></i><i></i><span>La caisse — panier et encaissement</span></div>
+        <img src="assets/medias/stockia-caisse.jpg" alt="L'écran de caisse de Stockia : le panier des médicaments à gauche, le terminal d'encaissement à droite avec la monnaie à rendre" loading="lazy" width="2400" height="1394">
+        <figcaption>La caisse : le panier à gauche, l'encaissement à droite, la monnaie rendue en FC</figcaption>
       </figure>
       <figure class="fenetre-mac" data-monter data-rang="1">
-        <div class="fenetre-mac__barre"><i></i><i></i><i></i><span>Stock, arrivages et péremption</span></div>
-        <img src="assets/medias/stockia-stock.jpg" alt="L'écran de stock de Stockia : lots, dates de péremption, prix d'achat" loading="lazy" width="2400" height="1393">
-        <figcaption>Le stock : lots, péremption, prix d'achat</figcaption>
+        <div class="fenetre-mac__barre"><i></i><i></i><i></i><span>Stock, lots et péremption</span></div>
+        <img src="assets/medias/stockia-stock.jpg" alt="L'écran de stock de Stockia : les médicaments du rayon, les dates de péremption, le prix d'achat par plaquette" loading="lazy" width="2400" height="1394">
+        <figcaption>Le stock : chaque boîte, sa péremption, son prix d'achat</figcaption>
       </figure>
       <figure class="fenetre-mac" data-monter data-rang="2">
-        <div class="fenetre-mac__barre"><i></i><i></i><i></i><span>Histoires et archives</span></div>
-        <img src="assets/medias/stockia-histoires.jpg" alt="L'écran d'historique de Stockia : total vendu, gain net, tickets de l'année" loading="lazy" width="2400" height="1393">
-        <figcaption>Les archives : total vendu, gain net, tickets</figcaption>
+        <div class="fenetre-mac__barre"><i></i><i></i><i></i><span>L'accueil — vers où l'on va</span></div>
+        <img src="assets/medias/stockia-accueil.jpg" alt="L'accueil de Stockia : les tuiles du comptoir, l'état du stock et les raccourcis du jour" loading="lazy" width="2400" height="1394">
+        <figcaption>L'accueil : le comptoir en un coup d'œil, avant d'ouvrir la caisse</figcaption>
       </figure>
       <figure class="fenetre-mac" data-monter data-rang="3">
-        <div class="fenetre-mac__barre"><i></i><i></i><i></i><span>Patients et fidélité</span></div>
-        <img src="assets/medias/stockia-patients.jpg" alt="L'écran patients de Stockia : fidélité par numéro de téléphone, badges" loading="lazy" width="2400" height="1393">
-        <figcaption>Les patients : points et badge, sans nom à saisir</figcaption>
+        <div class="fenetre-mac__barre"><i></i><i></i><i></i><span>Histoires et archives</span></div>
+        <img src="assets/medias/stockia-histoires.jpg" alt="L'écran d'historique de Stockia : le total vendu, le gain net, les tickets de l'année" loading="lazy" width="2400" height="1394">
+        <figcaption>Les archives : total vendu, gain net, tickets de l'année</figcaption>
       </figure>
+      <figure class="fenetre-mac" data-monter data-rang="4">
+        <div class="fenetre-mac__barre"><i></i><i></i><i></i><span>Patients et fidélité</span></div>
+        <img src="assets/medias/stockia-patients.jpg" alt="L'écran patients de Stockia : fidélité par numéro de téléphone, points et badge" loading="lazy" width="2400" height="1394">
+        <figcaption>Les patients : des points sur un numéro de téléphone, sans nom à saisir</figcaption>
+      </figure>
+      <figure class="fenetre-mac" data-monter data-rang="5">
+        <div class="fenetre-mac__barre"><i></i><i></i><i></i><span>Réglages du comptoir</span></div>
+        <img src="assets/medias/stockia-reglages.jpg" alt="Les réglages de Stockia : le nom de l'officine, la monnaie, l'imprimante et la douchette" loading="lazy" width="2400" height="1394">
+        <figcaption>Les réglages : l'officine, la monnaie, l'imprimante et la douchette</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ─── LES DEUX PÉRIPHÉRIQUES QUI FONT UN COMPTOIR ─── -->
+<section class="section bande bande--2" id="peripheriques">
+  <div class="bande__decor" aria-hidden="true"><span class="bande__arc bande__arc--1"></span><span class="bande__arc bande__arc--2"></span><span class="bande__halo bande__halo--a"></span><span class="bande__points"></span></div>
+  <div class="section__page">
+    <div class="deux" style="margin-top:0">
+      <div class="phare" data-ligne>
+        <div class="phare__filet"></div>
+        <span class="etiquette" style="margin-bottom:14px">Au comptoir</span>
+        <p class="phare__dit">La douchette et l'imprimante<br><i>ne sont pas des accessoires.</i></p>
+      </div>
+      <p class="chapo" data-monter data-rang="1" style="align-self:end">
+        Ce sont elles qui font la différence entre un logiciel où l'on tape et un comptoir où l'on
+        sert. Voilà ce qu'elles changent, concrètement, et ce qu'il faut acheter.
+      </p>
+    </div>
+
+    <div class="peripheriques">
+      <div class="peripherique" data-monter>
+        <svg class="peripherique__dessin" viewBox="0 0 150 190" fill="none" aria-hidden="true">
+          <rect x="58" y="160" width="52" height="12" rx="6" fill="#E8EEF2" stroke="#9FB6C6" stroke-width="1.6"/>
+          <rect x="74" y="96" width="20" height="70" rx="8" fill="#F4F8FA" stroke="#9FB6C6" stroke-width="1.6"/>
+          <rect x="56" y="44" width="56" height="58" rx="16" fill="#FBFDFE" stroke="#7E9CB0" stroke-width="2"/>
+          <rect x="66" y="58" width="36" height="14" rx="5" fill="#12212B"/>
+          <rect x="58" y="22" width="52" height="26" rx="10" fill="#FBFDFE" stroke="#7E9CB0" stroke-width="2"/>
+          <rect x="68" y="30" width="32" height="9" rx="4" fill="#12212B" opacity=".85"/>
+          <circle cx="84" cy="92" r="3" fill="#B3392F"/>
+          <path d="M24 60 h14 v-18 h-14 z" fill="#E3F0F7" stroke="#7E9CB0" stroke-width="1.4"/>
+          <path d="M31 34 v8 M27 38 h8" stroke="#3FA0D8" stroke-width="2" stroke-linecap="round"/>
+          <path d="M108 50 q14 6 0 18" stroke="#3FA0D8" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 5"/>
+        </svg>
+        <div>
+          <h3>La douchette lit, la caisse suit</h3>
+          <p>La douchette se branche en USB et se comporte comme un clavier : elle « tape » le
+          code-barres puis Entrée. <b>Aucun pilote à installer</b>, aucun réglage — Stockia écoute,
+          trouve la boîte et l'ajoute au panier. Une boîte scannée deux fois, et c'est la quantité
+          qui monte au lieu d'une deuxième ligne.</p>
+          <p style="margin-top:10px">Ce que ça change au comptoir : un client qui attend pendant
+          qu'on cherche une boîte dans le rayon, c'est fini. On scanne ce qu'il tend, on encaisse.</p>
+          <div class="compatibilite">
+            <span>Douchette USB (mode clavier)</span><span>Lecteur 1D / 2D</span><span>Caméra du téléphone</span>
+          </div>
+          <div class="peripherique__note">mode clavier · aucun pilote · code en 1D et 2D</div>
+        </div>
+      </div>
+
+      <div class="peripherique" data-monter data-rang="1">
+        <svg class="peripherique__dessin" viewBox="0 0 150 190" fill="none" aria-hidden="true">
+          <rect x="26" y="102" width="98" height="62" rx="10" fill="#FBFDFE" stroke="#7E9CB0" stroke-width="2"/>
+          <rect x="38" y="112" width="74" height="26" rx="6" fill="#EEF4F7" stroke="#9FB6C6" stroke-width="1.4"/>
+          <rect x="46" y="134" width="58" height="5" rx="2.5" fill="#20302E"/>
+          <circle cx="110" cy="152" r="4" fill="#1F8A52"/>
+          <rect x="30" y="164" width="90" height="9" rx="4.5" fill="#DCE7EC"/>
+          <rect x="44" y="18" width="62" height="86" rx="4" fill="#FFFFFF" stroke="#C3D3DC" stroke-width="1.4"/>
+          <path d="M52 30 h34 M52 40 h46 M52 50 h40 M52 60 h46 M52 70 h30 M52 80 h44" stroke="#8FA3AF" stroke-width="2.4" stroke-linecap="round"/>
+          <rect x="52" y="86" width="46" height="10" fill="#12212B" opacity=".7"/>
+        </svg>
+        <div>
+          <h3>L'imprimante sort le ticket, tout de suite</h3>
+          <p>Une imprimante thermique 58 ou 80 mm se branche en USB (ou en Bluetooth sur le
+          téléphone). <b>Stockia imprime sans passer par Windows</b> : pas de fenêtre
+          d'impression, pas de pilote à choisir — le ticket sort à l'encaissement, avec le nom de
+          l'officine, les lignes, le total, la monnaie rendue et un code-barres de ticket.</p>
+          <p style="margin-top:10px">Sans imprimante, rien ne bloque : le reçu part en <b>PDF</b>, et
+          il est toujours possible de réimprimer un ticket depuis l'historique.</p>
+          <div class="compatibilite">
+            <span>Thermique 58 mm</span><span>Thermique 80 mm</span><span>USB</span><span>Bluetooth (téléphone)</span><span>PDF sinon</span>
+          </div>
+          <div class="peripherique__note">aucune fenêtre d'impression · réimpression possible</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="note" style="margin-top:clamp(20px,3vw,32px);max-width:none;background:rgba(255,255,255,.8);border-left-color:var(--azur)">
+      <p style="margin:0;font-size:14.5px;line-height:1.6;color:var(--texte-doux)">
+        <b style="color:var(--encre);font-weight:600">Ce qu'il faut acheter, en clair :</b> une douchette
+        USB à lecture de codes-barres (le modèle le plus courant suffit), et une imprimante thermique
+        de tickets 58 ou 80 mm. Ce sont les deux seuls périphériques dont Stockia a besoin — le
+        tiroir-caisse, lui, se branche derrière l'imprimante et s'ouvre à l'encaissement, comme sur
+        n'importe quelle caisse.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── DEUX PLATEFORMES, UN SEUL CATALOGUE ─── -->
+<section class="section bande bande--1" id="plateformes">
+  <div class="bande__decor" aria-hidden="true"><span class="bande__arc bande__arc--1"></span><span class="bande__arc bande__arc--2"></span><span class="bande__halo bande__halo--a"></span><span class="bande__points"></span></div>
+  <div class="section__page">
+    <div class="deux" style="margin-top:0">
+      <div class="phare" data-ligne>
+        <div class="phare__filet"></div>
+        <span class="etiquette" style="margin-bottom:14px">Windows ou Android</span>
+        <p class="phare__dit">Certaines officines choisissent le PC.<br><i>D'autres n'ont qu'un téléphone.</i></p>
+      </div>
+      <p class="chapo" data-monter data-rang="1" style="align-self:end">
+        Les deux versions sont le <strong>même logiciel</strong> : même catalogue, mêmes prix, mêmes
+        tickets. Ce n'est pas une version « démo » d'un côté et la vraie de l'autre.
+      </p>
+    </div>
+
+    <div class="plateformes">
+      <div class="plateforme" data-monter>
+        <span class="plateforme__fil" aria-hidden="true"></span>
+        <h3>Le poste Windows</h3>
+        <p>Pour l'officine qui a un comptoir et un ordinateur : c'est la version complète, celle qui
+        tient le catalogue et les archives.</p>
+        <ul>
+          <li>Douchette USB et imprimante thermique 58 / 80 mm</li>
+          <li>Deux écrans côte à côte : le panier et l'encaissement</li>
+          <li>Stock, lots, péremption, dépenses, objectifs</li>
+          <li>Toutes les archives de l'officine, sur un fichier local</li>
+        </ul>
+      </div>
+      <div class="plateforme" data-monter data-rang="1">
+        <span class="plateforme__fil" aria-hidden="true"></span>
+        <h3>Le téléphone Android</h3>
+        <p>Pour l'officine qui vend au comptoir avec un téléphone — ou pour le pharmacien qui veut
+        encaisser en salle : même caisse, dans la poche.</p>
+        <ul>
+          <li>La <b>caméra</b> sert de douchette : on scanne le code-barres de la boîte</li>
+          <li>L'imprimante thermique se branche en <b>Bluetooth</b></li>
+          <li>Même catalogue et mêmes prix que le PC — ou le catalogue embarqué</li>
+          <li>Le même compte appareil, la même licence</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="note" style="margin-top:clamp(20px,3vw,32px);max-width:none;background:rgba(255,255,255,.8);border-left-color:var(--azur)">
+      <p style="margin:0;font-size:14.5px;line-height:1.6;color:var(--texte-doux)">
+        <b style="color:var(--encre);font-weight:600">Et si l'officine a les deux ?</b> C'est le cas
+        le plus courant chez nous : le <b>poste au comptoir</b> tient le stock et les archives, le
+        <b>téléphone</b> sert à encaisser en salle ou au second comptoir, avec le même catalogue.
+        Rien à ressaisir.
+      </p>
     </div>
   </div>
 </section>

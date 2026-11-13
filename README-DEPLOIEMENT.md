@@ -21,6 +21,29 @@ mentions légales, le pied de page et les données structurées (JSON-LD).
 
 ---
 
+## 1 bis. Les pages du site, et ce qu'elles portent
+
+| Page | Ce qu'elle dit | Images |
+|---|---|---|
+| `index.html` | l'entreprise : entrée, qui nous sommes, vision, philosophie, **nos créations (3)**, technologie, contact | `maquette-stockia-petit` + `maquette-terrain-petit` + `android-accueil` |
+| `stockia.html` | le terminal de vente POS pour pharmacies | `maquette-stockia` (comptoir complet), 6 captures (caisse, stock, accueil, histoires, patients, réglages), 2 dessins de périphériques (SVG) |
+| `dd-spirity.html` | le poste Windows du Directeur de Discipline | `maquette-dd` (bureau de direction), 6 captures (tableau du jour, appel, horaires, indicateurs, échanges, carte), un bloc « Et le téléphone » |
+| **`dd-spirity-terrain.html`** | **Spirity Terrain, l'application Android** — la page dédiée : deux plateformes, une journée, les six écrans, l'échange, le téléchargement | `maquette-terrain` (téléphone sur le bureau), 6 captures du téléphone |
+
+**Spirity Terrain** est le nom de la version Android de D.D- Spirity. Elle a sa page parce qu'elle
+a ses gestes, son public et son mode d'installation : le D.D. doit comprendre qu'il installe **le
+poste puis l'application** — les deux vont ensemble, et l'application seule ne contient rien.
+
+### Les périphériques, expliqués là où ils comptent
+
+`stockia.html` porte une section **« La douchette et l'imprimante ne sont pas des accessoires »** :
+deux dessins au trait (SVG, aucun fichier image) et, pour chacun, ce qu'il change au comptoir, ce
+qu'il faut acheter, et ce qui reste possible sans lui (PDF, caméra du téléphone). Une section
+**« Windows ou Android »** dit qu'une officine peut choisir l'un ou l'autre — même catalogue, mêmes
+prix, mêmes tickets.
+
+---
+
 ## 2. La direction : « AZUR »
 
 | | Rôle | Valeur |

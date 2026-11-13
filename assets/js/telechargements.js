@@ -37,6 +37,8 @@ window.MODERIC_TELECHARGEMENTS = {
   },
 
   /* ──────────────────────────── D.D- SPIRITY ──────────────────────────── */
+  /* ddSpirity:android = « Spirity Terrain », l'application Android du D.D.
+     Elle se télécharge sur la page dd-spirity-terrain.html (même bloc, même fichier). */
   ddSpirity: {
     windows: {
       url: '',

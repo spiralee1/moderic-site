@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spirity Terrain — l'application Android du Directeur de Discipline · D.D- Spirity</title>
+<meta name="description" content="Spirity Terrain : l'application Android livrée avec D.D- Spirity. Le portillon, l'appel de la classe, le tour de cours, l'horloge de l'école et l'échange sans câble — dans la main du Directeur de Discipline. Hors ligne, sans compte.">
+<link rel="canonical" href="https://mod-eric.com/dd-spirity-terrain.html">
+<meta name="theme-color" content="#FFFFFF">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ModEric Software">
+<meta property="og:locale" content="fr_CD">
+<meta property="og:title" content="Spirity Terrain — l'application Android du Directeur de Discipline">
+<meta property="og:description" content="Spirity Terrain : l'application Android livrée avec D.D- Spirity. Le portillon, l'appel de la classe, le tour de cours, l'horloge de l'école et l'échange sans câble — dans la main du Directeur de Discipline. Hors ligne, sans compte.">
+<meta property="og:image" content="https://mod-eric.com/assets/medias/maquette-terrain.jpg">
+<meta property="og:url" content="https://mod-eric.com/dd-spirity-terrain.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+<link rel="preload" href="assets/typo/InstrumentSerif-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/typo/InstrumentSans-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/site.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MobileApplication",
+  "name": "Spirity Terrain",
+  "alternateName": "D.D- Spirity — application Android",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "Android 8 et plus",
+  "description": "L'application Android livrée avec D.D- Spirity : portillon et cartes, appel de la classe en un geste, tour de cours, horaires et dossier des professeurs, horloge de l'école avec sonnerie de fin d'heure, échange sans câble par le Wi-Fi de l'école. Hors ligne, sans compte.",
+  "screenshot": "https://mod-eric.com/assets/medias/maquette-terrain.jpg",
+  "publisher": { "@type": "Organization", "name": "ModEric Software" },
+  "featureList": ["Portillon par carte, matricule ou nom", "Appel de classe : on ne coche que les absents", "Tour de cours de la journée", "Horaires et dossier des professeurs", "Horloge de l'école et sonnerie de fin d'heure", "Échange sans câble par Wi-Fi et QR", "Hors ligne, sans compte"]
+}
+</script>
+</head>
+<body>
+
+<header class="barre">
+  <a class="marque" href="index.html" aria-label="ModEric Software — accueil">
+    <svg class="marque__sceau" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="43" fill="none" stroke="#3FA0D8" stroke-width="5.5" stroke-linecap="round" stroke-dasharray="252 28" transform="rotate(128 50 50)"/><text x="50" y="53" text-anchor="middle" dominant-baseline="central" fill="#0A3E58" font-family="Instrument Serif, Georgia, serif" font-size="46" font-style="italic">M</text><circle cx="50" cy="7" r="4.6" fill="#3FA0D8"/></svg>
+    <span><span class="marque__mot">ModEric<i>.</i></span><span class="marque__sous">Software · Kinshasa</span></span>
+  </a>
+  <nav class="barre__nav" aria-label="Navigation principale">
+        <a class="barre__lien" href="index.html#entreprise">Notre entreprise</a>
+        <a class="barre__lien" href="index.html#vision">Notre vision</a>
+        <a class="barre__lien" href="index.html#creations">Nos créations</a>
+        <a class="barre__lien" href="contact.html">Contact</a>
+  </nav>
+  <a class="barre__appel" href="contact.html">Nous écrire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 5.5l6.5 6.5-6.5 6.5"/></svg></a>
+  <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false"><i></i><i></i></button>
+</header>
+
+<div class="panneau">
+  <a href="index.html#entreprise">Notre entreprise<small>Qui nous sommes</small></a>
+  <a href="index.html#vision">Notre vision<small>Au-delà de l’existant</small></a>
+  <a href="index.html#philosophie">Notre philosophie<small>La qualité, dans les détails</small></a>
+  <a href="index.html#creations">Nos créations<small>Stockia · D.D- Spirity</small></a>
+  <a href="contact.html">Contact<small>Commencer un échange</small></a>
+  <div class="panneau__pied">Kinshasa, République démocratique du Congo<br>info.elysafly@gmail.com<br>WhatsApp +243 983 009 563<br>Heure de l’atelier : <span data-heure>—</span></div>
+</div>
+
+
+<section class="section bande bande--1" style="padding-top:calc(var(--barre) + clamp(24px,4vw,52px));padding-bottom:0">
+  <div class="bande__decor" aria-hidden="true"><span class="bande__arc bande__arc--1"></span><span class="bande__arc bande__arc--2"></span><span class="bande__halo bande__halo--a"></span><span class="bande__points"></span></div>
+  <div class="section__page">
+    <div class="produit-tete produit-tete--terrain">
+      <div>
+        <div class="produit-fil" data-monter>
+          <a href="index.html">Accueil</a><span>·</span><a href="index.html#creations">Nos créations</a><span>·</span><a href="dd-spirity.html">D.D- Spirity</a><span>·</span><span>Spirity Terrain</span>
+        </div>
+        <div class="produit-marque" data-monter data-rang="1">
+          <span class="produit-marque__embleme"><svg viewBox="0 0 96 96" aria-hidden="true"><path fill="#1578AC" d="M48 2 L90 16.5 V46 C90 69.5 73 86.5 48 94.5 C23 86.5 6 69.5 6 46 V16.5 Z"/><path fill="#FFFFFF" d="M48 12.5 L80 24.3 V46 C80 65.3 66.6 79.3 48 87 C29.4 79.3 16 65.3 16 46 V24.3 Z"/><path fill="#1E9CD8" d="M48 22 L70.5 30.8 V46 C70.5 60.9 60.9 72.2 48 78.6 C35.1 72.2 25.5 60.9 25.5 46 V30.8 Z"/><path fill="#FFFFFF" d="M35 36 H61 V41.5 H35 Z M35 47.5 H61 V53 H35 Z M35 59 H51 V64.5 H35 Z"/></svg></span>
+          <span class="etiquette" style="margin:0">Vie scolaire · application Android</span>
+        </div>
+        <h1 class="produit-nom" data-ligne>Spirity <i>Terrain</i></h1>
+        <p class="produit-accroche" data-monter data-rang="1">
+          <strong>Le Directeur de Discipline ne reste pas assis.</strong> L'application Android livrée
+          avec D.D- Spirity tient dans une main : elle pointe au portillon, fait l'appel dans la
+          classe, suit les heures de cours et rapporte tout au poste — <b>sans réseau, sans compte,
+          sans rien installer sur le téléphone de l'école</b>.
+        </p>
+        <div class="produit-puces" data-monter data-rang="2">
+          <span>Android 8 et plus</span><span>Livrée avec le poste</span><span>Sans compte</span><span>Échange sans câble</span>
+        </div>
+        <div class="produit-actions" data-monter data-rang="2">
+          <a class="bouton bouton--plein" href="#telecharger">Télécharger l'application <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 5.5l6.5 6.5-6.5 6.5"/></svg></a>
+          <a class="bouton bouton--ligne" href="dd-spirity.html">Voir le poste Windows</a>
+        </div>
+      </div>
+      <div data-monter data-rang="2" style="display:grid;place-items:center">
+        <div class="appareil">
+          <div class="appareil__ecran">
+            <img src="assets/medias/android-accueil.jpg" alt="L'accueil de Spirity Terrain : l'école reçue du poste, l'heure de cours en cours avec son compte à rebours, et les cinq gestes du terrain" width="786" height="1704" fetchpriority="high">
+            <div class="appareil__reflet" aria-hidden="true"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="maquette" data-monter data-rang="2" style="margin-top:clamp(26px,4vw,46px)">
+    <picture><source media="(max-width:760px)" srcset="assets/medias/maquette-terrain-petit.jpg"><img src="assets/medias/maquette-terrain.jpg" alt="Spirity Terrain sur le téléphone du Directeur de Discipline, posé sur le bureau : le cahier d'appel de la 1re A, le registre de classe et le sifflet du surveillant" width="3840" height="2200" loading="lazy"></picture>
+    <div class="maquette__pied">
+      <p class="maquette__legende">Sur le bureau du D.D., là où le cahier d'appel était :</p>
+      <ul class="maquette__liste">
+        <li>l'appel de la 1re A</li>
+        <li>le cahier et le stylo rouge</li>
+        <li>le registre de classe</li>
+        <li>le sifflet du surveillant</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ─── POURQUOI DEUX PLATEFORMES ─── -->
+<section class="section bande bande--2">
+  <div class="bande__decor" aria-hidden="true"><span class="bande__arc bande__arc--1"></span><span class="bande__arc bande__arc--2"></span><span class="bande__halo bande__halo--a"></span><span class="bande__points"></span></div>
+  <div class="section__page">
+    <div class="phare" data-ligne>
+      <div class="phare__filet"></div>
+      <span class="etiquette" style="margin-bottom:14px">Deux plateformes, un seul registre</span>
+      <h2 class="phare__dit">Le bureau tient le registre.<br><i>Le téléphone va le chercher.</i></h2>
+    </div>
+
+    <div class="plateformes">
+      <div class="plateforme" data-monter>
+        <span class="plateforme__fil" aria-hidden="true"></span>
+        <h3>Le poste — Windows</h3>
+        <p>C'est là que l'école <b>écrit</b> : les élèves, les classes, les horaires, les cartes,
+        la paie, les documents officiels. Le poste tient le fichier unique de l'année.</p>
+        <ul>
+          <li>Vingt-deux écrans, du portillon à la paie</li>
+          <li>Cartes d'élèves imprimables (QR + CODE-128)</li>
+          <li>Horaires, conflits, séances et bulletins</li>
+          <li>Un fichier local, sauvegardé et exportable</li>
+        </ul>
+      </div>
+      <div class="plateforme" data-monter data-rang="1">
+        <span class="plateforme__fil" aria-hidden="true"></span>
+        <h3>Le téléphone — Spirity Terrain</h3>
+        <p>C'est là que le D.D. <b>travaille debout</b> : au portillon, dans la cour, au fond de la
+        classe. Il ne crée rien — il reçoit les listes du poste et lui rend son travail.</p>
+        <ul>
+          <li>Portillon : carte, matricule ou deux lettres du nom</li>
+          <li>Appel de la classe en un geste — on ne coche que les absents</li>
+          <li>Horaires, dossier des professeurs, historique par mois</li>
+          <li>La sonnerie de fin d'heure, dans la poche</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="note" style="margin-top:clamp(20px,3vw,32px);max-width:none;background:rgba(255,255,255,.78);border-left-color:var(--azur)">
+      <p style="font-size:14.5px;line-height:1.6;color:var(--texte-doux);margin:0">
+        <b style="color:var(--encre);font-weight:600">À retenir avant de télécharger :</b> les deux se
+        téléchargent ensemble. Le poste installe le registre de l'année ; l'application, elle, ne
+        contient <b>rien</b> tant qu'elle n'a pas reçu les listes du poste. Un téléphone seul ne sert
+        à rien — c'est un périphérique, pas un deuxième bureau.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── UNE JOURNÉE AVEC LE TÉLÉPHONE ─── -->
+<section class="section bande bande--3">
+  <div class="bande__decor" aria-hidden="true"><span class="bande__arc bande__arc--1"></span><span class="bande__arc bande__arc--2"></span><span class="bande__halo bande__halo--a"></span><span class="bande__points"></span></div>
+  <div class="section__page">
+    <div class="deux" style="margin-top:0">
+      <div class="phare" data-ligne>
+        <div class="phare__filet"></div>
+        <span class="etiquette" style="margin-bottom:14px">Une journée</span>
+        <h2 class="phare__dit">Ce que le D.D. fait <i>avec son téléphone.</i></h2>
+      </div>
+      <p class="chapo" data-monter data-rang="1" style="align-self:end">
+        Trois moments, et rien d'autre : l'entrée, la classe, la sortie. Chaque geste laisse une
+        trace datée, signée du nom de la session ouverte sur l'ordinateur du bureau.
+      </p>
+    </div>
+
+    <div class="gestes">
+      <div class="geste" data-monter><span class="geste__n" aria-hidden="true">·</span>
+        <h3>06:45 — au portillon</h3>
+        <p>Les élèves passent. L'élève montre sa carte : le téléphone lit le QR, affiche son nom
+        et sa classe, et enregistre l'arrivée. Plus de matricule à recopier sur un cahier.</p>
+        <div class="geste__note">carte perdue refusée · matricule dicté accepté</div>
+      </div>
+      <div class="geste" data-monter data-rang="1"><span class="geste__n" aria-hidden="true">·</span>
+        <h3>08:20 — dans la classe</h3>
+        <p>L'appel de la 1re A : la liste est déjà là, dans l'ordre du registre. On ne coche que
+        les absents — un bouton dit « tout le monde est là ». La progression et le mot « appel
+        terminé » disent que la feuille est finie.</p>
+        <div class="geste__note">trois statuts : présent · retard · justifié</div>
+      </div>
+      <div class="geste" data-monter data-rang="2"><span class="geste__n" aria-hidden="true">·</span>
+        <h3>toute la journée — le tour de cours</h3>
+        <p>La barre de l'heure de cours compte à rebours, et la sonnerie de fin d'heure tombe
+        pendant que l'application est ouverte. Les professeurs attendus, leurs heures faites et
+        leurs retards se lisent pendant le tour.</p>
+        <div class="geste__note">l'horloge vient du poste, jamais devinée</div>
+      </div>
+      <div class="geste" data-monter data-rang="3"><span class="geste__n" aria-hidden="true">·</span>
+        <h3>17:00 — de retour au bureau</h3>
+        <p>Le travail se rend au poste en un geste, par le câble ou par le Wi-Fi de l'école. Le
+        téléphone garde sa copie : l'historique des appels reste consultable des deux côtés,
+        classé par mois.</p>
+        <div class="geste__note">rien n'est jamais effacé</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── LES ÉCRANS DU TÉLÉPHONE ─── -->
+<section class="section bande bande--1" id="ecrans">
+  <div class="bande__decor" aria-hidden="true"><span class="bande__arc bande__arc--1"></span><span class="bande__arc bande__arc--2"></span><span class="bande__halo bande__halo--a"></span><span class="bande__points"></span></div>
+  <div class="section__page">
+    <div class="deux" style="margin-top:0">
+      <div class="phare" data-ligne>
+        <div class="phare__filet"></div>
+        <span class="etiquette" style="margin-bottom:14px">Les écrans</span>
+        <h2 class="phare__dit">Six écrans, <i>pas un de plus.</i></h2>
+      </div>
+      <p class="chapo" data-monter data-rang="1" style="align-self:end">
+        C'est une décision, pas un manque : le téléphone est un périphérique d'entrée. Chaque écran
+        fait un geste, et le geste suivant se voit tout de suite.
+      </p>
+    </div>
+
+    <h2 class="telephones__titre" data-monter>Ce que le Directeur de Discipline a sous les yeux</h2>
+    <div class="telephones">
+      <figure class="telephone-figure" data-monter>
+        <div class="appareil"><div class="appareil__ecran">
+          <img src="assets/medias/android-accueil.jpg" alt="L'accueil de Spirity Terrain : l'école, la barre de l'heure de cours et les cinq gestes du terrain" loading="lazy" width="786" height="1704">
+          <div class="appareil__reflet" aria-hidden="true"></div>
+        </div></div>
+        <figcaption><h3>L'accueil</h3>L'école reçue du poste, l'heure de cours qui compte à rebours,
+        et les gestes : appel, portillon, horaires, professeurs, sans câble.</figcaption>
+      </figure>
+      <figure class="telephone-figure" data-monter data-rang="1">
+        <div class="appareil"><div class="appareil__ecran">
+          <img src="assets/medias/android-appel.jpg" alt="L'appel de la 1re A dans Spirity Terrain : la liste des élèves, les trois statuts et la progression" loading="lazy" width="786" height="1704">
+          <div class="appareil__reflet" aria-hidden="true"></div>
+        </div></div>
+        <figcaption><h3>L'appel de la classe</h3>On ne coche que les absents. Le compteur dit où l'on
+        en est : 34 présents, 3 retards, 0 justifié.</figcaption>
+      </figure>
+      <figure class="telephone-figure" data-monter data-rang="2">
+        <div class="appareil"><div class="appareil__ecran">
+          <img src="assets/medias/android-portillon.jpg" alt="Le portillon dans Spirity Terrain : scan de la carte, nom de l'élève, compteurs du jour" loading="lazy" width="786" height="1704">
+          <div class="appareil__reflet" aria-hidden="true"></div>
+        </div></div>
+        <figcaption><h3>Le portillon</h3>L'élève montre sa carte, le nom s'affiche, l'arrivée est
+        enregistrée. Un retard reste un retard, jamais un absent.</figcaption>
+      </figure>
+      <figure class="telephone-figure" data-monter>
+        <div class="appareil"><div class="appareil__ecran">
+          <img src="assets/medias/android-horaires.jpg" alt="La table des horaires dans Spirity Terrain : la semaine de la classe, heure par heure" loading="lazy" width="786" height="1704">
+          <div class="appareil__reflet" aria-hidden="true"></div>
+        </div></div>
+        <figcaption><h3>Les horaires</h3>La semaine de la classe, par classe ou par professeur —
+        telle que le poste l'a envoyée, sans invention.</figcaption>
+      </figure>
+      <figure class="telephone-figure" data-monter data-rang="1">
+        <div class="appareil"><div class="appareil__ecran">
+          <img src="assets/medias/android-prof.jpg" alt="Le dossier d'un professeur dans Spirity Terrain : ses heures faites, ses cours à valider, ses retards" loading="lazy" width="786" height="1704">
+          <div class="appareil__reflet" aria-hidden="true"></div>
+        </div></div>
+        <figcaption><h3>Le dossier des professeurs</h3>Ses heures faites, ses cours à valider, ses
+        retards — le téléphone ne calcule aucune paie, il donne les chiffres au poste.</figcaption>
+      </figure>
+      <figure class="telephone-figure" data-monter data-rang="2">
+        <div class="appareil"><div class="appareil__ecran">
+          <img src="assets/medias/android-echange.jpg" alt="L'échange sans câble dans Spirity Terrain : le poste appairé, l'année reçue, le rapport déposé" loading="lazy" width="786" height="1704">
+          <div class="appareil__reflet" aria-hidden="true"></div>
+        </div></div>
+        <figcaption><h3>L'échange sans câble</h3>Le QR du poste se scanne une fois : le téléphone
+        reçoit l'année et dépose son travail par le Wi-Fi de l'école.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ─── COMMENT LE TÉLÉPHONE SE REMPLIT ─── -->
+<section class="section bande bande--2">
+  <div class="bande__decor" aria-hidden="true"><span class="bande__arc bande__arc--1"></span><span class="bande__arc bande__arc--2"></span><span class="bande__halo bande__halo--a"></span><span class="bande__points"></span></div>
+  <div class="section__page">
+    <div class="deux" style="margin-top:0">
+      <div class="phare" data-ligne>
+        <div class="phare__filet"></div>
+        <span class="etiquette" style="margin-bottom:14px">L'échange</span>
+        <h2 class="phare__dit">Deux façons de remplir le téléphone,<br><i>aucune qui demande Internet.</i></h2>
+      </div>
+      <p class="chapo" data-monter data-rang="1" style="align-self:end">
+        C'est la question qu'on nous pose à chaque installation : « et si le téléphone ne voit pas
+        l'ordinateur ? » Il y a deux chemins, et le second existe pour les téléphones récents.
+      </p>
+    </div>
+
+    <div class="probleme" style="margin-top:clamp(24px,3.4vw,40px)">
+      <div class="probleme__col" data-monter data-rang="1">
+        <h2>Par le câble (le dossier partagé)</h2>
+        <ul class="liste-reponse">
+          <li>On branche le téléphone, on choisit <b>une fois</b> le dossier du téléphone sur le poste.</li>
+          <li>Le poste y écrit l'année ; le téléphone la lit tout seul, et y dépose son travail.</li>
+          <li>L'échange peut se faire <b>tout seul</b> tant que le câble est branché.</li>
+        </ul>
+      </div>
+      <div class="probleme__col" data-monter data-rang="2">
+        <h2>Par le Wi-Fi de l'école (sans câble)</h2>
+        <ul class="liste-reponse">
+          <li>Nécessaire sur <b>Android 11 et plus</b> : Windows n'y voit plus le dossier de l'application.</li>
+          <li>Le poste affiche un <b>QR</b> avec son adresse et un code à six chiffres ; le téléphone le scanne une fois.</li>
+          <li>Un <b>jeton de 12 heures</b> protège la suite. Rien ne sort de l'école : le serveur n'écoute que le réseau local.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="note" style="margin-top:clamp(20px,3vw,32px);max-width:none;background:rgba(255,255,255,.78);border-left-color:var(--laiton,#A9791F)">
+      <p style="font-size:14.5px;line-height:1.6;color:var(--texte-doux);margin:0">
+        <b style="color:var(--encre);font-weight:600">Ce que le téléphone ne fait pas, et c'est volontaire :</b>
+        il ne crée ni élève, ni classe, ni compte, ne calcule aucune paie et ne décide d'aucune
+        sanction. Il ne peut pas perdre le fichier de l'école, puisqu'il ne le détient pas.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TÉLÉCHARGER ─── -->
+<section class="section bande bande--3" id="telecharger">
+  <div class="bande__decor" aria-hidden="true"><span class="bande__arc bande__arc--1"></span><span class="bande__arc bande__arc--2"></span><span class="bande__halo bande__halo--a"></span><span class="bande__points"></span></div>
+  <div class="section__page deux">
+    <div>
+      <div class="phare" data-ligne>
+        <div class="phare__filet"></div>
+        <span class="etiquette" style="margin-bottom:14px">Télécharger</span>
+        <h2 class="phare__dit">Le poste, <i>puis le téléphone.</i></h2>
+      </div>
+      <p class="chapo" data-monter data-rang="1" style="margin-top:22px">
+        L'application est <strong>livrée avec le poste</strong> : on installe l'ordinateur, puis on
+        pose l'APK sur le téléphone du Directeur de Discipline. C'est tout.
+      </p>
+      <dl class="coord" style="margin-top:clamp(22px,3vw,34px)" data-monter data-rang="2">
+        <div class="coord__ligne"><dt>Android</dt><dd>8.0 et plus (version 1.4.0)</dd></div>
+        <div class="coord__ligne"><dt>Espace</dt><dd>Environ 7 Mo installés</dd></div>
+        <div class="coord__ligne"><dt>Compte</dt><dd>Aucun — le téléphone n'a pas de session</dd></div>
+        <div class="coord__ligne"><dt>Caméra</dt><dd>Pour le QR de la carte et le QR du poste</dd></div>
+        <div class="coord__ligne"><dt>Wi-Fi</dt><dd>Facultatif : le Wi-Fi local de l'école, quand le câble ne suffit pas</dd></div>
+        <div class="coord__ligne"><dt>Connexion</dt><dd>Aucune, jamais</dd></div>
+      </dl>
+      <p style="margin-top:18px;font-size:13px;line-height:1.6;color:var(--texte-doux)">
+        L'installation d'un APK demande d'<strong>autoriser l'installation depuis cette source</strong>
+        une seule fois (Android demande la confirmation : c'est normal, l'application ne vient pas du
+        Play Store parce qu'elle n'a pas besoin d'Internet ni de compte Google).
+      </p>
+    </div>
+    <div>
+      <div class="tele">
+        <div class="tele__item" data-tele="ddSpirity:android">
+  <div>
+    <div class="tele__nom">Spirity Terrain — application Android</div>
+    <p class="tele__dit">Le téléphone du Directeur de Discipline : portillon, appel de classe, tour de cours. Se remplit depuis le poste.</p>
+    <div class="tele__pied"><span>Android 8 et plus</span><span>Aucun compte à créer</span></div>
+    <div class="tele__pied" data-tele-sha hidden>Empreinte SHA-256 <code>—</code></div>
+    <div style="margin-top:12px"><span class="jauge-etat" data-tele-etat><i></i>Dépôt en cours</span></div>
+  </div>
+  <div class="tele__action" data-tele-actions></div>
+</div>
+        <div class="tele__item" data-tele="ddSpirity:windows">
+  <div>
+    <div class="tele__nom">Le poste Windows — D.D- Spirity</div>
+    <p class="tele__dit">Le registre de l'école : élèves, cartes, horaires, paie, documents officiels. C'est lui qui alimente le téléphone.</p>
+    <div class="tele__pied"><span>Windows 10 / 11</span><span>Raccourcis et désinstallation propre</span></div>
+    <div class="tele__pied" data-tele-sha hidden>Empreinte SHA-256 <code>—</code></div>
+    <div style="margin-top:12px"><span class="jauge-etat" data-tele-etat><i></i>Dépôt en cours</span></div>
+  </div>
+  <div class="tele__action" data-tele-actions></div>
+</div>
+      </div>
+      <p style="margin-top:18px;font-size:12.5px"><strong>Bientôt disponible</strong> signifie
+      qu'aucun fichier n'est encore publié pour ce format. Aucun lien ne mène ailleurs.</p>
+    </div>
+  </div>
+
+  <div class="section__page">
+    <div class="suite">
+      <a class="suite__lien" href="dd-spirity.html"><span><small>La même maison</small>D.D- Spirity — le poste</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 5.5l6.5 6.5-6.5 6.5"/></svg></span></a>
+      <a class="bouton bouton--ligne" href="contact.html">Poser une question</a>
+    </div>
+  </div>
+</section>
+
+<footer class="pied">
+  <div class="pied__inner">
+    <span>© <span id="annee">2026</span> ModEric Software · Kinshasa, RDC</span>
+    <span class="pied__liens">
+      <a href="index.html#entreprise">Notre entreprise</a>
+      <a href="index.html#creations">Nos créations</a>
+      <a href="contact.html">Contact</a>
+      <a href="mentions-legales.html">Mentions légales</a>
+    </span>
+  </div>
+</footer>
+
+<script src="assets/js/telechargements.js"></script>
+<script src="assets/js/site.js"></script>
+<script>document.getElementById('annee').textContent = new Date().getFullYear();</script>
+</body>
+</html>

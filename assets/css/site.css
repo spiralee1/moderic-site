@@ -924,3 +924,112 @@ body.menu-ouvert .panneau a{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce) {
   .maquette { opacity:1 !important; transform:none !important; filter:none !important }
 }
+
+/* ══════════════════════════════════════════════════════════════════════════
+   LA VERSION DE TERRAIN — le téléphone (page dd-spirity-terrain.html)
+   ──────────────────────────────────────────────────────────────────────────
+   Le client : « La personne qui lit doit comprendre que le poste est livré
+   avec une application Android qui permet une large mobilité. » D'où :
+     · le téléphone CADRÉ dans son châssis (`.appareil`), avec son reflet — la
+       capture est une capture, pas une illustration ;
+     · la rangée de captures défilante (`.telephones`), qui se lit comme une
+       planche : chaque écran porte son nom et ce qu'il fait ;
+     · les périphériques POS (`.peripheriques`) : dessinés au trait, légendés,
+       avec ce qu'ils changent au comptoir — pas des icônes décoratives.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+/* le téléphone : châssis sombre, dalle, reflet */
+.appareil {
+  position:relative; display:block; width:min(300px,100%); margin-inline:auto;
+  padding:11px; border-radius:34px;
+  background:linear-gradient(150deg,#2C3439,#151C21 54%,#0A1014);
+  box-shadow:0 40px 70px -40px rgba(6,20,31,.75), 0 0 0 1px rgba(0,0,0,.35),
+             inset 0 1px 0 rgba(255,255,255,.18);
+}
+.appareil::before {           /* l'encoche */
+  content:""; position:absolute; left:50%; transform:translateX(-50%); top:17px;
+  width:74px; height:7px; border-radius:5px; background:#05090C;
+  box-shadow:inset 0 1px 2px rgba(255,255,255,.08); z-index:2;
+}
+.appareil__ecran { position:relative; border-radius:24px; overflow:hidden; background:#06141F;
+  box-shadow:0 0 0 1px rgba(255,255,255,.06); }
+.appareil__ecran img { display:block; width:100%; height:auto }
+.appareil__reflet { position:absolute; inset:0; pointer-events:none; border-radius:24px;
+  background:linear-gradient(118deg,rgba(255,255,255,.18) 0%,rgba(255,255,255,.04) 18%,rgba(255,255,255,0) 42%) }
+
+/* la planche des écrans du téléphone */
+.telephones { display:grid; grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:clamp(16px,2.4vw,30px); margin-top:clamp(26px,3.6vw,44px); align-items:start }
+.telephone-figure { margin:0 }
+.telephone-figure .appareil { width:100%; }
+.telephone-figure figcaption { margin-top:14px; font-size:12.5px; color:var(--texte-doux); line-height:1.5 }
+.telephone-figure figcaption b { display:block; color:var(--encre); font-weight:600; font-size:13.5px;
+  margin-bottom:3px }
+@media (max-width:900px) { .telephones { grid-template-columns:minmax(0,1fr) minmax(0,1fr) } }
+@media (max-width:620px) { .telephones { grid-template-columns:minmax(0,1fr) } }
+
+/* les périphériques du comptoir : dessin au trait + légende */
+.peripheriques { display:grid; grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:clamp(20px,3vw,42px); margin-top:clamp(26px,3.6vw,44px) }
+.peripherique { display:grid; grid-template-columns:minmax(0,150px) minmax(0,1fr);
+  gap:clamp(16px,2.2vw,26px); align-items:start; padding-top:20px;
+  border-top:1px solid rgba(63,160,216,.28) }
+.peripherique__dessin { width:100%; height:auto; display:block }
+.peripherique h3 { font-family:var(--voix); font-size:clamp(18px,1.9vw,23px); line-height:1.14;
+  letter-spacing:-.015em }
+.peripherique p { margin-top:8px; font-size:14.4px; line-height:1.6; color:var(--texte-doux) }
+.peripherique p b { color:var(--encre); font-weight:600 }
+.peripherique__note { margin-top:9px; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--azur-700) }
+.compatibilite { display:flex; flex-wrap:wrap; gap:7px; margin-top:14px }
+.compatibilite span { font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--azur-700);
+  background:rgba(255,255,255,.72); border:1px solid rgba(63,160,216,.28); padding:6px 11px; border-radius:999px }
+@media (max-width:900px) { .peripheriques { grid-template-columns:minmax(0,1fr) } }
+
+/* le bloc « deux plateformes, un seul prix » */
+.plateformes { display:grid; grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:clamp(20px,3vw,40px); margin-top:clamp(26px,3.6vw,44px) }
+.plateforme { position:relative; background:rgba(255,255,255,.78); border:1px solid rgba(63,160,216,.22);
+  border-radius:16px; padding:clamp(18px,2.4vw,26px); box-shadow:0 24px 60px -44px rgba(10,62,88,.5) }
+.plateforme__fil { position:absolute; left:clamp(18px,2.4vw,26px); top:0; width:44px; height:2px;
+  background:var(--azur); transform:translateY(-1px) }
+.plateforme h3 { font-family:var(--voix); font-size:clamp(19px,2vw,25px); line-height:1.12; letter-spacing:-.015em }
+.plateforme p { margin-top:9px; font-size:14.4px; line-height:1.6; color:var(--texte-doux) }
+.plateforme ul { margin-top:12px; display:grid; gap:7px; list-style:none }
+.plateforme li { position:relative; padding-left:20px; font-size:13.6px; line-height:1.5; color:var(--texte-doux) }
+.plateforme li::before { content:'✓'; position:absolute; left:0; top:0; color:var(--azur-600); font-weight:800 }
+@media (max-width:900px) { .plateformes { grid-template-columns:minmax(0,1fr) } }
+/* la légende d'un écran de téléphone : un titre de niveau 3, discret */
+.telephone-figure figcaption h3 { display:block; color:var(--encre); font-weight:600; font-size:13.5px;
+  margin-bottom:3px; font-family:var(--voix); letter-spacing:-.01em }
+.telephones__titre { font-family:var(--voix); font-size:clamp(20px,2.2vw,27px); line-height:1.14;
+  letter-spacing:-.02em; margin-top:clamp(26px,3.6vw,44px); color:var(--encre) }
+/* la phrase-phare est un titre de section : même dessin, sémantique juste */
+h2.phare__dit { margin:0 }
+/* la troisième création (le téléphone) : vignette verticale, comme un appareil */
+.creation--terrain .creation__vignette { max-width:132px; margin-inline:auto;
+  border-radius:18px; padding:7px; background:linear-gradient(150deg,#2C3439,#151C21 54%,#0A1014);
+  box-shadow:0 26px 50px -30px rgba(6,20,31,.7), 0 0 0 1px rgba(0,0,0,.3) }
+.creation--terrain .creation__vignette img { border-radius:12px }
+@media (max-width:760px) { .creation--terrain .creation__vignette { max-width:110px } }
+/* la tête de Spirity Terrain : le texte à gauche, le téléphone à droite —
+   c'est une page d'application, le produit doit se voir dès la première seconde */
+.produit-tete--terrain { grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);
+  max-width:min(100%,1180px); gap:clamp(24px,4vw,64px); align-items:center }
+.produit-tete--terrain .produit-nom { font-size:clamp(46px,7vw,96px) }
+.produit-tete--terrain .appareil { width:min(280px,100%) }
+@media (max-width:900px) {
+  .produit-tete--terrain { grid-template-columns:minmax(0,1fr) }
+  .produit-tete--terrain .appareil { width:min(240px,80vw) ; margin-inline:auto }
+}
+/* la planche des téléphones : chaque écran est coupé à une hauteur plausible d'écran de
+   téléphone, avec un fondu en bas — on montre le haut de l'écran, pas une bande blanche */
+.telephones .appareil__ecran img { aspect-ratio:393/720; object-fit:cover; object-position:top center }
+.telephones .appareil__ecran::after { content:""; position:absolute; left:0; right:0; bottom:0; height:52px;
+  background:linear-gradient(180deg,rgba(6,20,31,0),rgba(6,20,31,.55)); pointer-events:none; z-index:3 }
+/* sur petit écran, l'étiquette de la marque produit passe à la ligne au lieu de déborder */
+@media (max-width:560px) {
+  .produit-marque { gap:10px }
+  .produit-marque .etiquette { white-space:normal; font-size:9.5px; letter-spacing:.16em; line-height:1.4 }
+  .produit-fil { font-size:11px }
+}
