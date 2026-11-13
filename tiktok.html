@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ModEric Software — des logiciels conçus pour le monde réel</title>
+<meta name="description" content="ModEric Software imagine et développe des logiciels pensés pour le travail réel : Stockia, terminal de vente pour les pharmacies, et D.D- Spirity, la gestion scolaire du Directeur de Discipline — avec son application Android Spirity Terrain. Kinshasa, RDC.">
+<link rel="canonical" href="https://mod-eric.com/tiktok.html">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ModEric Software">
+<meta property="og:locale" content="fr_CD">
+<meta property="og:title" content="ModEric Software — des logiciels conçus pour le monde réel">
+<meta property="og:description" content="Deux logiciels, deux métiers : Stockia pour les pharmacies, D.D- Spirity pour la direction des études. Découvrez-les en quelques secondes.">
+<meta property="og:image" content="https://mod-eric.com/assets/medias/lp-stockia.jpg">
+<meta property="og:url" content="https://mod-eric.com/tiktok.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+<link rel="preload" href="assets/typo/InstrumentSerif-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/typo/InstrumentSans-400.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "ModEric Software",
+  "url": "https://mod-eric.com/",
+  "description": "Éditeur de logiciels à Kinshasa : Stockia (terminal de vente pour les pharmacies) et D.D- Spirity (gestion et suivi scolaire, avec son application Android Spirity Terrain).",
+  "address": { "@type": "PostalAddress", "addressLocality": "Kinshasa", "addressCountry": "CD" },
+  "email": "info.elysafly@gmail.com",
+  "telephone": "+243983009563",
+  "sameAs": ["https://wa.me/243983009563"]
+}
+</script>
+<style>
+/* ══════════════════════════════════════════════════════════════════════════
+   MODERIC SOFTWARE — la page du lien TikTok
+   ──────────────────────────────────────────────────────────────────────────
+   Une page À PART, pensée pour un téléphone et une connexion capricieuse :
+
+     · tout le style est ICI (aucune feuille externe à demander) ;
+     · deux fontes de la maison, préchargées, 72 Ko au total ;
+     · deux images, servies en 800 px sur mobile (65 + 40 Ko) ;
+     · aucun script de mesure, aucun cookie, aucun appel sortant.
+
+   Elle ne ressemble pas au site : pas d'arcs, pas de trame de points. Le motif
+   est ailleurs — des lames de lumière verticales qui dérivent très lentement,
+   et un filet d'azur qui descend avec la lecture. C'est un décor, pas une
+   illustration : il ne raconte rien d'autre que « c'est calme, c'est soigné ».
+   ══════════════════════════════════════════════════════════════════════════ */
+@font-face{font-family:'Instrument Serif';font-style:normal;font-weight:400;font-display:swap;
+  src:url(assets/typo/InstrumentSerif-Regular.woff2) format('woff2')}
+@font-face{font-family:'Instrument Serif';font-style:italic;font-weight:400;font-display:swap;
+  src:url(assets/typo/InstrumentSerif-Italic.woff2) format('woff2')}
+@font-face{font-family:'Instrument Sans';font-style:normal;font-weight:400;font-display:swap;
+  src:url(assets/typo/InstrumentSans-400.woff2) format('woff2')}
+
+:root{
+  --blanc:#FFF; --nuage:#F7FBFD;
+  --azur-50:#EDF6FC; --azur-100:#DCEEF9; --azur-300:#96CEEC; --azur:#3FA0D8;
+  --azur-600:#1F7FB4; --azur-700:#15638F; --azur-900:#0A3E58;
+  --encre:#0B1922; --texte:#16242E; --doux:#4E6273; --pale:#8698A6;
+  --filet:rgba(12,26,36,.10); --filet-azur:rgba(63,160,216,.30);
+  --laiton:#A9791F;
+  --voix:'Instrument Serif',Charter,Georgia,serif;
+  --lecture:'Instrument Sans','Segoe UI',system-ui,-apple-system,sans-serif;
+  --marge:clamp(20px,5.5vw,40px);
+  --courbe:cubic-bezier(.22,.9,.24,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--lecture);color:var(--texte);background:var(--blanc);
+  line-height:1.55;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2.5px solid var(--azur);outline-offset:3px;border-radius:6px}
+
+/* ─── le décor : trois lames de lumière qui dérivent, et rien d'autre ─── */
+.decor{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.decor__lame{position:absolute;top:-30vh;height:170vh;width:38vw;border-radius:50%;
+  filter:blur(46px);opacity:.55;will-change:transform}
+.decor__lame--1{left:-14vw;background:linear-gradient(180deg,rgba(63,160,216,.34),rgba(63,160,216,0) 72%);
+  animation:derive1 26s ease-in-out infinite alternate}
+.decor__lame--2{left:32vw;background:linear-gradient(180deg,rgba(150,206,236,.30),rgba(150,206,236,0) 70%);
+  animation:derive2 34s ease-in-out infinite alternate}
+.decor__lame--3{left:74vw;background:linear-gradient(180deg,rgba(169,121,31,.16),rgba(169,121,31,0) 70%);
+  animation:derive3 30s ease-in-out infinite alternate}
+@keyframes derive1{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(6vw,3vh,0) scale(1.12)}}
+@keyframes derive2{from{transform:translate3d(0,2vh,0) scale(1.08)}to{transform:translate3d(-5vw,-2vh,0) scale(1)}}
+@keyframes derive3{from{transform:translate3d(0,-2vh,0) scale(1)}to{transform:translate3d(-7vw,4vh,0) scale(1.14)}}
+/* le voile : du blanc par-dessus, pour que le décor reste un souffle */
+.decor__voile{position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.72),rgba(255,255,255,.9))}
+
+/* ─── le repère de lecture : un filet d'azur qui descend ─── */
+.jauge{position:fixed;left:0;top:0;height:2px;width:100%;z-index:50;background:transparent}
+.jauge__part{height:100%;width:0;background:linear-gradient(90deg,var(--azur-300),var(--azur-700));
+  transition:width .12s linear}
+
+/* ─── la page ─── */
+.page{position:relative;z-index:1;max-width:760px;margin-inline:auto;padding:0 var(--marge) 0}
+.entete{display:flex;align-items:center;gap:11px;padding:calc(env(safe-area-inset-top,0px) + 20px) 0 0}
+.entete__sceau{width:40px;height:40px;flex:0 0 40px}
+.entete__nom{font-family:var(--voix);font-size:19px;letter-spacing:.2px;color:var(--encre);line-height:1.1}
+.entete__nom i{font-style:normal;color:var(--azur)}
+.entete__sous{font-size:9.5px;letter-spacing:.19em;text-transform:uppercase;color:var(--pale);margin-top:2px}
+.entete__ville{margin-left:auto;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--pale)}
+
+/* ─── le hero ─── */
+.hero{padding-top:clamp(34px,9vw,64px)}
+.etiquette{display:inline-flex;align-items:center;gap:9px;font-size:10px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--azur-700);font-weight:400}
+.etiquette::before{content:"";width:22px;height:1px;background:var(--azur)}
+.hero__titre{font-family:var(--voix);font-weight:400;font-size:clamp(38px,10.5vw,66px);line-height:1.02;
+  letter-spacing:-.02em;color:var(--encre);margin-top:18px;text-wrap:balance}
+.hero__titre em{font-style:italic;color:var(--azur-700)}
+.hero__dit{margin-top:20px;font-size:clamp(15px,3.9vw,17.5px);line-height:1.6;color:var(--doux);max-width:44ch}
+.hero__actions{margin-top:clamp(26px,6vw,34px);display:flex;flex-wrap:wrap;gap:12px}
+.bouton{display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  min-height:56px;padding:0 26px;border-radius:999px;font-size:15px;font-weight:600;letter-spacing:.1px;
+  transition:transform .2s var(--courbe),box-shadow .24s var(--courbe),background .2s linear,border-color .2s linear}
+.bouton svg{width:17px;height:17px;flex:0 0 17px}
+.bouton--plein{background:linear-gradient(180deg,#3D9AD2,var(--azur-700));color:#FFF;
+  border:1px solid var(--azur-900);box-shadow:0 14px 30px -14px rgba(21,99,143,.62)}
+.bouton--plein:active{transform:translateY(1px)}
+.bouton--ligne{background:rgba(255,255,255,.86);color:var(--azur-700);border:1px solid var(--filet-azur)}
+.bouton--ligne:active{transform:translateY(1px)}
+@media (hover:hover){
+  .bouton--plein:hover{transform:translateY(-2px);box-shadow:0 18px 34px -14px rgba(21,99,143,.7)}
+  .bouton--ligne:hover{border-color:var(--azur);background:#FFF;transform:translateY(-2px)}
+}
+.hero__reperes{margin-top:clamp(22px,5vw,30px);display:flex;flex-wrap:wrap;gap:8px}
+.repere{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--azur-700);
+  background:rgba(255,255,255,.7);border:1px solid var(--filet-azur);border-radius:999px;padding:7px 12px}
+
+/* ─── le sommaire de lecture ─── */
+.sommaire{display:flex;align-items:center;gap:12px;margin-top:clamp(30px,7vw,44px);
+  padding-top:18px;border-top:1px solid var(--filet)}
+.sommaire span{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--pale)}
+.sommaire i{flex:1;height:1px;background:linear-gradient(90deg,var(--filet-azur),transparent)}
+
+/* ─── les deux logiciels ─── */
+.logiciels{padding-top:clamp(30px,7vw,48px)}
+.logiciel{padding:clamp(26px,6vw,44px) 0 clamp(30px,7vw,50px);
+  border-top:1px solid var(--filet)}
+.logiciel:first-of-type{border-top:0}
+.logiciel__genre{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--azur-700)}
+.logiciel__nom{font-family:var(--voix);font-weight:400;font-size:clamp(30px,8vw,48px);line-height:1.04;
+  letter-spacing:-.02em;color:var(--encre);margin-top:8px}
+.logiciel__nom i{font-style:italic;color:var(--azur-700)}
+.logiciel__dit{margin-top:12px;font-size:clamp(14.5px,3.8vw,16px);line-height:1.6;color:var(--doux);max-width:46ch}
+.logiciel__dit b{color:var(--encre);font-weight:600}
+/* la maquette : elle déborde de la marge, c'est ce qui la met en scène */
+.logiciel__vue{margin-top:clamp(22px,5vw,30px);margin-inline:calc(var(--marge) * -0.55);
+  border-radius:18px;position:relative}
+.logiciel__vue img{border-radius:18px;box-shadow:0 40px 70px -40px rgba(10,62,88,.62),0 0 0 1px rgba(63,160,216,.18)}
+.logiciel__liste{margin-top:clamp(20px,4.6vw,26px);display:grid;gap:0;list-style:none}
+.logiciel__liste li{position:relative;padding:11px 0 11px 26px;font-size:14.4px;line-height:1.5;
+  color:var(--doux);border-top:1px solid var(--filet)}
+.logiciel__liste li b{color:var(--encre);font-weight:600}
+.logiciel__liste li::before{content:"";position:absolute;left:4px;top:19px;width:7px;height:7px;border-radius:50%;
+  background:var(--azur);box-shadow:0 0 0 3px rgba(63,160,216,.16)}
+.logiciel--dd .logiciel__liste li::before{background:var(--laiton);box-shadow:0 0 0 3px rgba(169,121,31,.16)}
+.logiciel__actions{margin-top:clamp(22px,5vw,28px);display:flex;flex-wrap:wrap;gap:12px}
+.logiciel__actions .bouton{flex:1 1 220px}
+/* la note « compris » : la petite ligne qui répond à la question qu'on se pose déjà */
+.logiciel__note{margin-top:16px;display:flex;gap:10px;align-items:flex-start;
+  font-size:12.5px;line-height:1.5;color:var(--doux);
+  background:rgba(255,255,255,.72);border:1px solid var(--filet);border-left:3px solid var(--azur);
+  border-radius:12px;padding:12px 14px}
+.logiciel--dd .logiciel__note{border-left-color:var(--laiton)}
+.logiciel__note b{color:var(--encre);font-weight:600}
+
+/* ─── les quatre portes ─── */
+.portes{padding:clamp(30px,7vw,46px) 0;border-top:1px solid var(--filet)}
+.portes__titre{font-family:var(--voix);font-weight:400;font-size:clamp(21px,5.4vw,28px);line-height:1.15;
+  color:var(--encre);letter-spacing:-.015em;margin-top:12px}
+.portes__grille{margin-top:clamp(18px,4.4vw,24px);display:grid;gap:10px}
+.porte{display:flex;align-items:center;gap:14px;min-height:64px;padding:14px 16px;border-radius:14px;
+  background:rgba(255,255,255,.82);border:1px solid var(--filet);
+  transition:border-color .2s linear,transform .2s var(--courbe),background .2s linear}
+.porte__ico{width:34px;height:34px;flex:0 0 34px;border-radius:10px;display:grid;place-items:center;
+  background:var(--azur-50);color:var(--azur-700)}
+.porte__ico svg{width:18px;height:18px}
+.porte--dd .porte__ico{background:rgba(169,121,31,.12);color:#7E5A13}
+.porte__nom{display:block;font-size:15px;font-weight:600;color:var(--encre);line-height:1.25}
+.porte__sous{display:block;font-size:11.5px;color:var(--pale);margin-top:3px;line-height:1.4}
+.porte > span:nth-child(2){min-width:0}
+.porte__fleche{margin-left:auto;color:var(--azur);display:grid;place-items:center}
+.porte__fleche svg{width:18px;height:18px}
+.porte:active{transform:scale(.995)}
+@media (hover:hover){.porte:hover{border-color:var(--filet-azur);background:#FFF;transform:translateX(3px)}}
+
+/* ─── la signature ─── */
+.signature{padding:clamp(34px,8vw,56px) 0 calc(env(safe-area-inset-bottom,0px) + 30px);
+  border-top:1px solid var(--filet);text-align:center}
+.signature__sceau{width:52px;height:52px;margin:0 auto 18px}
+.signature__marque{font-family:var(--voix);font-size:22px;color:var(--encre);letter-spacing:.2px}
+.signature__marque i{font-style:normal;color:var(--azur)}
+.signature__phrase{font-family:var(--voix);font-style:italic;font-size:clamp(17px,4.6vw,22px);
+  line-height:1.44;color:var(--azur-900);margin-top:14px;max-width:30ch;margin-inline:auto;text-wrap:balance}
+.signature__liens{margin-top:clamp(22px,5vw,28px);display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.lien-signe{display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:0 16px;border-radius:999px;
+  font-size:13px;color:var(--azur-700);background:rgba(255,255,255,.8);border:1px solid var(--filet-azur)}
+.lien-signe svg{width:15px;height:15px}
+.lien-signe:active{background:#FFF}
+.signature__pied{margin-top:clamp(24px,5vw,32px);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--pale);line-height:1.9}
+.signature__pied a{color:var(--azur-700);border-bottom:1px solid var(--filet-azur);padding-bottom:1px}
+
+/* ─── l'apparition : discrète, une seule fois, et coupée si on le demande ─── */
+.monte{opacity:0;transform:translateY(18px);
+  transition:opacity .9s var(--courbe),transform .9s var(--courbe)}
+.monte.vu{opacity:1;transform:none}
+.monte[data-rang="1"]{transition-delay:.09s}
+.monte[data-rang="2"]{transition-delay:.18s}
+.monte[data-rang="3"]{transition-delay:.27s}
+@media (prefers-reduced-motion:reduce){
+  .monte{opacity:1!important;transform:none!important;transition:none!important}
+  .decor__lame{animation:none!important}
+  .jauge{display:none}
+}
+/* si le script ne tourne pas, tout est visible : aucune page blanche */
+.no-js .monte{opacity:1;transform:none}
+@media (min-width:620px){
+  .portes__grille{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+</style>
+</head>
+<body class="no-js">
+
+<div class="decor" aria-hidden="true">
+  <span class="decor__lame decor__lame--1"></span>
+  <span class="decor__lame decor__lame--2"></span>
+  <span class="decor__lame decor__lame--3"></span>
+  <span class="decor__voile"></span>
+</div>
+
+<div class="jauge" aria-hidden="true"><div class="jauge__part" id="jauge-part"></div></div>
+
+<div class="page">
+
+  <header class="entete">
+    <svg class="entete__sceau" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="43" fill="none" stroke="#3FA0D8" stroke-width="5.5" stroke-linecap="round" stroke-dasharray="252 28" transform="rotate(128 50 50)"/><text x="50" y="53" text-anchor="middle" dominant-baseline="central" fill="#0A3E58" font-family="Instrument Serif, Georgia, serif" font-size="46" font-style="italic">M</text><circle cx="50" cy="7" r="4.6" fill="#3FA0D8"/></svg>
+    <span>
+      <span class="entete__nom">ModEric<i>.</i></span>
+      <span class="entete__sous">Software</span>
+    </span>
+    <span class="entete__ville">Kinshasa</span>
+  </header>
+
+  <main>
+
+    <!-- ─── LE HERO : qui nous sommes, en trois secondes ─── -->
+    <section class="hero">
+      <span class="etiquette monte">Éditeur de logiciels · RDC</span>
+      <h1 class="hero__titre monte" data-rang="1">Des logiciels conçus<br>pour le <em>monde réel</em>.</h1>
+      <p class="hero__dit monte" data-rang="2">
+        Nous imaginons et développons des solutions numériques pensées pour simplifier le travail,
+        améliorer l'organisation et répondre à des besoins concrets.
+      </p>
+      <div class="hero__actions monte" data-rang="3">
+        <a class="bouton bouton--plein" href="#logiciels">
+          Découvrir nos logiciels
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4.5v15M5.5 13l6.5 6.5 6.5-6.5"/></svg>
+        </a>
+        <a class="bouton bouton--ligne" href="index.html">L'entreprise</a>
+      </div>
+      <div class="hero__reperes monte" data-rang="3">
+        <span class="repere">2 logiciels</span>
+        <span class="repere">Windows &amp; Android</span>
+        <span class="repere">Hors ligne</span>
+      </div>
+    </section>
+
+    <div class="sommaire monte"><span>Ce que nous avons construit</span><i></i></div>
+
+    <!-- ─── LES DEUX LOGICIELS ─── -->
+    <section class="logiciels" id="logiciels">
+
+      <!-- Stockia -->
+      <article class="logiciel logiciel--stockia monte">
+        <div class="logiciel__genre">Terminal de vente · pharmacies</div>
+        <h2 class="logiciel__nom">Stockia</h2>
+        <p class="logiciel__dit">
+          Un logiciel POS conçu pour les pharmacies. On scanne la boîte, la caisse trouve le
+          médicament, le stock se déduit et le ticket sort. <b>La file au comptoir n'attend pas.</b>
+        </p>
+        <div class="logiciel__vue">
+          <img src="assets/medias/lp-stockia-800.jpg"
+               srcset="assets/medias/lp-stockia-800.jpg 800w, assets/medias/lp-stockia-petit.jpg 1100w"
+               sizes="(max-width:760px) 104vw, 760px"
+               alt="Le poste de vente Stockia sur un comptoir de pharmacie : l'écran de caisse ouvert, l'imprimante thermique avec son ticket, la douchette de codes-barres et son faisceau devant une boîte de médicament, l'ordonnance et le tiroir-caisse"
+               width="800" height="600" fetchpriority="high">
+        </div>
+        <ul class="logiciel__liste">
+          <li><b>Douchette 2D et 1D</b> — les codes carrés des boîtes et les codes-barres</li>
+          <li><b>Ticket thermique</b> à l'encaissement, monnaie en francs et en dollars</li>
+          <li><b>Stock, péremption, crédits</b> et fidélité par numéro de téléphone</li>
+        </ul>
+        <div class="logiciel__actions">
+          <a class="bouton bouton--plein" href="stockia.html">
+            Découvrir Stockia
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12h15M13 5.5l6.5 6.5-6.5 6.5"/></svg>
+          </a>
+          <a class="bouton bouton--ligne" href="stockia.html#prix">Prix et essai</a>
+        </div>
+        <p class="logiciel__note"><span><b>15 jours d'essai</b>, puis une clé — le paiement se fait dans le
+          logiciel, jamais ici.</span></p>
+      </article>
+
+      <!-- D.D- Spirity -->
+      <article class="logiciel logiciel--dd monte">
+        <div class="logiciel__genre">Vie scolaire · direction des études</div>
+        <h2 class="logiciel__nom">D.D- <i>Spirity</i></h2>
+        <p class="logiciel__dit">
+          Un logiciel de gestion et de suivi scolaire, destiné aux établissements et à leur direction
+          des études. <b>Qui est entré, qui est en retard, quelle heure se fait</b> — sans cahier.
+        </p>
+        <div class="logiciel__vue">
+          <img src="assets/medias/lp-dd-800.jpg"
+               srcset="assets/medias/lp-dd-800.jpg 800w, assets/medias/lp-dd-petit.jpg 1100w"
+               sizes="(max-width:760px) 104vw, 760px"
+               alt="D.D- Spirity sur un écran posé dans un bureau : le tableau du jour ouvert, le registre d'appel imprimé posé à côté et une pile de cartes d'élèves"
+               width="800" height="600" loading="lazy">
+        </div>
+        <ul class="logiciel__liste">
+          <li><b>Portillon, appels, discipline</b> — chaque fait daté et signé</li>
+          <li><b>Horaires, conflits, personnel et paie</b> au taux écrit par l'école</li>
+          <li><b>Cartes d'élèves imprimables</b> — QR pour le portillon, CODE-128 pour le secrétariat</li>
+        </ul>
+        <div class="logiciel__actions">
+          <a class="bouton bouton--plein" href="dd-spirity.html">
+            Découvrir D.D- Spirity
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12h15M13 5.5l6.5 6.5-6.5 6.5"/></svg>
+          </a>
+          <a class="bouton bouton--ligne" href="dd-spirity-terrain.html">La version Android</a>
+        </div>
+        <p class="logiciel__note"><span><b>Livré avec Spirity Terrain</b>, son application Android : le
+          registre au bureau, le travail dans la main. Aucune licence à part.</span></p>
+      </article>
+
+    </section>
+
+    <!-- ─── LES QUATRE PORTES ─── -->
+    <section class="portes monte">
+      <span class="etiquette">Continuer</span>
+      <h2 class="portes__titre">Par où vous voulez commencer.</h2>
+      <div class="portes__grille">
+        <a class="porte" href="index.html">
+          <span class="porte__ico" style="background:rgba(63,160,216,.10);font-family:var(--voix);font-size:16px;font-style:italic">M</span>
+          <span><span class="porte__nom">L'entreprise</span>
+            <span class="porte__sous">Qui nous sommes, notre vision</span></span>
+          <span class="porte__fleche"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12h15M13 5.5l6.5 6.5-6.5 6.5"/></svg></span>
+        </a>
+        <a class="porte" href="stockia.html">
+          <span class="porte__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8.5h16v11H4zM8.5 8.5V6h7v2.5M12 12v4M10 14h4"/></svg></span>
+          <span><span class="porte__nom">Stockia</span>
+            <span class="porte__sous">Terminal de vente pour pharmacies</span></span>
+          <span class="porte__fleche"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12h15M13 5.5l6.5 6.5-6.5 6.5"/></svg></span>
+        </a>
+        <a class="porte porte--dd" href="dd-spirity.html">
+          <span class="porte__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.2 19.5 6v6.2c0 4.4-3.1 7.6-7.5 9.3-4.4-1.7-7.5-4.9-7.5-9.3V6zM8.8 12l2.2 2.2 4.2-4.4"/></svg></span>
+          <span><span class="porte__nom">D.D- Spirity</span>
+            <span class="porte__sous">Gestion et suivi scolaire</span></span>
+          <span class="porte__fleche"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12h15M13 5.5l6.5 6.5-6.5 6.5"/></svg></span>
+        </a>
+        <a class="porte" href="dd-spirity-terrain.html">
+          <span class="porte__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3.5h8a1.5 1.5 0 0 1 1.5 1.5v14A1.5 1.5 0 0 1 16 20.5H8A1.5 1.5 0 0 1 6.5 19V5A1.5 1.5 0 0 1 8 3.5zM10.5 17.5h3"/></svg></span>
+          <span><span class="porte__nom">Spirity Terrain</span>
+            <span class="porte__sous">L'application Android du D.D.</span></span>
+          <span class="porte__fleche"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12h15M13 5.5l6.5 6.5-6.5 6.5"/></svg></span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ─── LA SIGNATURE ─── -->
+    <footer class="signature monte">
+      <svg class="signature__sceau" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="43" fill="none" stroke="#3FA0D8" stroke-width="5.5" stroke-linecap="round" stroke-dasharray="252 28" transform="rotate(128 50 50)"/><text x="50" y="53" text-anchor="middle" dominant-baseline="central" fill="#0A3E58" font-family="Instrument Serif, Georgia, serif" font-size="46" font-style="italic">M</text><circle cx="50" cy="7" r="4.6" fill="#3FA0D8"/></svg>
+      <div class="signature__marque">ModEric<i>.</i> Software</div>
+      <p class="signature__phrase">« La technologie prend tout son sens lorsqu'elle répond à un besoin réel. »</p>
+      <div class="signature__liens">
+        <a class="lien-signe" href="mailto:info.elysafly@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 6.5h17v11h-17zM3.5 7l8.5 6 8.5-6"/></svg>
+          Nous écrire
+        </a>
+        <a class="lien-signe" href="https://wa.me/243983009563" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.9 7L4 20l1.6-4A8 8 0 1 1 20 11.5zM9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>
+          WhatsApp
+        </a>
+        <a class="lien-signe" href="contact.html">Contact</a>
+      </div>
+      <p class="signature__pied">
+        © <span id="annee">2026</span> ModEric Software · Kinshasa, RDC<br>
+        <a href="mentions-legales.html">Mentions légales</a>
+      </p>
+    </footer>
+
+  </main>
+</div>
+
+<script>
+/* Trois choses, et rien de plus : les apparitions, le filet de lecture, l'année.
+   Aucune mesure, aucun envoi, aucun cookie. Si ce script ne tourne pas, la page
+   reste entièrement lisible (classe .no-js retirée seulement ici). */
+(function () {
+  'use strict';
+  document.body.classList.remove('no-js');
+
+  /* l'année du pied de page */
+  var an = document.getElementById('annee');
+  if (an) an.textContent = new Date().getFullYear();
+
+  /* les apparitions : on observe les conteneurs, on révèle une seule fois */
+  var aReveler = Array.prototype.slice.call(document.querySelectorAll('.monte'));
+  if ('IntersectionObserver' in window) {
+    var obs = new IntersectionObserver(function (entrees) {
+      entrees.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('vu'); obs.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+    aReveler.forEach(function (el) { obs.observe(el); });
+  } else {
+    aReveler.forEach(function (el) { el.classList.add('vu'); });
+  }
+
+  /* le filet de lecture : la part lue de la page */
+  var part = document.getElementById('jauge-part');
+  if (part) {
+    var poser = function () {
+      var h = document.documentElement.scrollHeight - window.innerHeight;
+      var avance = h > 0 ? Math.min(1, Math.max(0, window.scrollY / h)) : 0;
+      part.style.width = (avance * 100).toFixed(1) + '%';
+    };
+    var appel = false;
+    window.addEventListener('scroll', function () {
+      if (appel) return;
+      appel = true;
+      window.requestAnimationFrame(function () { poser(); appel = false; });
+    }, { passive: true });
+    poser();
+  }
+})();
+</script>
+</body>
+</html>
