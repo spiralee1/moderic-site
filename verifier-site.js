@@ -210,6 +210,83 @@ ok('aucun superlatif de vitrine dans les pages produit',
 ok('aucune promesse de fonctionnalité future sur les pages produit',
   !/(bientôt disponible sur|prochainement|à venir en version)/i.test(stockiaH + ddH));
 
+/* ── 14. LES PRIX, ET LA RÈGLE DU PAIEMENT (demande du client, 13/11) ──
+   Le client : « indiquer les prix de l'abonnement pour les deux logiciels ; le paiement
+   s'effectue dans le logiciel après la période d'essai et non sur le site internet. » Ces
+   montants-là existent déjà dans les logiciels (Stockia : config.ts ; D.D- : 07-licence.js) :
+   le contrôle les reprend ICI comme référence, pour qu'une page ne puisse pas en inventer
+   d'autres — et pour qu'on ne puisse pas ajouter un bouton de paiement sans le voir. » */
+(function prix() {
+  const stockia = lire('stockia.html'), dd = lire('dd-spirity.html'), terrain = lire('dd-spirity-terrain.html');
+  /* Stockia — les trois montants approuvés du logiciel */
+  ok('la page Stockia donne le prix mensuel (15,99 $)', /15,99\s*\$/ .test(stockia));
+  ok('la page Stockia donne le prix annuel (148,99 $)', /148,99\s*\$/.test(stockia));
+  ok('la page Stockia donne l’offre de lancement (99,99 $/an, 20 premières officines)',
+    /99,99\s*\$/.test(stockia) && /20 premi/i.test(stockia));
+  ok('la page Stockia dit l’essai de 15 jours', /15 jours/.test(stockia));
+  /* D.D- Spirity — les deux formules du poste */
+  ok('la page D.D- Spirity donne le prix trimestriel (89,99 $)', /89,99\s*\$/.test(dd));
+  ok('la page D.D- Spirity donne le prix annuel (299,99 $)', /299,99\s*\$/.test(dd));
+  ok('la page D.D- Spirity dit l’essai de 30 jours', /30 jours/.test(dd));
+  ok('la page D.D- Spirity précise que le prix est PAR ÉCOLE, pas par classe', /par école/i.test(dd) && /pas par classe/i.test(dd));
+  ok('l’application Android est annoncée comme comprise dans l’abonnement (aucune licence à part)',
+    /aucune licence à part/i.test(terrain) || /comprise dans l’abonnement/i.test(terrain) || /comprise dans l.abonnement/i.test(terrain));
+  /* la règle du paiement, dite sur les deux pages */
+  ok('les deux pages disent que le paiement se fait DANS LE LOGICIEL',
+    /paiement se fait dans le logiciel/i.test(stockia) && /paiement se fait dans le logiciel/i.test(dd));
+  ok('et que le site n’encaisse rien (ni carte, ni Mobile Money)',
+    /ni\s+carte/i.test(stockia) && /ni\s+carte/i.test(dd) && /Mobile\s+Money/i.test(stockia) && /Mobile\s+Money/i.test(dd));
+  /* aucune page ne doit mener vers un guichet de paiement */
+  const paiement = [];
+  pages.forEach(f => {
+    const h = lire(f);
+    if (/(paypal|stripe|checkout|wise\.com|paddle|lemonsqueezy|momoapi|mobile-?money\s*(api|paiement))/i.test(h)) paiement.push(f);
+  });
+  ok('aucun lien de paiement en ligne nulle part sur le site', paiement.length === 0, paiement.join(', '));
+  ok('pas de prétention de reconduction automatique (la clé porte une date)',
+    /pas de pr[ée]l[èe]vement automatique/i.test(stockia) && /14 jours de gr[âa]ce/i.test(dd));
+})();
+
+/* ── 15. LA DOUCHETTE, EXPLIQUÉE POUR UN PHARMACIEN (13/11) ──
+   Le client : « les pharmacies risquent de ne pas comprendre ce que c'est une douchette ;
+   je suggère d'ajouter un code QR ; la plupart des médicaments ont un code QR et rarement un
+   code-barres ». Le contrôle vérifie trois choses : que la page DÉFINIT la douchette en mots
+   simples, qu'elle parle des DEUX codes (2D et 1D), et qu'un vrai code 2D est montré. » */
+(function douchette() {
+  const h = lire('stockia.html');
+  ok('la page Stockia définit la douchette en mots simples (lecteur de codes, pistolet)',
+    /pistolet qui lit les codes/i.test(h) || /lecteur de codes/i.test(h));
+  ok('elle parle des deux codes : 2D (DataMatrix / QR) ET 1D (EAN-13)',
+    /DataMatrix/i.test(h) && /QR/i.test(h) && /EAN-?13/i.test(h));
+  ok('elle dit que la plupart des boîtes portent le code 2D', /la plupart des/i.test(h) && /2D/.test(h));
+  ok('elle prévient qu’il faut une douchette 2D, pas un laser 1D', /2D/i.test(h) && /laser/i.test(h));
+  ok('elle dit que Stockia reconnaît les deux et retombe sur le MÊME médicament',
+    /m[êe]me\s+m[ée]dicament/i.test(h));
+  ok('elle dit que le code 2D porte la péremption et le lot (et que le n° de série est ignoré)',
+    /p[ée]remption/i.test(h) && /num[ée]ro de s[ée]rie/i.test(h));
+  /* la figure : un VRAI code 2D, et la légende qui invite à le scanner */
+  ok('un vrai code 2D est affiché, avec l’invitation à le scanner',
+    /code-2d-exemple\.png/.test(h) && /[Ss]cannez-le/i.test(h));
+  ok('le contenu de l’exemple est écrit en clair (champs GS1)',
+    /\(01\)\d{14}/.test(h) && /\(17\)\d{6}/.test(h));
+  ok('et l’exemple est signalé comme une démonstration, pas un médicament réel',
+    /d[ée]monstration/i.test(h) && /aucun m[ée]dicament r[ée]el/i.test(h));
+})();
+
+/* ── 16. CHAQUE CRÉATION MONTRE SON PROPRE PRODUIT (bogue signalé le 13/11) ──
+   L'accueil présentait D.D- Spirity par la maquette de la version de terrain au lieu du poste
+   Windows. Ce contrôle lit les vignettes dans l'ordre et exige la bonne image pour chaque
+   produit : le poste de D.D. sur Windows, le téléphone pour Spirity Terrain. » */
+(function vignettes() {
+  const accueil = lire('index.html');
+  const vignettes = [...accueil.matchAll(/creation__vignette"><img src="assets\/medias\/([^"]+)"/g)].map(m => m[1]);
+  ok('l’accueil montre trois créations, chacune avec sa vignette', vignettes.length === 3, vignettes.join(' · '));
+  ok('la vignette de Stockia est le comptoir de pharmacie', /^maquette-stockia/.test(vignettes[0] || ''), vignettes[0]);
+  ok('la vignette de D.D- Spirity est le POSTE WINDOWS, pas la version de terrain',
+    /^maquette-dd/.test(vignettes[1] || ''), vignettes[1]);
+  ok('la vignette de Spirity Terrain est le téléphone', /^android-accueil/.test(vignettes[2] || ''), vignettes[2]);
+})();
+
 console.log('pages ' + pages.length + ' · ressources locales ' + ressources + ' · liens internes ' + liens + ' · images ' + images);
 console.log('════ ' + points + ' points de contrôle · ' + echecs.length + ' échec(s) ════');
 echecs.slice(0, 40).forEach(e => console.log('  × ' + e));

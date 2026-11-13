@@ -271,17 +271,19 @@
           <path d="M108 50 q14 6 0 18" stroke="#3FA0D8" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 5"/>
         </svg>
         <div>
-          <h3>La douchette lit, la caisse suit</h3>
-          <p>La douchette se branche en USB et se comporte comme un clavier : elle « tape » le
-          code-barres puis Entrée. <b>Aucun pilote à installer</b>, aucun réglage — Stockia écoute,
-          trouve la boîte et l'ajoute au panier. Une boîte scannée deux fois, et c'est la quantité
-          qui monte au lieu d'une deuxième ligne.</p>
-          <p style="margin-top:10px">Ce que ça change au comptoir : un client qui attend pendant
-          qu'on cherche une boîte dans le rayon, c'est fini. On scanne ce qu'il tend, on encaisse.</p>
+          <h3>La douchette, c'est un pistolet qui lit les codes</h3>
+          <p>On l'appelle aussi <b>lecteur de codes</b>, ou « scanner ». On la tient comme un stylo, on
+          vise le code collé sur la boîte, on appuie : une lumière balaie le code, un bip confirme,
+          et le médicament apparaît dans le panier. <b>Rien à taper, rien à chercher dans la
+          liste.</b></p>
+          <p style="margin-top:10px">Elle se branche en USB et se comporte comme un clavier : elle
+          « tape » le code puis Entrée. <b>Aucun pilote à installer</b>, aucun réglage — Stockia
+          écoute et trouve la boîte. Scannée deux fois, c'est la quantité qui monte au lieu d'une
+          deuxième ligne.</p>
           <div class="compatibilite">
-            <span>Douchette USB (mode clavier)</span><span>Lecteur 1D / 2D</span><span>Caméra du téléphone</span>
+            <span>Douchette USB (mode clavier)</span><span>Lecteur 2D obligatoire</span><span>Caméra du téléphone</span>
           </div>
-          <div class="peripherique__note">mode clavier · aucun pilote · code en 1D et 2D</div>
+          <div class="peripherique__note">mode clavier · aucun pilote · 2D et 1D</div>
         </div>
       </div>
 
@@ -312,13 +314,46 @@
       </div>
     </div>
 
+    <!-- ── CE QU'IL Y A SUR UNE BOÎTE : 2D ET 1D ── -->
+    <div class="codes" data-monter>
+      <div class="codes__texte">
+        <span class="etiquette">Sur la boîte</span>
+        <h3>Deux codes, et Stockia lit les deux</h3>
+        <p>Sur une boîte de médicament, il y a aujourd'hui <b>deux choses</b> — et souvent la
+        première seulement :</p>
+        <ul class="codes__liste">
+          <li><b>un code 2D</b> — c'est le carré, appelé <b>GS1 DataMatrix</b> ou <b>QR</b>. Il porte
+          le numéro du médicament, <b>la date de péremption</b>, le numéro de lot, et un numéro de
+          série propre à chaque boîte. C'est celui qu'on trouve maintenant sur la plupart des
+          conditionnements, parce qu'il permet de suivre la boîte jusqu'au patient.</li>
+          <li><b>un code-barres 1D</b> — les traits verticaux, l'<b>EAN-13</b>. Plus ancien, plus
+          court : il ne porte que le numéro du médicament.</li>
+        </ul>
+        <p style="margin-top:12px">Stockia <b>reconnaît les deux</b> et les ramène au <b>même
+        médicament</b> : le code 1D et le code 2D d'une même boîte donnent le même article. Il
+        <b>ignore le numéro de série</b> de la boîte — sinon chaque boîte deviendrait une fiche
+        différente — et il <b>remplit la péremption</b> tout seul quand le code 2D la contient.</p>
+        <p style="margin-top:12px"><b>Conséquence à l'achat :</b> prenez une douchette
+        <b>2D</b> (« lecteur d'images », <i>imager</i>), pas un lecteur laser 1D : un laser ne lit
+        pas les carrés. La caméra d'un téléphone Android lit les deux, elle.</p>
+      </div>
+      <div class="codes__figure">
+        <img src="assets/medias/code-2d-exemple.png" alt="Un exemple de code 2D du type de ceux portés par les boîtes de médicament, contenant un numéro de médicament GS1, une date de péremption et un numéro de lot" width="518" height="518">
+        <p class="codes__legende">Scannez-le avec l'appareil photo de votre téléphone : voilà ce que
+        Stockia lit sur une boîte.</p>
+        <code class="codes__brut">(01)06211000492018 (17)270831 (10)LOT1 (21)SERIE0042</code>
+        <p class="codes__note">Exemple de démonstration — aucun médicament réel n'est désigné par ce
+        numéro. Sur une vraie boîte, les quatre champs sont ceux du fabricant.</p>
+      </div>
+    </div>
+
     <div class="note" style="margin-top:clamp(20px,3vw,32px);max-width:none;background:rgba(255,255,255,.8);border-left-color:var(--azur)">
       <p style="margin:0;font-size:14.5px;line-height:1.6;color:var(--texte-doux)">
         <b style="color:var(--encre);font-weight:600">Ce qu'il faut acheter, en clair :</b> une douchette
-        USB à lecture de codes-barres (le modèle le plus courant suffit), et une imprimante thermique
-        de tickets 58 ou 80 mm. Ce sont les deux seuls périphériques dont Stockia a besoin — le
-        tiroir-caisse, lui, se branche derrière l'imprimante et s'ouvre à l'encaissement, comme sur
-        n'importe quelle caisse.
+        USB <b>2D</b> — un lecteur d'images, pas un laser 1D, parce que les boîtes portent aujourd'hui un
+        code carré ; et une imprimante thermique de tickets 58 ou 80 mm. Ce sont les deux seuls
+        périphériques dont Stockia a besoin — le tiroir-caisse, lui, se branche derrière l'imprimante
+        et s'ouvre à l'encaissement, comme sur n'importe quelle caisse.
       </p>
     </div>
   </div>
@@ -424,6 +459,82 @@
         produits et les mêmes prix. Licence par code appareil, et un mode entraînement pour former
         quelqu'un sans fausser les chiffres.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PRIX ET ABONNEMENT ─── -->
+<section class="section bande bande--2" id="prix">
+  <div class="bande__decor" aria-hidden="true"><span class="bande__arc bande__arc--1"></span><span class="bande__arc bande__arc--2"></span><span class="bande__halo bande__halo--a"></span><span class="bande__points"></span></div>
+  <div class="section__page">
+    <div class="deux" style="margin-top:0">
+      <div class="phare" data-ligne>
+        <div class="phare__filet"></div>
+        <span class="etiquette" style="margin-bottom:14px">Prix et abonnement</span>
+        <p class="phare__dit">Quinze jours d'essai,<br><i>puis une clé.</i></p>
+      </div>
+      <p class="chapo" data-monter data-rang="1" style="align-self:end">
+        Stockia s'essaie <strong>complet et gratuitement pendant 15 jours</strong>, sans clé et sans
+        carte. Après, l'abonnement se règle <strong>dans le logiciel</strong> — pas sur ce site.
+      </p>
+    </div>
+
+    <div class="tarifs">
+      <div class="tarif" data-monter>
+        <span class="tarif__fil" aria-hidden="true"></span>
+        <div class="tarif__nom">Mensuel</div>
+        <div class="tarif__prix">15,99 $ <small>/ mois</small></div>
+        <p class="tarif__dit">Sans engagement long : on paie un mois, on continue un mois.</p>
+        <ul class="tarif__liste">
+          <li>Toutes les fonctions du terminal</li>
+          <li>Une clé = un poste</li>
+          <li>Windows ou Android</li>
+        </ul>
+      </div>
+      <div class="tarif tarif--phare" data-monter data-rang="1">
+        <span class="tarif__fil" aria-hidden="true"></span>
+        <div class="tarif__nom">Annuel — le plus choisi</div>
+        <div class="tarif__prix">148,99 $ <small>/ an</small></div>
+        <p class="tarif__dit"><b>Deux mois offerts</b> par rapport au mensuel : c'est la formule qui
+        coûte le moins cher à l'année.</p>
+        <ul class="tarif__liste">
+          <li>Tout le mensuel, sur douze mois</li>
+          <li>Une clé = un poste</li>
+          <li>Mises à jour de l'année comprises</li>
+        </ul>
+      </div>
+      <div class="tarif" data-monter data-rang="2">
+        <span class="tarif__fil" aria-hidden="true"></span>
+        <div class="tarif__nom">Offre de lancement</div>
+        <div class="tarif__prix">99,99 $ <small>/ an</small></div>
+        <p class="tarif__dit"><b>Verrouillée à vie</b>, pour les <b>20 premières officines</b> :
+        le tarif ne bouge plus, même quand les prix changent.</p>
+        <ul class="tarif__liste">
+          <li>Douze mois au prix de lancement</li>
+          <li>Le tarif reste acquis les années suivantes</li>
+          <li>Limitée aux 20 premières officines</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tarifs__note" data-monter data-rang="3">
+      <p><b>Le paiement se fait dans le logiciel, jamais sur ce site.</b> Le site ne demande ni
+      carte bancaire, ni Mobile Money, et n'encaisse rien. Voilà comment ça se passe, en cinq gestes,
+      quand l'essai de 15 jours est terminé :</p>
+      <ol class="tarifs__etapes">
+        <li>L'écran de licence s'ouvre dans Stockia : « votre essai est terminé », avec les deux offres.</li>
+        <li>Le logiciel affiche le <b>code appareil</b> de ce poste (ou de ce téléphone) — c'est lui
+        qui fera la clé.</li>
+        <li>Vous choisissez l'offre (mensuelle ou annuelle) et vous réglez par le moyen indiqué
+        dans le logiciel ; vous gardez la capture du message de transaction.</li>
+        <li>Vous recevez une clé, et vous la collez dans le logiciel : <i>« J'ai reçu ma clé » →
+        Activer la licence</i>.</li>
+        <li>Stockia se réactive immédiatement — et vos ventes, votre stock et vos patients n'ont pas
+        bougé d'un octet.</li>
+      </ol>
+      <p style="margin-top:12px">Pas de prélèvement automatique, pas de reconduction cachée : la clé
+      porte une date, et rien ne s'arrête sans vous. Une question sur les tarifs ? Écrivez-nous ou
+      appelez sur WhatsApp — <a href="contact.html" style="color:var(--azur-700)">nos coordonnées sont ici</a>.</p>
     </div>
   </div>
 </section>

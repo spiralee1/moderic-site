@@ -1033,3 +1033,81 @@ h2.phare__dit { margin:0 }
   .produit-marque .etiquette { white-space:normal; font-size:9.5px; letter-spacing:.16em; line-height:1.4 }
   .produit-fil { font-size:11px }
 }
+
+/* ══════════════════════════════════════════════════════════════════════════
+   SUR LA BOÎTE : 2D ET 1D (page Stockia)
+   Deux colonnes : le texte explique, la figure montre un VRAI code 2D que le
+   visiteur peut scanner avec son téléphone — c'est la meilleure définition d'un
+   code 2D qu'on puisse donner à un pharmacien.
+   ══════════════════════════════════════════════════════════════════════════ */
+.codes { display:grid; grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);
+  gap:clamp(24px,4vw,56px); align-items:start; margin-top:clamp(28px,4vw,46px);
+  padding-top:clamp(24px,3.4vw,40px); border-top:1px solid rgba(63,160,216,.28) }
+.codes__texte h3 { font-family:var(--voix); font-size:clamp(20px,2.1vw,27px); line-height:1.14;
+  letter-spacing:-.02em; margin-top:12px }
+.codes__texte p { margin-top:11px; font-size:14.4px; line-height:1.6; color:var(--texte-doux) }
+.codes__texte p b { color:var(--encre); font-weight:600 }
+.codes__liste { margin-top:12px; display:grid; gap:10px; list-style:none }
+.codes__liste li { position:relative; padding-left:20px; font-size:14px; line-height:1.58;
+  color:var(--texte-doux) }
+.codes__liste li::before { content:'·'; position:absolute; left:4px; top:0; color:var(--azur);
+  font-weight:800; font-size:18px; line-height:1 }
+.codes__liste li b { color:var(--encre); font-weight:600 }
+.codes__figure { background:rgba(255,255,255,.82); border:1px solid rgba(63,160,216,.22);
+  border-radius:16px; padding:clamp(16px,2.2vw,24px); text-align:center;
+  box-shadow:0 24px 60px -44px rgba(10,62,88,.5) }
+.codes__figure img { width:100%; max-width:220px; height:auto; display:block; margin:0 auto;
+  border-radius:6px }
+.codes__legende { margin-top:12px; font-size:12.5px; line-height:1.5; color:var(--texte-doux) }
+.codes__brut { display:block; margin-top:10px; font-size:11px; line-height:1.6; color:var(--azur-700);
+  background:rgba(63,160,216,.08); border-radius:8px; padding:8px 9px; font-family:ui-monospace,monospace;
+  word-break:break-word; text-align:left }
+.codes__note { margin-top:9px; font-size:10.5px; line-height:1.5; color:var(--texte-pale);
+  text-align:left }
+@media (max-width:900px) { .codes { grid-template-columns:minmax(0,1fr) } }
+
+/* ══════════════════════════════════════════════════════════════════════════
+   LES PRIX ET L'ABONNEMENT (pages produit Stockia et D.D- Spirity)
+   ──────────────────────────────────────────────────────────────────────────
+   Trois choses, dans cet ordre, et c'est l'ordre qui compte :
+     1. l'essai — ce qu'on peut faire sans payer un franc ;
+     2. les formules — les montants exacts, sans astérisque caché ;
+     3. comment on paie — DANS LE LOGICIEL, après l'essai. Le site ne prend
+        ni carte, ni Mobile Money : il ne fait que dire la vérité des tarifs.
+   ══════════════════════════════════════════════════════════════════════════ */
+.tarifs { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(16px,2.4vw,28px);
+  margin-top:clamp(26px,3.6vw,42px); align-items:stretch }
+.tarif { position:relative; display:flex; flex-direction:column; background:rgba(255,255,255,.86);
+  border:1px solid rgba(63,160,216,.22); border-radius:16px; padding:clamp(18px,2.2vw,24px);
+  box-shadow:0 24px 60px -46px rgba(10,62,88,.5) }
+.tarif--phare { border-color:rgba(63,160,216,.5); box-shadow:0 30px 70px -44px rgba(10,62,88,.62) }
+.tarif__fil { position:absolute; left:clamp(18px,2.2vw,24px); top:0; width:44px; height:2px;
+  background:var(--azur); transform:translateY(-1px) }
+.tarif__nom { font-size:10.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--azur-700) }
+.tarif__prix { font-family:var(--voix); font-size:clamp(30px,3.4vw,42px); line-height:1; margin-top:10px;
+  color:var(--encre); letter-spacing:-.02em }
+.tarif__prix small { font-family:var(--sans,inherit); font-size:12.5px; letter-spacing:0; color:var(--texte-poux,#5B6B77) }
+.tarif__dit { margin-top:10px; font-size:13.6px; line-height:1.55; color:var(--texte-doux) }
+.tarif__dit b { color:var(--encre); font-weight:600 }
+.tarif__liste { margin-top:12px; padding-top:12px; border-top:1px solid rgba(63,160,216,.18);
+  display:grid; gap:7px; list-style:none; font-size:13px; line-height:1.45; color:var(--texte-doux) }
+.tarif__liste li { position:relative; padding-left:18px }
+.tarif__liste li::before { content:'✓'; position:absolute; left:0; top:0; color:var(--azur-600); font-weight:800 }
+.tarifs__note { margin-top:clamp(18px,2.6vw,26px); background:rgba(255,255,255,.82);
+  border-left:3px solid var(--azur); border-radius:12px; padding:clamp(14px,2vw,20px) }
+.tarifs__note p { font-size:14.2px; line-height:1.62; color:var(--texte-doux) }
+.tarifs__note p + p { margin-top:10px }
+.tarifs__note b { color:var(--encre); font-weight:600 }
+.tarifs__etapes { margin-top:12px; display:grid; gap:8px; list-style:none; counter-reset:etape }
+.tarifs__etapes li { position:relative; padding-left:26px; font-size:13.6px; line-height:1.5; color:var(--texte-doux) }
+.tarifs__etapes li::before { counter-increment:etape; content:counter(etape); position:absolute; left:0; top:1px;
+  width:18px; height:18px; border-radius:50%; display:grid; place-items:center; font-size:10.5px;
+  font-weight:800; color:#FFF; background:var(--azur) }
+@media (max-width:900px) { .tarifs { grid-template-columns:minmax(0,1fr) } }
+/* la vignette de D.D- Spirity : la maquette du poste Windows est en 3840 × 2200, donc très
+   large ; dans une vignette de 190 px elle devient une bande de 109 px. On la recadre sur la
+   partie utile (l'écran et le comptoir), sans déformer. */
+.creation:not(.creation--terrain) .creation__vignette { aspect-ratio:16/10; display:grid; place-items:center;
+  background:var(--azur-50) }
+.creation:not(.creation--terrain) .creation__vignette img { width:100%; height:100%; object-fit:cover;
+  object-position:center 42% }
