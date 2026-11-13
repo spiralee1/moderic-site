@@ -463,6 +463,119 @@
   </div>
 </section>
 
+<!-- ─── LA BIBLIOTHÈQUE DES MÉDICAMENTS ET LE SUIVI DE LOT ─── -->
+<section class="section bande bande--3" id="bibliotheque">
+  <div class="bande__decor" aria-hidden="true"><span class="bande__arc bande__arc--1"></span><span class="bande__arc bande__arc--2"></span><span class="bande__halo bande__halo--a"></span><span class="bande__points"></span></div>
+  <div class="section__page">
+    <div class="deux" style="margin-top:0">
+      <div class="phare" data-ligne>
+        <div class="phare__filet"></div>
+        <span class="etiquette" style="margin-bottom:14px">La bibliothèque</span>
+        <p class="phare__dit">Huit mille médicaments déjà là.<br><i>Vos prix, et rien que les vôtres.</i></p>
+      </div>
+      <p class="chapo" data-monter data-rang="1" style="align-self:end">
+        On nous demande souvent : « c'est quoi, cette bibliothèque ? » Ce n'est pas un catalogue de
+        vente. C'est un <strong>répertoire de médicaments</strong> livré avec le logiciel, pour
+        qu'une vendeuse n'ait plus jamais à taper « amoxicilline gélules 500 mg boîte de 12 » au
+        comptoir.
+      </p>
+    </div>
+
+    <div class="biblio" data-monter data-rang="1">
+      <div class="biblio__chiffre">
+        <b>8 167</b>
+        <span>médicaments dans la bibliothèque,<br>avec leur molécule, leur dosage et leur forme</span>
+      </div>
+      <div class="biblio__corps">
+        <h3>Deux lettres suffisent</h3>
+        <p>Au comptoir, on tape <b>« par »</b> : le paracétamol apparaît, avec sa molécule (DCI),
+        son dosage, sa forme et son conditionnement. On choisit la bonne ligne, le prix se pose une
+        fois, et le médicament devient <b>votre produit</b> — avec votre code-barres et votre prix
+        d'achat. La vendeuse n'a pas à connaître seize mille noms par cœur : elle tape deux lettres.</p>
+        <p>Chaque ligne dit aussi <b>d'où elle vient</b> : le registre des autorisations de mise sur
+        le marché, la liste nationale des médicaments essentiels, ou un ancien catalogue. Une ligne
+        que nous n'avons pas pu confirmer est marquée <b>« à confirmer en officine »</b> — le
+        pharmacien tranche, pas le logiciel.</p>
+      </div>
+    </div>
+
+    <div class="sources">
+      <div class="source" data-monter>
+        <span class="source__n">4 802</span>
+        <h3>Registre des AMM — ACOREP</h3>
+        <p>Le répertoire officiel des médicaments autorisés en RDC (arrêté publié le 4 février 2026,
+        355 pages, 6 303 lignes à la source). C'est le socle : chaque ligne de la bibliothèque qui
+        s'y trouve est <b>vérifiée</b>.</p>
+      </div>
+      <div class="source" data-monter data-rang="1">
+        <span class="source__n">2 680</span>
+        <h3>Liste nationale des médicaments essentiels</h3>
+        <p>La LNME de la RDC (révision octobre 2020, 136 pages). Elle donne la trame des molécules
+        et des formes attendues dans une officine — c'est ce que les écoles de pharmacie enseignent.</p>
+      </div>
+      <div class="source" data-monter data-rang="2">
+        <span class="source__n">685</span>
+        <h3>L'ancien catalogue, gardé sous surveillance</h3>
+        <p>Des lignes plus anciennes, conservées parce qu'elles servent au comptoir, mais
+        <b>toutes marquées « à confirmer »</b> : ni code-barres fabriqué, ni prix inventé.</p>
+      </div>
+    </div>
+
+    <div class="note" style="margin-top:clamp(20px,3vw,30px);max-width:none;background:rgba(255,255,255,.82);border-left-color:var(--azur)">
+      <p style="margin:0;font-size:14.5px;line-height:1.6;color:var(--texte-doux)">
+        <b style="color:var(--encre);font-weight:600">Ce que la bibliothèque ne fait pas :</b> elle ne
+        fixe aucun prix. Un médicament sans prix dans la bibliothèque s'affiche <b>« à saisir »</b> —
+        la case reste vide et le pharmacien la remplit. Une bibliothèque qui inventerait des prix
+        ferait vendre à perte sans que personne s'en aperçoive.
+        <b style="color:var(--encre);font-weight:600">7 031 lignes sont vérifiées</b> contre un
+        document cité, <b>1 136 restent à confirmer</b>, et <b>1 619</b> portent déjà un code-barres.
+      </p>
+    </div>
+
+    <!-- ── LE SUIVI DE LOT ── -->
+    <div class="deux" style="margin-top:clamp(34px,5vw,60px)">
+      <div class="phare" data-ligne>
+        <div class="phare__filet"></div>
+        <span class="etiquette" style="margin-bottom:14px">Le suivi de lot</span>
+        <p class="phare__dit">Ce qui périmera d'abord<br><i>sortira d'abord.</i></p>
+      </div>
+      <p class="chapo" data-monter data-rang="1" style="align-self:end">
+        Chaque arrivage est un <strong>lot</strong> : une quantité, un prix d'achat, une date de
+        péremption (mois et année), et sa provenance. Le logiciel s'en sert tout seul, sans qu'on
+        ait à y penser.
+      </p>
+    </div>
+
+    <div class="lots">
+      <div class="lot" data-monter><span class="lot__trait" aria-hidden="true" data-trait></span>
+        <h3>Le lot le plus proche de la péremption sort en premier</h3>
+        <p>À chaque vente, Stockia décrémente <b>le lot dont la péremption est la plus proche</b>
+        (FEFO : <i>first expired, first out</i>). C'est automatique et invisible : la vendeuse
+        vend, le logiciel choisit le bon lot. Un médicament sans lot — vendu à l'unité, ou repris
+        d'un ancien stock — n'est jamais touché.</p>
+      </div>
+      <div class="lot" data-monter data-rang="1"><span class="lot__trait" aria-hidden="true" data-trait></span>
+        <h3>Une boîte périmée ne peut pas être vendue</h3>
+        <p>Si la péremption du produit est dépassée, l'encaissement s'arrête et le dit :
+        <i>« Vente bloquée pour protéger le patient. »</i> Ce n'est pas un avertissement qu'on peut
+        ignorer — c'est un refus.</p>
+      </div>
+      <div class="lot" data-monter data-rang="2"><span class="lot__trait" aria-hidden="true" data-trait></span>
+        <h3>Ce qui expire dans trois mois, chiffré</h3>
+        <p>Le stock se filtre sur <b>« péremption &lt; 3 mois »</b> et affiche la valeur à écouler en
+        priorité : combien de boîtes, et combien de francs. C'est la question qu'on se pose devant
+        le frigo, pas dans un tableur.</p>
+      </div>
+      <div class="lot" data-monter data-rang="3"><span class="lot__trait" aria-hidden="true" data-trait></span>
+        <h3>Un rappel fabricant, en une recherche</h3>
+        <p>Chaque ligne vendue est rattachée à son lot. Le jour où un laboratoire retire un lot, on
+        retrouve <b>quelles ventes, quelles quantités, quels patients</b> — et on peut les rappeler.
+        Sans ce lien, un rappel ne se fait qu'au carnet et à la mémoire.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ─── PRIX ET ABONNEMENT ─── -->
 <section class="section bande bande--2" id="prix">
   <div class="bande__decor" aria-hidden="true"><span class="bande__arc bande__arc--1"></span><span class="bande__arc bande__arc--2"></span><span class="bande__halo bande__halo--a"></span><span class="bande__points"></span></div>

@@ -34,6 +34,25 @@ mentions légales, le pied de page et les données structurées (JSON-LD).
 a ses gestes, son public et son mode d'installation : le D.D. doit comprendre qu'il installe **le
 poste puis l'application** — les deux vont ensemble, et l'application seule ne contient rien.
 
+### La bibliothèque des médicaments et le suivi de lot
+
+`stockia.html` porte une section **« La bibliothèque »** qui répond à la question qu'on nous pose
+vraiment (« c'est quoi, cette bibliothèque ? ») : un **répertoire de médicaments**, pas un catalogue
+de vente. Le visiteur y lit **8 167 lignes**, expliquées par le geste du comptoir (« on tape deux
+lettres »), avec les **trois sources chiffrées** (répertoire des AMM ACOREP 4 802 · liste nationale
+2 680 · ancien catalogue 685), le nombre de lignes **vérifiées**, **à confirmer** et **portant un
+code-barres** — et la phrase qui compte : **la bibliothèque ne fixe aucun prix**, une ligne sans prix
+s'affiche « à saisir ».
+
+Puis **« Le suivi de lot »** : FEFO (le lot le plus proche de la péremption sort d'abord), **vente
+bloquée** si le produit est périmé, filtre **« péremption < 3 mois »** avec la valeur à écouler, et
+**rappel fabricant** (quelles ventes, quels patients, sur ce lot).
+
+> **Règle de tenue :** ces chiffres ne sont pas recopiés à la main. `verifier-site.js` les
+> **recalcule dans `desktop/dictionary.js`** du dépôt du logiciel (lignes, documents cités,
+> vérifiées / à confirmer, codes-barres) et échoue si la page en annonce d'autres. Si la
+> bibliothèque grandit, le contrôle réclame la mise à jour.
+
 ### Les périphériques, expliqués là où ils comptent
 
 `stockia.html` porte une section **« La douchette et l'imprimante ne sont pas des accessoires »** :

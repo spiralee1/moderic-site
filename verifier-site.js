@@ -273,6 +273,68 @@ ok('aucune promesse de fonctionnalité future sur les pages produit',
     /d[ée]monstration/i.test(h) && /aucun m[ée]dicament r[ée]el/i.test(h));
 })();
 
+/* ── 15 bis. LA BIBLIOTHÈQUE ET LE SUIVI DE LOT (demande du client, 13/11) ──
+   « Les pharmacies ne peuvent pas comprendre directement ce que peut bien être une bibliothèque
+   dans ce contexte. Parler de la bibliothèque de manière à ce qu'elles comprennent. Parler aussi
+   du suivi de lot. » Ces contrôles tiennent trois promesses :
+     · les CHIFFRES annoncés sont ceux du fichier réel du logiciel (8 167 lignes, et le détail
+       des trois sources) — recalculés ici, pas recopiés ;
+     · la bibliothèque est expliquée par ce qu'elle FAIT au comptoir (deux lettres), et il est
+       dit qu'elle ne fixe aucun prix ;
+     · le suivi de lot dit les quatre choses qui comptent : FEFO, vente bloquée si périmé,
+       péremption < 3 mois, rappel fabricant. » */
+(function bibliotheque() {
+  const h = lire('stockia.html');
+  /* — les chiffres, recalculés dans le fichier du logiciel (hors site) — */
+  let lignes = null, sources = {}, verification = { verifie: 0, aConfirmer: 0 }, codesBarres = 0;
+  const dico = '/home/user/Stockia--Pharmacie-Windows-PC/desktop/dictionary.js';
+  try {
+    const d = fs.readFileSync(dico, 'utf8');
+    lignes = (d.match(/"name":/g) || []).length;
+    for (const m of d.matchAll(/"doc":\s*"([^"]+)"/g)) sources[m[1]] = (sources[m[1]] || 0) + 1;
+    verification.verifie = (d.match(/"verification":\s*"verifie"/g) || []).length;
+    verification.aConfirmer = (d.match(/"verification":\s*"a-confirmer"/g) || []).length;
+    codesBarres = (d.match(/"barcode":\s*"[0-9]/g) || []).length;
+  } catch (e) { /* le dépôt du logiciel n'est pas toujours là : on contrôle alors la cohérence interne */ }
+  const nombre = n => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '\u202f');
+  if (lignes != null) {
+    ok('la bibliothèque annonce le nombre exact de lignes du logiciel (' + nombre(lignes) + ')',
+      new RegExp(nombre(lignes).replace(/\u202f/g, '[\\s\u202f]*')).test(h), 'annonce absente');
+    ok('les trois sources sont annoncées avec leurs volumes réels',
+      Object.keys(sources).every(k => new RegExp(nombre(sources[k]).replace(/\u202f/g, '[\\s\u202f]*')).test(h)),
+      JSON.stringify(sources));
+    ok('les lignes vérifiées et à confirmer sont annoncées telles quelles',
+      new RegExp(nombre(verification.verifie).replace(/\u202f/g, '[\\s\u202f]*')).test(h) &&
+      new RegExp(nombre(verification.aConfirmer).replace(/\u202f/g, '[\\s\u202f]*')).test(h),
+      JSON.stringify(verification));
+    ok('le nombre de lignes déjà porteuses d’un code-barres est annoncé',
+      new RegExp(nombre(codesBarres).replace(/\u202f/g, '[\\s\u202f]*')).test(h), String(codesBarres));
+  } else {
+    ok('la bibliothèque est annoncée (contrôle interne, dépôt logiciel absent)', /8\s?167/.test(h));
+  }
+  /* — l'explication, pour un pharmacien — */
+  ok('la bibliothèque est définie comme un RÉPERTOIRE, pas un catalogue de vente',
+    /répertoire de médicaments/i.test(h));
+  ok('elle est expliquée par le geste du comptoir (deux lettres suffisent)',
+    /deux lettres/i.test(h) && /au comptoir/i.test(h));
+  ok('elle dit qu’elle ne fixe aucun prix, et que la case reste à saisir',
+    /ne\s+fixe\s+aucun\s+prix/i.test(h) && /à saisir/i.test(h));
+  ok('elle dit qu’une ligne non confirmée est marquée « à confirmer en officine »',
+    /à confirmer en officine/i.test(h));
+  ok('elle nomme les documents qui la fondent (AMM / ACOREP et liste nationale)',
+    /ACOREP/i.test(h) && /liste nationale/i.test(h));
+  /* — le suivi de lot — */
+  ok('le suivi de lot est expliqué : chaque arrivage est un lot', /chaque arrivage est un <strong>lot<\/strong>|chaque arrivage est un lot/i.test(h));
+  ok('l’ordre de sortie est dit (FEFO : le plus proche de la péremption d’abord)',
+    /FEFO/i.test(h) && /péremption est la plus proche/i.test(h));
+  ok('une boîte périmée ne peut PAS être vendue, et le site le dit',
+    /ne peut pas être vendue/i.test(h) && /Vente bloquée pour protéger le patient/i.test(h));
+  ok('le filtre « péremption < 3 mois » et la valeur à écouler sont expliqués',
+    /péremption &lt; 3 mois|péremption < 3 mois/i.test(h) && /à écouler/i.test(h));
+  ok('le rappel fabricant est expliqué (quelles ventes, quels patients, sur ce lot)',
+    /rappel fabricant/i.test(h) && /quels patients/i.test(h));
+})();
+
 /* ── 16. CHAQUE CRÉATION MONTRE SON PROPRE PRODUIT (bogue signalé le 13/11) ──
    L'accueil présentait D.D- Spirity par la maquette de la version de terrain au lieu du poste
    Windows. Ce contrôle lit les vignettes dans l'ordre et exige la bonne image pour chaque
